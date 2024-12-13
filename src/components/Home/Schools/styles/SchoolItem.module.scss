@@ -1,0 +1,106 @@
+.SchoolItem {
+  @apply py-4 px-3;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: .75rem;
+
+  @screen md {
+    max-width: 312px;
+  }
+
+  @screen xl {
+    max-width: 280px;
+  }
+
+  a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  figure {
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    min-width: 3.5rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 4rem;
+      z-index: -1;
+      background-color: var(--color);
+      filter: blur(20px);
+      opacity: .5;
+    }
+  }
+
+  p {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    span {
+      display: block;
+
+      &:first-of-type {
+        @apply text-overline-md uppercase font-bold text-neutral-060;
+        letter-spacing: .9px;
+      }
+
+      &:nth-of-type(2) {
+        @apply text-title-md font-medium;
+        letter-spacing: .16px;
+      }
+    }
+  }
+
+  svg {
+    @apply fill-neutral-060;
+    width: 1.2225rem;
+    height: 1.2225rem;
+    min-width: 1.2225rem;
+  }
+  &:hover svg {
+    @apply fill-white;
+  }
+
+  &::before{
+    background-color: #1d2029;
+  }
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &::after {
+    --school-card-bg: #1d2029;
+    background-image: radial-gradient(circle, var(--color2) 60%, var(--school-card-bg) 50%);
+    background-size: 150%;
+    background-position-y: 58px;
+    background-position-x: 102px;
+    background-repeat: no-repeat;
+    filter: blur(40px);
+    opacity: .75;
+  }
+  &:hover::after{
+    --school-card-bg: #31333d;
+  }
+}

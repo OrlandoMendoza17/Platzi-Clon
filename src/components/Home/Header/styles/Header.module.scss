@@ -1,0 +1,65 @@
+.Header {
+  @apply text-white;
+  // max-height: 3.875rem;
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: .75rem 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    img {
+      min-width: 91px;
+      min-height: 34px;
+      width: 91px;
+      height: 34px;
+    }
+
+    & > ul {
+      max-height: 2.25rem;
+      display: none;
+
+      button {
+        font-weight: 500;
+        padding: .5rem .75rem;
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+
+        svg {
+          width: 19.19px;
+          height: 19.19px;
+          fill: #fff;
+        }
+      }
+
+      @screen md {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  &__loginButton {
+    @apply bg-white text-black rounded-8 text-link-md font-medium;
+    margin-left: auto;
+    border: none;
+    padding: .5rem .75rem;
+    max-height: 2.25rem;
+    letter-spacing: .01rem;
+    @screen md {
+      margin-left: 0;
+    }
+  }
+  
+  &__hamburger{
+    padding: .5rem .75rem;
+    @screen md {
+      display: none;
+    }
+  }
+}

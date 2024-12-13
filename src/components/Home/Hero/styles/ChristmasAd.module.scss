@@ -1,0 +1,111 @@
+.ChristmasAd {
+  display: grid;
+  border-radius: .75rem;
+  overflow: hidden;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(253, 192, 91, 0.30) 2.43%, rgba(255, 255, 255, 0.10) 5.45%, rgba(255, 255, 255, 0.00) 11.74%), linear-gradient(180deg, rgba(0, 0, 0, 0.00) 88.26%, rgba(0, 0, 0, 0.10) 94.55%, rgba(0, 0, 0, 0.20) 97.57%), linear-gradient(270deg, #FFB43D 0%, #F9CA7F 100%);
+
+  @screen lg {
+    width: 1038px;
+    grid-template-columns: 1fr auto;
+  }
+
+  p {
+    max-width: unset;
+  }
+
+  &__description {
+    @apply p-3 text-neutral-005;
+    justify-self: start;
+    display: grid;
+    align-items: center;
+    justify-self: center;
+    
+    @screen md {
+      gap: 1.125rem;
+      justify-self: unset;
+      grid-template-columns: auto 1fr;
+    }
+
+    figure {
+      justify-self: center;
+
+      @screen md {
+        justify-self: unset;
+      }
+
+      img {
+        @apply mb-1;
+        width: auto;
+        height: 28px;
+      }
+    }
+
+    @screen lg {
+      min-width: 700px;
+    }
+
+    p {
+      margin: 0;
+      color: inherit;
+      text-wrap: unset;
+      font-weight: 500;
+      text-align: center;
+
+      &:first-of-type {
+        @apply text-body-md md:text-body-lg;
+      }
+
+      &:nth-of-type(2) {
+        @apply text-body-sm md:text-body-md mt-1;
+        width: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        gap: .25rem;
+
+        @screen md{
+          justify-content: unset;
+        }
+      }
+
+      @screen md{
+        text-align: start;
+      }
+
+      span {
+        @apply text-body-sm md:text-body-md;
+      }
+    }
+  }
+
+  &__countdown {
+    @apply py-2 px-4;
+    max-width: unset;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 88.26%, rgba(0, 0, 0, 0.10) 94.55%, rgba(0, 0, 0, 0.20) 97.57%), #061C3E;
+    gap: .5rem;
+
+    @screen lg {
+      flex-direction: column;
+      gap: 0rem;
+    }
+
+    span,
+    time {
+      @apply text-body-md;
+    }
+  }
+
+  &__usaBadge {
+    @apply ml-1;
+    width: 16.5px;
+    aspect-ratio: auto 16.5 / 16.5;
+    height: 16.5px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+}

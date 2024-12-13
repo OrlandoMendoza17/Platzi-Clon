@@ -1,0 +1,11 @@
+.Schools{
+  @apply px-6 mx-auto;
+  max-width: 1280px;
+  
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+}

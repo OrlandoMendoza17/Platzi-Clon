@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+html{
+  // font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --font-families-ibm-plex-sans: "IBM Plex Sans";
+  
+  --line-heights-12: 0.75rem;
+  --line-heights-16: 1rem;
+  --line-heights-18: 1.125rem;
+  --line-heights-20: 1.25rem;
+  --line-heights-22: 1.375rem;
+  --line-heights-24: 1.5rem;
+  --line-heights-26: 1.625rem;
+  --line-heights-28: 1.75rem;
+  --line-heights-32: 2rem;
+  --line-heights-36: 2.25rem;
+  --line-heights-40: 2.5rem;
+  --line-heights-44: 2.75rem;
+  --line-heights-48: 3rem;
+  --line-heights-60: 3.75rem;
+  --line-heights-72: 4.5rem;
+  --line-heights-88: 5.5rem;
+  
+  
+  --font-size-10: 0.625rem;
+  --font-size-12: 0.75rem;
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+  --font-size-18: 1.125rem;
+  --font-size-22: 1.375rem;
+  --font-size-24: 1.5rem;
+  --font-size-28: 1.75rem;
+  --font-size-32: 2rem;
+  --font-size-36: 2.25rem;
+  --font-size-40: 2.5rem;
+  --font-size-52: 3.25rem;
+  --font-size-64: 4rem;
+  --font-size-80: 5rem;
+  
+  --text-case-none: none;
+  --text-case-uppercase: uppercase;
+  --text-decoration-none: none;
+  --text-decoration-underline: underline;
+  
+  --spacing-2: 0.125rem;
+  --spacing-4: 0.25rem;
+  --spacing-6: 0.375rem;
+  --spacing-8: 0.5rem;
+  --spacing-12: 0.75rem;
+  --spacing-16: 1rem;
+  --spacing-24: 1.5rem;
+  --spacing-32: 2rem;
+  --spacing-40: 2.5rem;
+  --spacing-48: 3rem;
+  --spacing-56: 3.5rem;
+  --spacing-64: 4rem;
+  --spacing-80: 5rem;
+  
+  --neutral-100: #fff;
+  --neutral-095: #f0f1f2;
+  --neutral-090: #dee1e4;
+  --neutral-080: #c4c8ce;
+  --neutral-070: #a5acb6;
+  --neutral-060: #87909d;
+  --neutral-050: #6c7583;
+  --neutral-040: #555c68;
+  --neutral-030: #404650;
+  --neutral-020: #2d323a;
+  --neutral-010: #1e2229;
+  --neutral-005: #13161c;
+  --minty-095: #c9fdda;
+  --minty-090: #78f8ad;
+  --minty-080: #0ae98a;
+  --minty-070: #07c373;
+  --minty-060: #05a460;
+  --minty-050: #03864e;
+  --minty-040: #027040;
+  --minty-030: #015a32;
+  --minty-020: #013a1f;
+  --minty-010: #002612;
+  --sunset-095: #ffefee;
+  --sunset-090: #ffd7d3;
+  --sunset-080: #ffbfb9;
+  --sunset-070: #ff918c;
+  --sunset-060: #fb5b5b;
+  --sunset-050: #dc353d;
+  --sunset-040: #c11128;
+  --sunset-030: #a10008;
+  --sunset-020: #6c0000;
+  --sunset-010: #4a0000;
+  --info-095: #ebf2fc;
+  --info-090: #d0e1f9;
+  --info-080: #b3cef5;
+  --info-070: #7eadef;
+  --info-060: #5090e9;
+  --info-050: #2071e3;
+  --info-040: #185ebf;
+  --info-030: #134c9a;
+  --info-020: #0d3163;
+  --info-010: #081f40;
+  --success-095: #e3f6e7;
+  --success-090: #bfeac8;
+  --success-080: #95dca3;
+  --success-070: #47c25f;
+  --success-060: #36a34c;
+  --success-050: #2c853e;
+  --success-040: #256e34;
+  --success-030: #1e592a;
+  --success-020: #13391b;
+  --success-010: #0c2511;
+  --warning-095: #faf2d7;
+  --warning-090: #f2df9d;
+  --warning-080: #e9c958;
+  --warning-070: #d1a50e;
+  --warning-060: #af8a0c;
+  --warning-050: #90710a;
+  --warning-040: #775e08;
+  --warning-030: #604c06;
+  --warning-020: #3d3104;
+  --warning-010: #281f03;
+  --error-095: #fcefee;
+  --error-090: #f7d9d7;
+  --error-080: #f2bfbc;
+  --error-070: #ea948f;
+  --error-060: #e26a63;
+  --error-050: #d8392f;
+  --error-040: #b72b23;
+  --error-030: #94231c;
+  --error-020: #601712;
+  --error-010: #330c0a;
+  --development-095: #ebf4ea;
+  --development-090: #cee5cd;
+  --development-080: #b1d6b1;
+  --development-070: #84bd84;
+  --development-060: #59a15b;
+  --development-050: #36863b;
+  --development-040: #2d6733;
+  --development-030: #23482a;
+  --development-020: #1e3625;
+  --development-010: #182320;
+  --startups-095: #ebf3f1;
+  --startups-090: #cee4df;
+  --startups-080: #b0d4cd;
+  --startups-070: #82baaf;
+  --startups-060: #559d91;
+  --startups-050: #328276;
+  --startups-040: #2a645e;
+  --startups-030: #214745;
+  --startups-020: #1c3536;
+  --startups-010: #172327;
+  --marketing-095: #eaf3f9;
+  --marketing-090: #cbe3f1;
+  --marketing-080: #acd2e8;
+  --marketing-070: #7cb6d7;
+  --marketing-060: #5099c0;
+  --marketing-050: #2f7da5;
+  --marketing-040: #286180;
+  --marketing-030: #20455a;
+  --marketing-020: #1c3444;
+  --marketing-010: #17232d;
+  --design-095: #f2effc;
+  --design-090: #e2dbfa;
+  --design-080: #d2c6f7;
+  --design-070: #b8a4ed;
+  --design-060: #9d82dd;
+  --design-050: #8364c6;
+  --design-040: #654f97;
+  --design-030: #463a69;
+  --design-020: #342d4d;
+  --design-010: #212030;
+  --english-095: #faeef4;
+  --english-090: #f3d7e5;
+  --english-080: #ecc1d8;
+  --english-070: #de9bbf;
+  --english-060: #cd74a7;
+  --english-050: #bc4d91;
+  --english-040: #8e3e71;
+  --english-030: #602f51;
+  --english-020: #44263e;
+  --english-010: #281d2b;
+  --leadership-095: #feefee;
+  --leadership-090: #ffd5d3;
+  --leadership-080: #fdbdba;
+  --leadership-070: #f49592;
+  --leadership-060: #e16e6c;
+  --leadership-050: #c84d4f;
+  --leadership-040: #963e41;
+  --leadership-030: #652f33;
+  --leadership-020: #48262b;
+  --leadership-010: #291d22;
+  --digital-content-095: #fff2e5;
+  --digital-content-090: #ffe1c2;
+  --digital-content-080: #fbc898;
+  --digital-content-070: #efa561;
+  --digital-content-060: #cd843c;
+  --digital-content-050: #a86724;
+  --digital-content-040: #7f4f22;
+  --digital-content-030: #563920;
+  --digital-content-020: #3f2e1f;
+  --digital-content-010: #25201d;
+  --business-095: #fdf2dd;
+  --business-090: #fbe3b6;
+  --business-080: #f5d08e;
+  --business-070: #e4b251;
+  --business-060: #cd931d;
+  --business-050: #af7e18;
+  --business-040: #85611a;
+  --business-030: #5a451b;
+  --business-020: #41341b;
+  --business-010: #25221c;
+  --primary-platzi: #98ca3f;
+  --primary-sky: #33b1ff;
+  --primary-night: #121f3d;
+  --primary-white: #fff;
+  --night-6: #03091e;
+  --night-12: #0c1633;
+  --night-15: #121f3d;
+  --night-25: #24385b;
+  --night-37: #40587c;
+  --mist-50: #637a9d;
+  --mist-65: #8da2c0;
+  --mist-82: #becde3;
+  --mist-96: #eff3f8;
+  --platzi-71: #c1df8b;
+  --platzi-38: #77a61e;
+  --platzi-30: #425c3d;
+  --sky-73: #74caff;
+  --sky-46: #0791e6;
+  --sky-30: #1d4f7c;
+  --warning-76: #fee685;
+  --warning-68: #fddd5c;
+  --warning-60: #fed634;
+  --warning-30: #6e5a2b;
+  --error-76: #ff8884;
+  --error-68: #ff605b;
+  --error-60: #ff3933;
+  --error-30: #6d2a2a;
+  --admin-76: #ffb084;
+  --admin-68: #ff955b;
+  --admin-69: #ff7c33;
+  --admin-30: #6f3d2b;
+}
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+} */
