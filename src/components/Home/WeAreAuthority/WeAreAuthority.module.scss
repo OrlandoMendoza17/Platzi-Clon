@@ -1,0 +1,90 @@
+.WeAreAuthority{
+  @apply px-6;
+  
+  &__title{
+    @apply text-headline-sm font-medium;
+    text-wrap: balance;
+    span{
+      @apply text-minty-080;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+    }
+    @screen x_sm {
+      @apply text-headline-md;
+    }
+    @screen md{
+      @apply text-center;
+    }
+    @screen xl {
+      @apply text-headline-lg text-start;
+    }
+  }
+  
+  &__desktop{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 517px 580px;
+    justify-content: space-between;
+    align-items: center;
+    
+    .features{
+      @apply mt-[3.75rem] pl-10 border-l border-minty-080;
+    }
+    
+    .displayedImage{
+      display: none;
+      @screen lg{
+        display: block;
+      }
+    }
+  }
+  
+  &__mobile{
+    
+  }
+}
+
+.Feature {  
+  
+  &__title{
+    @apply mb-6;
+    
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  svg{
+    width: 40px;
+    height: 40px;
+    
+    path{
+      fill: #0f6a48;
+    }
+  }
+  
+  p{
+    @apply text-title-md lg:text-title-lg text-neutral-060;
+  }
+  
+  &.active{
+    svg path{
+      @apply fill-minty-080;
+    }
+    p{
+      @apply text-white;
+    }
+  }
+  
+  figure{
+    max-width: 340px;
+  }
+  
+  &.mobile{
+    @apply mx-auto mt-6;
+    max-width: 340px;
+  }
+}

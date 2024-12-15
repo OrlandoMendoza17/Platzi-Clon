@@ -1,3 +1,5 @@
+@import "../../../styles/lib/mixins.scss";
+
 .DiscoverLearningRoad {
   @apply p-6 x_sm:py-8 x_sm:px-10;
   margin: 0 auto;
@@ -11,7 +13,7 @@
   // justify-content: center;
 
   h2 {
-    @apply text-headline-sm x_sm:text-headline-md font-medium;
+    @apply text-headline-sm x_sm:text-headline-md xl:text-headline-lg font-medium;
     text-wrap: balance;
 
     @screen x_sm {
@@ -51,27 +53,7 @@
     }
 
     button {
-      @apply text-neutral-005 text-overline-lg font-medium;
-      border-radius: .5rem;
-      margin: 0 auto;
-      padding: .75rem 2.5rem !important;
-      border: solid #05a460 !important;
-      border-width: 1px 1px 2px !important;
-      background: #0ae98a !important;
-      position: relative;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: .25rem;
-      letter-spacing: .16px;
-      transition: all .2s ease-in-out;
-      &:hover{
-        background: #07c373 !important;
-        border-width: 1px !important;
-      }
-      @screen x_sm {
-        width: fit-content;
-      }
+      @include call-to-action;
     }
   }
 }

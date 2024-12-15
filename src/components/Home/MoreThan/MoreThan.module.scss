@@ -1,0 +1,28 @@
+@import "../../../styles/lib/mixins.scss";
+
+.MoreThan{
+  @apply px-6 mx-auto;
+  &__title{
+    @apply text-body-xl x_sm:text-headline-md xl:text-headline-lg font-medium;
+    @apply pl-4 mb-8 x_sm:pl-0 x_sm:mb-6;
+    @apply border-l border-white x_sm:border-none;
+    text-wrap: balance;
+    
+    span{
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+    }
+    
+    @screen x_sm{
+      text-align: center;
+      span{
+        @apply text-minty-080;
+      }
+    }
+  }
+  &__getADemo{
+    @include call-to-action;
+  }
+}

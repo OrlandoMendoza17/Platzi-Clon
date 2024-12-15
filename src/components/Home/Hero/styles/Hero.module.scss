@@ -21,10 +21,12 @@
       text-align: center;
     }
   }
+  
   p{
     @apply text-body-xl xl:text-title-xl text-neutral-080;
     max-width: 410px;
     text-wrap: balance;
+    letter-spacing: .013rem;
     
     @screen x_sm {
       margin: 0 auto;
@@ -82,7 +84,8 @@
   }
   
   label{
-    @apply pb-4 block text-body-xl xl:text-title-xl text-neutral-080 font-medium;
+    @apply mb-6 block text-body-xl xl:text-title-xl text-neutral-080 font-medium;
+    letter-spacing: .013rem;
   }
   h6{
     @apply text-body-md;
