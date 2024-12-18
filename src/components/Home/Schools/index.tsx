@@ -1,8 +1,13 @@
-import PointerIcon from './PointerIcon'
+
+"use client"
+import { useState } from 'react'
 import SchoolItem, { School } from './SchoolItem'
 import styles from './styles/School.module.scss'
+import PointerIcon from './PointerIcon'
 
 const Schools = () => {
+  
+  const [hiddenSchools, sethiddenSchools] = useState<boolean>(true)
   
   const schools: School[] = [
     {
@@ -139,14 +144,21 @@ const Schools = () => {
       image: 'https://static.platzi.com/media/learningpath/emblems/43463fc6-1164-492d-b88e-1831160ec5ac.jpg',
     },
   ]
-
+  
   return (
-    <section className={styles.Schools}>
-      <ul>
+    <section className={`${styles.Schools}`}>
+      <ul className={hiddenSchools ? styles.Schools__hidden_items : ""}>
         {schools.map((item, index)=>
-          <SchoolItem key={index} school={item}/>
+          <SchoolItem 
+            key={index} 
+            school={item}
+            hiddenSchools={hiddenSchools}
+          />
         )}
       </ul>
+      <button onClick={() => sethiddenSchools(!hiddenSchools)}>
+        {hiddenSchools ? <>Ver todas las escuelas <PointerIcon/></> : <>Ver las más populares <PointerIcon/></>}
+      </button>
     </section>
   )
 }

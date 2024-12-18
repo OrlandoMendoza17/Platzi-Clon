@@ -4,6 +4,36 @@
   position: relative;
   overflow: hidden;
   border-radius: .75rem;
+  transform-origin: top;
+  transition: transform .3s, opacity .3s, height .3s;
+  min-height: 112px;
+  opacity: 1;  
+  transform: scaleY(1) translateY(0) rotateX(0);
+  
+  &__hidden:nth-of-type(1n + 5){
+    @apply p-0;
+    min-height: unset;
+    height: 0px;
+    opacity: 0;
+    transform: scaleY(0) translateY(-100%) rotateX(-35deg);
+  }
+  
+  @screen xl{
+    &__hidden:nth-of-type(1n + 5){
+      @apply py-4 px-3;
+      min-height: 112px;
+      height: auto;
+      opacity: 1;
+      transform: scaleY(1) translateY(0) rotateX(0);
+    }
+    &__hidden:nth-of-type(1n + 9){
+      @apply p-0;
+      min-height: unset;
+      height: 0px;
+      opacity: 0;
+      transform: scaleY(0) translateY(-100%) rotateX(-35deg);
+    }
+  }
 
   @screen md {
     max-width: 312px;

@@ -1,0 +1,147 @@
+@import "../../../../styles/lib/mixins.scss";
+
+.Plan{
+  @apply bg-neutral-010 p-6 rounded-16;
+  width: 100%;
+  display: grid;
+  
+  &--expert{
+    border: 1px solid #FBC05E;
+    position: relative;
+    &::before{
+      @apply py-1 px-3 text-overline-sm text-neutral-005 rounded-16;
+      position: absolute;
+      content: "PRECIO ESPECIAL";
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #FBC05E;
+    }
+  }
+  
+  grid-template-rows: auto auto auto 1fr auto;
+  
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    h3 {
+      @apply text-title-lg font-medium;
+    }
+    span{
+      @apply py-1 px-3 text-body-sm text-neutral-080 border border-neutral-020 rounded-16 capitalize;
+    }
+  }
+  
+  &__students {
+    @apply mt-2 text-neutral-060 text-body-md;
+    line-height: 1.5rem;
+  }
+  
+  &__price{
+    @apply mb-2;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    
+    img{
+      border-radius: 1.5rem;
+      height: 22px;
+      width: 22px;
+    }
+    p {
+      @apply text-title-xl font-medium;
+    }
+  }
+  
+  &__details{
+    @apply text-body-md text-neutral-060; 
+    span{
+      @apply text-white; 
+      line-height: 1.5rem;
+    }
+  }
+  
+  &__saving{
+    @apply text-body-md mt-3 py-2 px-3 border border-neutral-020;
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    
+    @media screen and (min-width: 1050px) {
+      margin: 0;
+      padding: 0;
+      border: none;
+      flex-direction: row;
+      gap: .75rem;
+    }
+    hr{
+      @apply my-2 border-t border-neutral-020;
+      @media screen and (min-width: 1050px) {
+        display: none;
+      }
+    }
+    p{
+      display: flex;
+      gap: .5rem;
+      line-height: 1.5rem;
+      justify-content: space-between;
+      @media screen and (min-width: 1050px) {
+        justify-content: unset;
+      }
+    }
+  }
+  
+  &__benefits{
+    max-width: 255px;
+    display: none;
+    
+    @media screen and (min-width: 1050px) {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    
+    li{
+      @apply text-body-sm;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    
+    svg{
+      min-width: 1.5rem;
+      min-height: 1.5rem;
+    }
+  }
+  
+  &__installments{
+    @apply py-2 px-3;
+    background-color: #ffffff0d;
+    border-radius: .75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .75rem;
+    svg{
+      min-height: 20px;
+      min-width: 20px;
+    }
+    p{
+      @apply text-body-sm text-neutral-080;
+      line-height: 1.125rem;
+    }
+    span{
+      @apply text-white;
+    }
+  }
+  
+  &__subscribe {
+    @include call-to-action;
+    padding: .75rem;
+    width: 100% !important;
+    
+    &--secondary{
+      @apply bg-neutral-010 hover:bg-neutral-010;
+    }
+  }
+}

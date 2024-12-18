@@ -4,7 +4,8 @@ import "../styles/App.scss";
 
 const ibmPlexSans = IBM_Plex_Sans({
   weight: ["300", "400", "500", "600", "700"],
-  style: "normal"
+  style: "normal",
+  subsets: ["latin"]
 });
 
 export const metadata: Metadata = {

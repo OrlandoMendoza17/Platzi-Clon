@@ -1,0 +1,54 @@
+.Companies {
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+
+  &__container {
+    position: relative;
+    display: flex;
+    gap: 4rem;
+
+    &__sliderItem {
+      display: flex;
+      gap: 4rem;
+      animation-name: companies-slider;
+      animation-duration: 30s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-play-state: running;
+
+      // &:first-of-type {
+      //   background-color: red;
+      // }
+
+      // &:nth-of-type(2) {
+      //   background-color: green;
+      // }
+
+      figure {
+        width: max-content;
+        img {
+          min-height: 24px;
+          width: auto;
+
+          @media screen and (min-width: 1280px) {
+            min-height: 32px;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@keyframes companies-slider {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - 4rem));
+  }
+}

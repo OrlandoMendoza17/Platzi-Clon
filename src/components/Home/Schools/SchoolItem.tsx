@@ -1,6 +1,6 @@
-import styles from "./styles/SchoolItem.module.scss"
-import PointerIcon from "./PointerIcon";
 import { CSSProperties } from "react";
+import PointerIcon from "./PointerIcon";
+import styles from "./styles/SchoolItem.module.scss"
 
 export type School = {
   href: string;
@@ -12,6 +12,7 @@ export type School = {
 
 type Props = {
   school: School;
+  hiddenSchools: boolean,
 }
 
 interface CustomCSSProperties extends CSSProperties {
@@ -19,14 +20,15 @@ interface CustomCSSProperties extends CSSProperties {
   '--color2'?: string; // Declara tu variable CSS personalizada aquí
 }
 
-const SchoolItem = ({ school: { title, href, image, color1, color2 } }: Props) => {
+const SchoolItem = ({ hiddenSchools, school: { title, href, image, color1, color2 } }: Props) => {
+  
   const style: CustomCSSProperties = {
     '--color': color1,
     '--color2': color2,
   };
   
   return (
-    <li className={styles.SchoolItem} style={style}>
+    <li className={`${styles.SchoolItem} ${hiddenSchools && styles.SchoolItem__hidden}`} style={style}>
       <a href={href}>
         <figure>
           <img src={image} alt="" />

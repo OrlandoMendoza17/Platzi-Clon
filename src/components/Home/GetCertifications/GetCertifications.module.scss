@@ -86,7 +86,7 @@
         height: 1.4rem;
       }
       span {
-        @apply text-body-md text-neutral-060;
+        @apply text-body-md;
       }
       @screen md {
         grid-column: unset;

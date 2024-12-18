@@ -24,5 +24,6 @@
   }
   &__getADemo{
     @include call-to-action;
+    background-color: transparent !important;
   }
 }

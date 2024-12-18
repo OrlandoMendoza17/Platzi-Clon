@@ -1,6 +1,5 @@
 import styles from './styles/Hero.module.scss'
 import Search from '@/components/icons/Search'
-import { LuSearch } from "react-icons/lu";
 import ChristmasAd from './ChristmasAd';
 
 
@@ -20,7 +19,7 @@ const Hero = () => {
           <Search />
         </button>
       </article>
-      <h6>Empieza cualquier curso sin costo. <br /> O consigue <a href="" className="underline">Platzi para tu empresa</a></h6>
+      <h6>Empieza cualquier curso sin costo. <br /> O consigue <a href="https://empresa.platzi.com/business" className="underline">Platzi para tu empresa</a></h6>
     </section>
   )
 }

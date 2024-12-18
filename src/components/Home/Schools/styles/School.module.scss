@@ -1,11 +1,50 @@
 .Schools{
   @apply px-6 mx-auto;
-  max-width: 1280px;
+  display: flex;
+  gap: .75rem;
+  flex-direction: column;
+  max-width: 697px;
   
+  @screen xl{
+    max-width: 1280px;
+    gap: 1.5rem;
+  }
+    
   ul {
+    // margin-bottom: 0px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: .75rem;
+    transition: .3s;
+    
+    @screen md {
+      gap: 1.5rem;
+    }
+  }
+  
+  button {
+    @apply text-minty-080 mx-auto;
+    display: flex;
+    svg{
+      @apply fill-minty-080;
+      min-width: 24px;
+      min-height: 24px;
+      transform: rotateZ(-90deg);
+    }
+  }
+  
+  &__hidden_items {
+    transition: .3s;
+    margin-bottom: -180px;
+    @screen lg{
+      margin-bottom: -176px;
+    }
+    @screen xl{
+      margin-bottom: -76px;
+    }
+    & + button svg{
+      transform: rotateZ(90deg);
+    }
   }
 }

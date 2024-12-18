@@ -1,5 +1,5 @@
 .Home{
-  @apply flex flex-col gap-8 x_sm:gap-20;
+  @apply flex flex-col gap-8 x_sm:gap-[3.75rem] xl:gap-20;
   position: relative;
   min-height: 100svh;
   z-index: 1;
@@ -19,5 +19,9 @@
     right: -50px;
     width: calc(100% + 100px);
     overflow-x: hidden;
+    
+    @screen x_sm{
+      background-size: 100%;
+    }
   } 
 }

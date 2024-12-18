@@ -1,0 +1,35 @@
+.ChoosePlan{
+  @apply mx-auto mb-20 x_sm:mb-6 px-6 lg:px-0;
+  max-width: 1280px;
+  width: 100%;
+  h2{
+    @apply text-title-xl xl:text-headline-md font-medium mx-auto mb-4;
+    text-align: center;
+  }
+  &__benefits {
+    @apply mx-auto pricing:hidden;
+    th{
+      @apply text-overline-sm text-start text-neutral-080 pr-2 pb-2;
+    }
+    td{
+      @apply text-body-sm text-start pb-2 font-medium;
+    }
+    div {
+      @apply flex justify-center;
+    }
+    svg{
+      min-height: 20px;
+      min-width: 20px;
+    }
+  }
+  &__container{
+    @apply mt-6 mb-6 lg:mb-4;
+    display: grid;
+    grid-template-columns: minmax(auto, 340px);
+    @media screen and (min-width: 1050px) {
+      grid-template-columns: repeat(3, 325px);
+    }
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}

@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /public/images
+src/utils/getData
 /.pnp
 .pnp.*
 .yarn/*

@@ -1,0 +1,37 @@
+.Professors{
+  @apply py-5 md:py-[3.75rem];
+  background: linear-gradient(180deg, rgba(10, 233, 138, .48), rgba(10, 233, 138, 0) 42.31%), radial-gradient(326.4% 182.46% at 100% 0, rgba(10, 233, 138, .368) 0, rgba(0, 170, 99, .4) 25.86%, rgba(0, 196, 114, .4) 26.01%, rgba(6, 207, 195, .204) 87.98%, rgba(11, 216, 130, 0) 100%);
+  
+  &__container {
+    @apply mx-auto;
+    max-width: 1280px;
+    
+    h2 {
+      @apply text-headline-sm font-medium pl-6 ml-6 border-l border-minty-080;
+      text-wrap: balance;
+      
+      @screen x_sm {
+        @apply text-headline-md;
+      }
+      @screen xl {
+        @apply text-headline-lg text-start;
+      }
+    }
+  }
+  
+  .teachers{
+    @apply mt-6 px-6;
+    overflow: hidden;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 306px);
+    gap: 1rem;
+    
+    @screen lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @screen xl {
+      grid-template-columns: repeat(4, 296px);
+    }
+  }
+}

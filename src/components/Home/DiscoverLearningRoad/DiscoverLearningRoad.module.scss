@@ -13,7 +13,7 @@
   // justify-content: center;
 
   h2 {
-    @apply text-headline-sm x_sm:text-headline-md xl:text-headline-lg font-medium;
+    @apply text-headline-sm x_sm:text-headline-md xl:text-headline-lg font-medium pb-6;
     text-wrap: balance;
 
     @screen x_sm {
