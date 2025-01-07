@@ -1,0 +1,14 @@
+.CourseLink {
+  @apply bg-night-25 hover:bg-night-37 rounded-12 p-4;
+  height: 100%;
+  
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 1rem;
+  
+  p{
+    @apply text-mist-65;
+    font-size: .875rem;
+    line-height: 1.375rem;
+  }
+}

@@ -1,0 +1,142 @@
+.Header {
+  @apply bg-primary-night px-3;
+  z-index: 42;
+  position: sticky;
+  top: 0;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+
+  nav {
+    height: 52px;
+    display: grid;
+    align-items: center;
+    grid-template-areas: "logo explore search action login menu";
+    grid-template-columns: auto 1fr 340px auto auto auto;
+
+    .Logo {
+      grid-area: logo;
+      display: flex;
+      gap: .25rem;
+
+      figure img {
+        height: 25px;
+      }
+    }
+
+    .Explore {
+      grid-area: explore;
+      padding: 1px 6px;
+      margin-left: 1rem;
+      display: none;
+
+      button {
+        display: flex;
+        align-items: center;
+      }
+
+      @media screen and (min-width: 1300) {
+        display: block;
+      }
+    }
+
+    .input_search {
+      @apply hidden md:block;
+      
+      grid-area: search;
+      justify-self: start;
+
+      input {
+        width: 320px;
+      }
+
+      @media screen and (min-width: 1300) {
+        justify-self: end;
+      }
+    }
+    
+    .search_button {
+      @apply md:hidden;
+      grid-area: search;
+    }
+    
+    &>ul {
+      @apply px-3;
+      grid-area: navigation;
+      padding-top: .125rem;
+      padding-bottom: .125rem;
+      max-height: 2.25rem;
+      display: none;
+
+      li {
+        padding: 5px 12px 5px 5px;
+      }
+
+      button {
+        @apply ml-4 text-mist-82 hover:text-white;
+        display: flex;
+        align-items: center;
+      }
+
+      @media screen and (min-width: 1300) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .action_btn {
+      @apply border border-primary-platzi bg-primary-platzi text-night-6 mr-3 rounded-8;
+      padding: 8px;
+      font-size: .75rem;
+      line-height: 16.094px;
+      text-transform: uppercase;
+      font-weight: 700;
+
+      &:first-of-type {
+        @apply hidden md:block;
+        grid-area: action;
+      }
+
+      &:nth-of-type(2) {
+        grid-area: login;
+      }
+
+      &--ghost {
+        @apply text-primary-platzi bg-transparent;
+      }
+
+      @screen lg {
+        padding: 9px 16px;
+        font-size: .875rem;
+      }
+    }
+
+    .menu_btn {
+      width: 32px;
+      padding: 1px 6px;
+      grid-area: menu;
+      display: block;
+      
+      svg {
+        margin: 0 auto;
+        height: 14px;
+        width: 8.75px;
+      }
+    }
+
+    @media screen and (min-width: 1300) {
+      grid-template-areas: "logo explore search navigation action login";
+      grid-template-columns: auto auto auto 1fr auto auto;
+
+      .menu_btn {
+        display: none;
+      }
+    }
+  }
+
+  button svg {
+    @apply ml-2;
+    width: 16px;
+    height: 16px;
+    fill: #fff;
+  }
+}

@@ -1,9 +1,27 @@
+"use client"
 import styles from './styles/Hero.module.scss'
 import Search from '@/components/icons/Search'
 import ChristmasAd from './ChristmasAd';
+import { useEffect, useState } from 'react';
+import supabase from '@/supabase';
 
 
 const Hero = () => {
+  
+  const [professors, setProfessors] = useState<string[]>([])
+  
+  useEffect(() => {
+    (async ()=>{
+      try {
+        
+        
+      } catch (error) {
+        console.log(error)
+      }
+    })()
+  }, [])
+
+  
   return (
     <section className={styles.Hero}>
       <ChristmasAd />

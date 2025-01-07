@@ -13,17 +13,15 @@ export const metadata: Metadata = {
   description: "Únete hoy a Platzi, la comunidad más grande de educación en línea. Prepárate en las habilidades más demandadas de la industria digital.",
 };
 
-type Props =  Readonly<{ 
+type Props = Readonly<{
   children: React.ReactNode,
 }>
 
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="es">
-      <body className={`${ibmPlexSans.className} bg-neutral-005 text-white`}>
       {/* <body className={`${ibmPlexSans.className} bg-sky-700`}> */}
-        {children}
-      </body>
+      {children}
     </html>
   );
 }

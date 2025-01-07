@@ -1,6 +1,13 @@
-import Header from "@/components/Home/Header";
+import LandingHeader from "@/components/Home/LandingHeader";
 import type { Metadata } from "next";
 import styles from "../../styles/Home.module.scss"
+import { IBM_Plex_Sans } from "next/font/google";
+
+const ibmPlexSans = IBM_Plex_Sans({
+  weight: ["300", "400", "500", "600", "700"],
+  style: "normal",
+  subsets: ["latin"]
+});
 
 export const metadata: Metadata = {
   title: "Platzi: Plataforma de aprendizaje profesional online",
@@ -9,10 +16,12 @@ export const metadata: Metadata = {
 
 const HomeLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => {
   return (
-    <main className={styles.Home}>
-      <Header/>
-      {children}
-    </main>
+    <body className={`${ibmPlexSans.className} bg-neutral-005 text-white`}>       
+      <main className={styles.Home}>
+        <LandingHeader />
+        {children}
+      </main>
+    </body>
   );
 }
 

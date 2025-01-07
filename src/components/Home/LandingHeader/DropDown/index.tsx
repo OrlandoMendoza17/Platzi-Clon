@@ -1,12 +1,13 @@
 "use client"
 import Link from "next/link"
-import styles from "./styles/DropDown.module.scss"
+import styles from "./DropDown.module.scss"
 import Arrow from "@/components/icons/Arrow"
 import { useState } from "react"
 
 type Link = {
   label: string,
   url: string,
+  inApp: boolean,
 }
 
 type Props = {
@@ -19,7 +20,7 @@ const DropDown = ({ label, links }: Props) => {
   const [opened, setOpened] = useState(false)
 
   return (
-    <button 
+    <button
       className={styles.DropDown}
       onClick={() => setOpened(!opened)}
       onMouseLeave={() => setOpened(false)}
@@ -29,13 +30,18 @@ const DropDown = ({ label, links }: Props) => {
         opened &&
         <div
           className={styles.DropDown__list}
-          // onMouseOver={() => setOpened(true)}
-          // onMouseOut={() => setOpened(false)}
+        // onMouseOver={() => setOpened(true)}
+        // onMouseOut={() => setOpened(false)}
         >
           <ul>
-            {links.map(({ label, url }, index) =>
+            {links.map(({ label, url, inApp }, index) =>
               <li key={index}>
-                <Link href={url}>{label}</Link>
+                {
+                  inApp ?
+                    <Link href={url}>{label}</Link>
+                    :
+                    <a href={url}>{label}</a>
+                }
               </li>
             )}
           </ul>

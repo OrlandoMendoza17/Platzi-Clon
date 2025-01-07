@@ -1,0 +1,44 @@
+.headline {
+  @apply py-4 bg-primary-night;
+  position: sticky;
+  top: 52px;
+  z-index: 30;
+  display: grid;
+
+  p {
+    @apply mb-4
+  }
+
+  @media screen and (min-width: 1200px) {
+    @apply py-10;
+    grid-template-columns: 1fr 568px;
+
+    p {
+      @apply mb-0;
+    }
+  }
+
+}
+
+.ui_wrapper {
+  @apply mx-auto px-2;
+  max-width: 1200px;
+
+  h1 {
+    @apply md:text-headline-sm lg:text-headline-md font-extrabold mb-2;
+
+    &+p {
+      @apply text-mist-82;
+
+      font-weight: 400;
+      font-size: .875rem;
+      line-height: 1.375rem;
+
+      @screen md {
+        font-size: 1rem;
+        line-height: 1.75rem;
+      }
+    }
+  }
+
+}

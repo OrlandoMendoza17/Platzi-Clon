@@ -8,13 +8,14 @@ import Professors from "@/components/Home/Professors";
 import Schools from "@/components/Home/Schools";
 import WeAreAuthority from "@/components/Home/WeAreAuthority";
 
-const Home = () => {
+const Home = async () => {
+  
   return (
     <>
       <Hero />
       <Schools />
       <DiscoverLearningRoad />
-      <Companies/>
+      <Companies />
       <MoreThan />
       <WeAreAuthority />
       <GetCertifications />

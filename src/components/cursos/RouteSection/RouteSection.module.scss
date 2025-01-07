@@ -1,0 +1,34 @@
+.RouteSection {
+  @apply py-8;
+  
+  &__title {
+    @apply mb-2;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+  }
+  
+  h3{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+  
+  h3, p {
+    @apply text-mist-82;
+  }
+  
+  ul {
+    @apply mt-6;
+    
+    display: grid;
+    gap: 1.5rem;
+    @screen md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @screen lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
