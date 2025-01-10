@@ -9,7 +9,7 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      Categories: {
+      categories: {
         Row: {
           color: string | null
           color2: string | null
@@ -36,7 +36,7 @@ export type Database = {
         }
         Relationships: []
       }
-      CourseClasses: {
+      courseClasses: {
         Row: {
           courseSectionId: number | null
           created_at: string
@@ -69,12 +69,12 @@ export type Database = {
             foreignKeyName: "CourseClasses_courseSectionId_fkey"
             columns: ["courseSectionId"]
             isOneToOne: false
-            referencedRelation: "CourseSections"
+            referencedRelation: "courseSections"
             referencedColumns: ["id"]
           },
         ]
       }
-      CourseOpinions: {
+      courseOpinions: {
         Row: {
           courseId: number | null
           created_at: string
@@ -110,12 +110,12 @@ export type Database = {
             foreignKeyName: "CourseOpinios_courseId_fkey"
             columns: ["courseId"]
             isOneToOne: false
-            referencedRelation: "Courses"
+            referencedRelation: "courses"
             referencedColumns: ["id"]
           },
         ]
       }
-      CourseProject: {
+      courseProject: {
         Row: {
           courseId: number | null
           created_at: string
@@ -148,12 +148,12 @@ export type Database = {
             foreignKeyName: "CourseProject_courseId_fkey"
             columns: ["courseId"]
             isOneToOne: false
-            referencedRelation: "Courses"
+            referencedRelation: "courses"
             referencedColumns: ["id"]
           },
         ]
       }
-      CourseRelatedRoutes: {
+      courseRelated_routes: {
         Row: {
           courseId: number | null
           created_at: string
@@ -177,19 +177,19 @@ export type Database = {
             foreignKeyName: "CourseRelatedRoutes_courseId_fkey"
             columns: ["courseId"]
             isOneToOne: false
-            referencedRelation: "Courses"
+            referencedRelation: "courses"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "CourseRelatedRoutes_routeId_fkey"
             columns: ["routeId"]
             isOneToOne: false
-            referencedRelation: "Routes"
+            referencedRelation: "routes"
             referencedColumns: ["id"]
           },
         ]
       }
-      Courses: {
+      courses: {
         Row: {
           badge_url: string | null
           certificate: string | null
@@ -261,19 +261,19 @@ export type Database = {
             foreignKeyName: "Courses_professorId_fkey"
             columns: ["professorId"]
             isOneToOne: false
-            referencedRelation: "Professors"
+            referencedRelation: "professors"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "Courses_schoolId_fkey"
             columns: ["schoolId"]
             isOneToOne: false
-            referencedRelation: "Schools"
+            referencedRelation: "schools"
             referencedColumns: ["id"]
           },
         ]
       }
-      CourseSections: {
+      courseSections: {
         Row: {
           courseId: number | null
           created_at: string
@@ -297,12 +297,12 @@ export type Database = {
             foreignKeyName: "CourseSections_courseId_fkey"
             columns: ["courseId"]
             isOneToOne: false
-            referencedRelation: "Courses"
+            referencedRelation: "courses"
             referencedColumns: ["id"]
           },
         ]
       }
-      Professors: {
+      professors: {
         Row: {
           created_at: string
           description: string | null
@@ -332,7 +332,7 @@ export type Database = {
         }
         Relationships: []
       }
-      RouteModules: {
+      routeModules: {
         Row: {
           created_at: string
           id: number
@@ -356,51 +356,45 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "RouteModules_routeId_fkey"
+            foreignKeyName: "routeModules_routeId_fkey"
             columns: ["routeId"]
             isOneToOne: false
-            referencedRelation: "Routes"
+            referencedRelation: "routes"
             referencedColumns: ["id"]
           },
         ]
       }
-      RouteModules_Courses: {
+      routeModules_courses: {
         Row: {
-          courseId: number | null
-          created_at: string
-          id: number
-          routeModuleId: number | null
+          courseId: number
+          routeModuleId: number
         }
         Insert: {
-          courseId?: number | null
-          created_at?: string
-          id?: number
-          routeModuleId?: number | null
+          courseId: number
+          routeModuleId: number
         }
         Update: {
-          courseId?: number | null
-          created_at?: string
-          id?: number
-          routeModuleId?: number | null
+          courseId?: number
+          routeModuleId?: number
         }
         Relationships: [
           {
-            foreignKeyName: "RouteModules_Courses_courseId_fkey"
+            foreignKeyName: "routeModules_courses_courseId_fkey"
             columns: ["courseId"]
             isOneToOne: false
-            referencedRelation: "Courses"
+            referencedRelation: "courses"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "RouteModules_Courses_routeModuleId_fkey"
+            foreignKeyName: "routeModules_courses_routeModuleId_fkey"
             columns: ["routeModuleId"]
             isOneToOne: false
-            referencedRelation: "RouteModules"
+            referencedRelation: "routeModules"
             referencedColumns: ["id"]
           },
         ]
       }
-      Routes: {
+      routes: {
         Row: {
           badge_url: string | null
           categoryId: number | null
@@ -408,7 +402,6 @@ export type Database = {
           description: string | null
           id: number
           landing_url: string | null
-          schoolSectionId: number | null
           title: string | null
         }
         Insert: {
@@ -418,7 +411,6 @@ export type Database = {
           description?: string | null
           id?: number
           landing_url?: string | null
-          schoolSectionId?: number | null
           title?: string | null
         }
         Update: {
@@ -428,7 +420,6 @@ export type Database = {
           description?: string | null
           id?: number
           landing_url?: string | null
-          schoolSectionId?: number | null
           title?: string | null
         }
         Relationships: [
@@ -436,56 +427,44 @@ export type Database = {
             foreignKeyName: "Routes_categoryId_fkey"
             columns: ["categoryId"]
             isOneToOne: false
-            referencedRelation: "Categories"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "Routes_schoolSectionId_fkey"
-            columns: ["schoolSectionId"]
-            isOneToOne: false
-            referencedRelation: "SchoolSections"
+            referencedRelation: "categories"
             referencedColumns: ["id"]
           },
         ]
       }
-      Routes_Courses: {
+      routes_courses: {
         Row: {
-          courseId: number | null
-          created_at: string
-          id: number
-          routeId: number | null
+          courseId: number
+          routeId: number
         }
         Insert: {
-          courseId?: number | null
-          created_at?: string
-          id?: number
-          routeId?: number | null
+          courseId: number
+          routeId: number
         }
         Update: {
-          courseId?: number | null
-          created_at?: string
-          id?: number
-          routeId?: number | null
+          courseId?: number
+          routeId?: number
         }
         Relationships: [
           {
-            foreignKeyName: "Routes_Courses_courseId_fkey"
+            foreignKeyName: "routes_courses2_courseId_fkey"
             columns: ["courseId"]
             isOneToOne: false
-            referencedRelation: "Courses"
+            referencedRelation: "courses"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "Routes_Courses_routeId_fkey"
+            foreignKeyName: "routes_courses2_routeId_fkey"
             columns: ["routeId"]
             isOneToOne: false
-            referencedRelation: "Routes"
+            referencedRelation: "routes"
             referencedColumns: ["id"]
           },
         ]
       }
-      Schools: {
+      schools: {
         Row: {
+          backgroundImage: string | null
           badge_url: string | null
           categoryId: number | null
           created_at: string
@@ -495,6 +474,7 @@ export type Database = {
           title: string | null
         }
         Insert: {
+          backgroundImage?: string | null
           badge_url?: string | null
           categoryId?: number | null
           created_at?: string
@@ -504,6 +484,7 @@ export type Database = {
           title?: string | null
         }
         Update: {
+          backgroundImage?: string | null
           badge_url?: string | null
           categoryId?: number | null
           created_at?: string
@@ -517,48 +498,42 @@ export type Database = {
             foreignKeyName: "Schools_categoryId_fkey"
             columns: ["categoryId"]
             isOneToOne: false
-            referencedRelation: "Categories"
+            referencedRelation: "categories"
             referencedColumns: ["id"]
           },
         ]
       }
-      Schools_Routes: {
+      schools_routes: {
         Row: {
-          created_at: string
-          id: number
-          routeId: number | null
-          schoolId: number | null
+          routeId: number
+          schoolId: number
         }
         Insert: {
-          created_at?: string
-          id?: number
-          routeId?: number | null
-          schoolId?: number | null
+          routeId: number
+          schoolId: number
         }
         Update: {
-          created_at?: string
-          id?: number
-          routeId?: number | null
-          schoolId?: number | null
+          routeId?: number
+          schoolId?: number
         }
         Relationships: [
           {
-            foreignKeyName: "Schools_Routes_routeId_fkey"
+            foreignKeyName: "school_routes_routeId_fkey"
             columns: ["routeId"]
             isOneToOne: false
-            referencedRelation: "Routes"
+            referencedRelation: "routes"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "Schools_Routes_schoolId_fkey"
+            foreignKeyName: "school_routes_schoolId_fkey"
             columns: ["schoolId"]
             isOneToOne: false
-            referencedRelation: "Schools"
+            referencedRelation: "schools"
             referencedColumns: ["id"]
           },
         ]
       }
-      SchoolSections: {
+      schoolSections: {
         Row: {
           created_at: string
           description: string | null
@@ -585,43 +560,37 @@ export type Database = {
             foreignKeyName: "SchoolSections_schoolId_fkey"
             columns: ["schoolId"]
             isOneToOne: false
-            referencedRelation: "Schools"
+            referencedRelation: "schools"
             referencedColumns: ["id"]
           },
         ]
       }
-      SchoolSections_Routes: {
+      schoolSections_routes: {
         Row: {
-          created_at: string
-          id: number
-          routeId: number | null
-          schoolSectionId: number | null
+          routeId: number
+          schoolSectionId: number
         }
         Insert: {
-          created_at?: string
-          id?: number
-          routeId?: number | null
-          schoolSectionId?: number | null
+          routeId: number
+          schoolSectionId: number
         }
         Update: {
-          created_at?: string
-          id?: number
-          routeId?: number | null
-          schoolSectionId?: number | null
+          routeId?: number
+          schoolSectionId?: number
         }
         Relationships: [
           {
             foreignKeyName: "SchoolSections_Routes_routeId_fkey"
             columns: ["routeId"]
             isOneToOne: false
-            referencedRelation: "Routes"
+            referencedRelation: "routes"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "SchoolSections_Routes_schoolSectionId_fkey"
             columns: ["schoolSectionId"]
             isOneToOne: false
-            referencedRelation: "SchoolSections"
+            referencedRelation: "schoolSections"
             referencedColumns: ["id"]
           },
         ]

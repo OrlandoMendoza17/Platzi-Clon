@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react"
 import styles from '../Filter.module.scss'
 import { Dispatch, SetStateAction } from 'react'
+import { getIdFromTitle } from "@/utils"
+import { CategoryData } from "@/schemas/cursos"
 type Props = {
   categories: CategoryData[],
   selected: CategoryData,
@@ -26,7 +28,7 @@ const CategoryFilter = ({ categories, selected, setSelected }: Props) => {
       </button>
       {
         opened &&
-        <div className={styles.Filter__items}>
+        <div className={`${styles.Filter__items} z-20`}>
           <span>
             Categorías
           </span>
@@ -35,7 +37,7 @@ const CategoryFilter = ({ categories, selected, setSelected }: Props) => {
               categories.map((category, index) =>
                 <li key={index}>
                   <button onClick={() => {
-                    const $section = document.getElementById(category.name?.split(" ").join("") || "")
+                    const $section = document.getElementById(getIdFromTitle(category.name) || "")
                     if ($section) {
                       window.scrollTo({
                         top: $section.offsetTop - 247,

@@ -1,3 +1,4 @@
+import { CourseShortData } from '@/schemas/cursos'
 import styles from './CourseLink.module.scss'
 
 type Props = {

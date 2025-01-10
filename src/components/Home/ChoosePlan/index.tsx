@@ -5,7 +5,11 @@ import styles from './styles/ChoosePlan.module.scss'
 import CrossIcon from './CrossIcon';
 import CheckIcon from './CheckIcon';
 
-const ChoosePlan = () => {
+type Props = {
+  title: string,
+}
+
+const ChoosePlan = ({ title }: Props) => {
 
   const planBasic: PlanInfo = {
     id: "e0818119-8ba1-4ea3-b92e-d9ed6523ff68",
@@ -81,10 +85,9 @@ const ChoosePlan = () => {
     setMatchesDesktop(matchesDesktop)
   }
 
-
   return (
     <section className={styles.ChoosePlan}>
-      <h2>Elige el plan ideal para ti</h2>
+      <h2>{title}</h2>
       <table className={styles.ChoosePlan__benefits}>
         <thead>
           <tr>
@@ -95,14 +98,14 @@ const ChoosePlan = () => {
         </thead>
         <tbody>
           {
-            benefits.slice(1, benefits.length).map((item, index)=>
+            benefits.slice(1, benefits.length).map((item, index) =>
               <tr key={index}>
                 <td>{item}</td>
                 <td>
-                  <div className="flex justify-center"><CrossIcon/></div>
+                  <div className="flex justify-center"><CrossIcon /></div>
                 </td>
                 <td>
-                  <div className="flex justify-center"><CheckIcon/></div>
+                  <div className="flex justify-center"><CheckIcon /></div>
                 </td>
               </tr>
             )

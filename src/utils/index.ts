@@ -6,3 +6,7 @@ export const formatMoney = (money: number) => {
   })
   return formattedCurrency;
 }
+
+export const getIdFromTitle = (name: string | null) => {
+  return name?.split(" ").join("") || ""
+}

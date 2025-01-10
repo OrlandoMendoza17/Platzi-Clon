@@ -1,0 +1,25 @@
+.SchoolSectionsLinks{
+  @apply py-8;
+  overflow: scroll;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  &__container {
+    display: flex;
+    gap: 1rem;
+    
+    li {
+      flex-shrink: 0;
+    }
+    
+    a {
+      @apply py-2 px-3 rounded-32 bg-night-25 text-mist-65 hover:bg-primary-sky hover:text-primary-night;
+      font-weight: 600;
+      font-size: .875rem;
+      line-height: 1.25rem;
+      display: block;
+    }
+  }
+}

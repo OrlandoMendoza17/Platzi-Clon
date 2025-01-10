@@ -1,0 +1,88 @@
+.ExploreList {
+  position: absolute;
+  top: 2rem;
+  left: 1.3rem;
+  height: 472px;
+  display: flex;
+  // overflow: hidden;
+  
+  &:focus{
+    background-color: red;
+  }
+  
+  &__section {
+    @apply bg-night-25;
+    &.categories {
+      border-radius: 12px 0 0 12px;
+    }
+    
+    &.schools {
+      border-left: 1px solid #40587c;
+    }
+    
+    &.routes {
+      @apply bg-primary-night;
+      border-radius: 0 12px 12px 0;
+      overflow: auto;
+      scrollbar-color: #637a9d transparent;
+      scrollbar-width: thin;
+      & ul li:hover span{
+        @apply bg-night-25;
+      }
+    }
+    
+    &__title {
+      @apply pt-5 px-4 pb-6 text-mist-65;
+      display: block;
+      font-size: .75rem;
+      font-weight: 700;
+      line-height: 1rem;
+      text-transform: uppercase;
+      
+      span{
+        @apply text-mist-50;
+        font-weight: 400;
+      }
+    }
+    
+    .list {
+      display: none;
+      position: absolute; 
+      top: 0;
+      bottom: 0;
+      left: 100%;
+    }
+    
+    ul{
+      // position: relative;
+      width: 323px;
+      height: 100%;
+      li {
+        &:hover {
+          & > .list{
+            display: block;
+          }
+          & > span,
+          & > a {
+            @apply bg-night-15;
+          }
+        }
+        & > span,
+        & > a {
+          @apply py-3 px-4 mx-4 rounded-8;
+          display: flex;
+          align-items: center;
+          gap: .5rem;
+          
+          font-size: .875rem;
+          font-weight: 700;
+          line-height: 1.25rem;
+          
+          svg {
+            height: 14px;
+          }
+        }
+      }
+    }
+  }
+}

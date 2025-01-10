@@ -20,7 +20,7 @@ const Home = async () => {
       <WeAreAuthority />
       <GetCertifications />
       <Professors />
-      <ChoosePlan />
+      <ChoosePlan title="Elige el plan ideal para ti"/>
     </>
   )
 }

@@ -24,11 +24,11 @@
     }
 
     .Explore {
+      position: relative;
       grid-area: explore;
       padding: 1px 6px;
       margin-left: 1rem;
       display: none;
-
       button {
         display: flex;
         align-items: center;
@@ -36,6 +36,16 @@
 
       @media screen and (min-width: 1300) {
         display: block;
+      }
+      
+      &:after{
+        content: " ";
+        position: absolute;
+        display: block;
+        bottom: -6px;
+        width: 100%;
+        left: 0;
+        height: 6px;
       }
     }
 

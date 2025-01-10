@@ -1,6 +1,9 @@
 "use client"
 import { useEffect, useState } from "react"
 import styles from '../Filter.module.scss'
+import { getIdFromTitle } from "@/utils"
+import { CategoryData, RouteData, SchoolData } from "@/schemas/cursos"
+
 type Props = {
   schoolsRoutes: (SchoolData | RouteData)[],
   selectedCategory: CategoryData,
@@ -56,7 +59,7 @@ const SchoolsRouteFilter = ({ schoolsRoutes, selectedCategory }: Props) => {
       </button>
       {
         opened &&
-        <div className={styles.Filter__items}>
+        <div className={`${styles.Filter__items} z-10`}>
           <span>
             Escuelas
           </span>
@@ -66,7 +69,7 @@ const SchoolsRouteFilter = ({ schoolsRoutes, selectedCategory }: Props) => {
                 <li key={index}>
                   <button onClick={() => {
                     
-                    const $section = document.getElementById(((index === 0) ? selectedCategory.name?.split(" ").join("") :  school.title?.split(" ").join("")) || "")
+                    const $section = document.getElementById(((index === 0) ? getIdFromTitle(selectedCategory.name) :  getIdFromTitle(school.title)) || "")
                     if ($section) {
                       window.scrollTo({
                         top: $section.offsetTop - 247,

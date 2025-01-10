@@ -1,5 +1,7 @@
+import { RouteData, SchoolData } from "@/schemas/cursos"
 import CourseLink from "../CourseLink"
 import styles from './RouteSection.module.scss'
+import { getIdFromTitle } from "@/utils"
 
 type Props = {
   route: SchoolData | RouteData,
@@ -7,15 +9,15 @@ type Props = {
 }
 
 const RouteSection = ({ route, routes }: Props) => {
-  const { title, description, badge_url, courses,  ...rest } = route
+  const { title, description, badge_url, courses,  landing_url } = route
   return (
-    <section id={title?.split(" ").join("")} className={styles.RouteSection}>
+    <section id={getIdFromTitle(title)} className={styles.RouteSection}>
       <div className={styles.RouteSection__title}>
         <figure>
           <img src={badge_url as string} alt=""/>
         </figure>
         <h3>
-          <a href={rest.landing_url as string}>{title}</a>
+          <a href={landing_url as string}>{title}</a>
         </h3>
       </div>
       <p>{description}</p>

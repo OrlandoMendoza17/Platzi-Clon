@@ -1,0 +1,81 @@
+.RouteArticle{
+  @apply p-4 bg-night-25 hover:bg-night-37 rounded-12 border border-night-37 ;
+
+  height: 100%;
+  text-decoration: none;
+  transition: all .2s ease;
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  &__title{
+    @apply pb-4;
+    
+    span {
+      @apply mb-5;
+      display: block;
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+      font-size: .875rem;
+      line-height: 1.25rem;
+      text-transform: uppercase;
+    }
+    
+    h3{
+      margin-bottom: .75rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+    }
+    
+    & > p{
+      @apply text-mist-82;
+      font-weight: 400;
+      font-size: .875rem;
+      line-height: 1.25rem;
+    }
+  }
+  
+  &__courses {
+    @apply flex items-center gap-2 pb-4;
+    span {
+      font-size: .875rem;
+      line-height: 1.25rem;
+    } 
+    
+    img { 
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      
+      &:nth-of-type(1n + 2) {
+        margin-left: -10px;
+      }
+    }
+    
+    &__plus_icon{
+      @apply bg-night-37 text-night-25;
+      width: 24px;
+      height: 24px;
+      border-radius: 24px;
+      margin-left: -10px;
+      margin-right: .25rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      svg{
+        height: 14px;
+      }
+    }
+  }
+  
+  &__button{
+    @apply border border-primary-sky text-primary-sky bg-transparent rounded-8;
+    width: 100%;
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    font-weight: 700;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+}

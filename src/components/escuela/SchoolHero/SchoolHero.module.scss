@@ -1,0 +1,89 @@
+.SchoolHero {
+  @apply pt-8 bg-night-12;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  
+  &__container {
+    @apply pb-4;
+
+    @screen lg {
+      max-width: 688px;
+    }
+    
+    &__headline {
+      display: grid;
+      align-items: center;
+      gap: 1.5rem;
+      
+      @screen md {
+        grid-template-columns: 68px 1fr;
+      }
+      
+      figure {
+        display: none;
+        
+        @screen md {
+          display: block;
+        }
+      }
+      
+      span {
+        margin-bottom: .25rem;
+        font-weight: 700;
+        font-size: .625rem;
+        line-height: .75rem;
+        letter-spacing: .08rem;
+        text-transform: uppercase;
+
+        @screen md {
+          font-size: .875rem;
+          line-height: 1.25rem;
+        }
+      }
+
+      h1 {
+        @apply text-mist-96;
+
+        font-weight: 800;
+        font-size: 2.5rem;
+        line-height: 2.75rem;
+
+        @screen md {
+          font-size: 3rem;
+          line-height: 3.25rem;
+        }
+      }
+    }
+
+    p {
+      @apply text-mist-96 mt-6 mb-8;
+
+      font-size: .875rem;
+      line-height: 1.25rem;
+
+      @screen md {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+      }
+    }
+
+    button {
+      @apply bg-primary-sky text-night-6;
+
+      border-radius: .5rem;
+      font-size: .875rem;
+      padding: .5rem 1rem;
+      text-transform: uppercase;
+      display: inline-block;
+      font-weight: 700;
+      line-height: 1.6;
+
+      @screen md {
+        font-size: .875rem;
+      }
+    }
+  }
+
+
+}

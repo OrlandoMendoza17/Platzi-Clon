@@ -3,10 +3,19 @@ import DropDown from "./DropDown"
 import styles from './Header.module.scss'
 import Arrow from "@/components/icons/Arrow"
 import OldHamburger from "@/components/icons/OldHamburger"
+import { CategoryData } from "@/schemas/cursos"
+import { CategoryHeaderData } from "@/schemas/header"
+import { getCategoriesInfo } from "@/services"
+import ExploreList from "./ExploreList"
+
 type Props = {
-  categories: CategoryData[]
+  categories: CategoryData[] | CategoryHeaderData[]
 }
-const Header = ({ categories }: Props) => {
+
+const Header = async ({ }: Props) => {
+
+  const categories = await getCategoriesInfo()
+  console.log('categories', categories)
 
   const links = [
     {
@@ -63,9 +72,7 @@ const Header = ({ categories }: Props) => {
             <img src="https://static.platzi.com/media/logotipo-platzi.png" alt="" />
           </figure>
         </Link>
-        <div className={styles.Explore}>
-          <button>Explorar <Arrow /></button>
-        </div>
+        <ExploreList categories={categories} />
         <div className={styles.input_search}>
           <input type="text" name="" id="" />
         </div>
@@ -89,7 +96,7 @@ const Header = ({ categories }: Props) => {
         <button className={`${styles.action_btn} ${styles["action_btn--ghost"]}`}>Empresas</button>
         <button className={styles.action_btn}>Ingresar Ahora</button>
         <button className={styles.menu_btn}>
-          <OldHamburger/>
+          <OldHamburger />
         </button>
       </nav>
     </header>

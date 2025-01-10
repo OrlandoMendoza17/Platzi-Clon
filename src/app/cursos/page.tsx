@@ -3,13 +3,14 @@ import supabase from '@/supabase'
 import { PostgrestError } from '@supabase/supabase-js'
 import axios from 'axios'
 import React from 'react'
-import styles from '../../styles/Cursos.module.scss'
+import styles from '../../styles/cursos.module.scss'
 import Header from '@/components/widgets/Header'
 import Filter from '@/components/cursos/Filter'
 import Categories from '@/components/cursos/Categories'
+import { getCursosPageInfo } from '@/services'
 
 const CoursesPage = async () => {
-  const { data: categories } = await axios.get<CategoryData[]>("http://localhost:3000/api/cursos")
+  const categories = await getCursosPageInfo()
   return (
     <main>
       <Header categories={categories} />

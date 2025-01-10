@@ -10,6 +10,8 @@ export const GET = async (request: Request) => {
   }
   try {
 
+    // CATEGORIES
+
     let { data: categories, error } = await supabase
       .from('categories')
       .select(`

@@ -3,6 +3,7 @@ import { useState } from "react"
 import styles from './Filter.module.scss'
 import CategoryFilter from "./CategoryFilter"
 import SchoolsRouteFilter from "./SchoolsRouteFilter"
+import { CategoryData } from "@/schemas/cursos"
 
 type Props = {
   categories: CategoryData[]
