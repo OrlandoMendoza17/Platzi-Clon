@@ -36,8 +36,8 @@ const ExploreList = ({ categories }: Props) => {
                       </span>
                       <ul>
                         {
-                          schools.map(({ title, landing_url, routes }) =>
-                            <li>
+                          schools.map(({ title, landing_url, routes }, index) =>
+                            <li key={index}>
                               <Link href={landing_url as string}>{title}</Link>
                               <div className={`${styles.ExploreList__section} ${styles.list} ${styles.routes}`} >
                                 <span className={styles.ExploreList__section__title}>
@@ -45,8 +45,8 @@ const ExploreList = ({ categories }: Props) => {
                                 </span>
                                 <ul>
                                   {
-                                    routes.map(({ title, landing_url }) =>
-                                      <li>
+                                    routes.map(({ title, landing_url }, index) =>
+                                      <li key={index}>
                                         <Link href={landing_url as string}>{title}</Link>
                                       </li>
                                     )

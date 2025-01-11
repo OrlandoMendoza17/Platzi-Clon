@@ -50,6 +50,7 @@
   
   &__routes_container{
     overflow: scroll;
+    scrollbar-width: none;
     
     display: grid;
     grid-auto-columns: minmax(258px, 1fr);

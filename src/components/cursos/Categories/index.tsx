@@ -1,4 +1,3 @@
-import React from 'react'
 import RouteSection from '../RouteSection'
 import styles from './Categories.module.scss'
 import { CategoryData } from '@/schemas/cursos'

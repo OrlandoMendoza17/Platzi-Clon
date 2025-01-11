@@ -1,18 +1,17 @@
 import Link from "next/link"
 import DropDown from "./DropDown"
-import styles from './Header.module.scss'
-import Arrow from "@/components/icons/Arrow"
 import OldHamburger from "@/components/icons/OldHamburger"
 import { CategoryData } from "@/schemas/cursos"
 import { CategoryHeaderData } from "@/schemas/header"
 import { getCategoriesInfo } from "@/services"
+import styles from './Header.module.scss'
 import ExploreList from "./ExploreList"
 
 type Props = {
-  categories: CategoryData[] | CategoryHeaderData[]
+  sticky?: boolean,
 }
-
-const Header = async ({ }: Props) => {
+  
+const Header = async ({ sticky }: Props) => {
 
   const categories = await getCategoriesInfo()
   console.log('categories', categories)
@@ -62,7 +61,7 @@ const Header = async ({ }: Props) => {
   ]
 
   return (
-    <header className={styles.Header}>
+    <header className={`${styles.Header} ${sticky ? "sticky" : ""}`}>
       <nav>
         <Link href="/" className={styles.Logo}>
           <figure>

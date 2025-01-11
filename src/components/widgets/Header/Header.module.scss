@@ -1,7 +1,6 @@
 .Header {
   @apply bg-primary-night px-3;
   z-index: 42;
-  position: sticky;
   top: 0;
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
@@ -10,9 +9,14 @@
     height: 52px;
     display: grid;
     align-items: center;
-    grid-template-areas: "logo explore search action login menu";
-    grid-template-columns: auto 1fr 340px auto auto auto;
-
+    grid-template-areas: "logo explore login menu";
+    grid-template-columns: auto 1fr auto auto;
+    
+    @screen md {
+      grid-template-areas: "logo explore search action login menu";
+      grid-template-columns: auto 1fr 340px auto auto auto;
+    }
+    
     .Logo {
       grid-area: logo;
       display: flex;

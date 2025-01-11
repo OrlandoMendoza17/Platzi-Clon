@@ -1,0 +1,38 @@
+.RouteHero {
+  @apply py-10;
+  
+  span {
+    display: block;
+    margin: 0 0 .5rem;
+    font-weight: 700;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+  }
+  
+  h1 {
+    @apply mb-2;
+
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 2rem;
+
+    @screen md {
+      font-weight: 900;
+      font-size: 2.5rem;
+      line-height: 2.75rem;
+    }
+  }
+
+  p {
+    @apply mb-6 text-mist-96;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    @screen md {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+  }
+}

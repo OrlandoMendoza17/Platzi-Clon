@@ -1,16 +1,17 @@
-import { SchoolData } from "@/schemas/escuela";
 import API from "./api"
+import { SchoolData } from "@/schemas/escuela";
 import { CategoryData } from "@/schemas/cursos";
 import { CategoryHeaderData } from "@/schemas/header";
+import { RouteData } from "@/schemas/ruta";
 
-// Información utilizada en la página de filtros de cursos /cursos
-export const getCursosPageInfo = async () => {
-  const { data: categories } = await API.get<CategoryData[]>("/api/cursos")
-  return categories;
+// Información utilizada en la página /ruta/[school_url]
+export const getRoutePageInfo = async (route_url: string) => {
+  const { data: school } = await API.get<RouteData>(`/api/ruta/${route_url}`)
+  return school;
 }
 
 // Información utilizada en la página /escuela/[school_url]
-export const getSchoolsPageInfo = async (school_url: string) => {
+export const getSchoolPageInfo = async (school_url: string) => {
   const { data: school } = await API.get<SchoolData>(`/api/escuela/${school_url}`)
   return school;
 }

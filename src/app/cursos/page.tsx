@@ -1,19 +1,17 @@
 import RouteSection from '@/components/cursos/RouteSection'
 import supabase from '@/supabase'
 import { PostgrestError } from '@supabase/supabase-js'
-import axios from 'axios'
-import React from 'react'
 import styles from '../../styles/cursos.module.scss'
 import Header from '@/components/widgets/Header'
 import Filter from '@/components/cursos/Filter'
 import Categories from '@/components/cursos/Categories'
-import { getCursosPageInfo } from '@/services'
+import { getCursosPageInfo } from '@/services/cursos'
 
 const CoursesPage = async () => {
   const categories = await getCursosPageInfo()
   return (
     <main>
-      <Header categories={categories} />
+      <Header sticky/>
       <div className={styles.ui_wrapper}>
         <div id="Todaslascategorías"></div>
         <div className={styles.headline}>

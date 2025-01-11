@@ -1,4 +1,5 @@
 .ExploreList {
+  z-index: 10;
   position: absolute;
   top: 2rem;
   left: 1.3rem;
@@ -26,7 +27,7 @@
       overflow: auto;
       scrollbar-color: #637a9d transparent;
       scrollbar-width: thin;
-      & ul li:hover span{
+      & ul li:hover a{
         @apply bg-night-25;
       }
     }

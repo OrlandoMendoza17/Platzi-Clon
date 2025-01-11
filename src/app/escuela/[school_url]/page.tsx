@@ -1,21 +1,19 @@
 import SchoolHero from '@/components/escuela/SchoolHero'
 import SchoolSection from '@/components/escuela/SchoolSection'
-import { getSchoolsPageInfo } from '@/services'
+import { getSchoolPageInfo } from '@/services'
 import styles from '../../../styles/escuela.module.scss'
 import ChoosePlan from '@/components/Home/ChoosePlan'
 import SchoolSectionLinks from '@/components/escuela/SchoolSectionsLinks'
 import Header from '@/components/widgets/Header'
 
 type Props = {
-  params: {
-    school_url: string,
-  }
+  params: Promise<{ school_url: string }>
 }
 
 const SchoolsPage = async ({ params }: Props) => {
   const { school_url } = await params
 
-  const school = await getSchoolsPageInfo(school_url)
+  const school = await getSchoolPageInfo(school_url)
 
   const { schoolSections } = school
 
@@ -23,7 +21,7 @@ const SchoolsPage = async ({ params }: Props) => {
 
   return (
     <main>
-      <Header categories={[]} />
+      <Header />
       <SchoolHero school={school} />
       <div className={styles.ui_wrapper}>
         <SchoolSectionLinks {...{ schoolSections }} />

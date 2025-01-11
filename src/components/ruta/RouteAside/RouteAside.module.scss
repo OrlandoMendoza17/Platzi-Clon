@@ -1,0 +1,115 @@
+.RouteAside {
+  @apply md:mt-20 mb-4 rounded-12 border border-night-37;
+  z-index: 1;
+  
+  top: 1rem;
+  align-self: start;
+  overflow: hidden;
+
+  @screen md {
+    position: sticky;
+  }
+  
+  &__headline {
+    @apply py-3 px-4;
+
+    h2 {
+      @apply mt-0 mb-2;
+      font-weight: 600;
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+    }
+
+    figure {
+      width: 20px;
+      height: 20px;
+    }
+
+    p {
+      @apply text-mist-65;
+      font-weight: 400;
+      font-size: .875rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  &__courses {
+    display: grid;
+    gap: .75rem;
+
+    figure {
+      @apply border border-mist-65;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+
+      svg {
+        height: 12px;
+      }
+    }
+
+    p {
+      @apply text-mist-96;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  &__courses {
+    @apply py-3 px-4 text-mist-96 border-y border-night-37 bg-primary-night;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: .75rem;
+
+    figure {
+      @apply border border-mist-65 text-mist-82;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 38px;
+      height: 38px;
+
+      border-radius: 50%;
+    }
+  }
+
+  &__professors {
+    @apply text-mist-65 mb-3;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: .08rem;
+    text-transform: uppercase;
+  }
+
+  &__professorLink {
+    @apply mb-3 hover:text-mist-82;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: .75rem;
+
+    figure {
+      position: relative;
+      overflow: hidden;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        object-fit: cover;
+      }
+    }
+  }
+
+}
