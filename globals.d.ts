@@ -8,7 +8,11 @@ declare global {
   type Routes = Database["public"]["Tables"]["routes"]["Row"]
   type RoutesModules = Database["public"]["Tables"]["routeModules"]["Row"]
   type Routes_Courses = Database["public"]["Tables"]["routes_courses"]["Row"]
-  type Courses = Database["public"]["Tables"]["courses"]["Row"]
+  type Course = Database["public"]["Tables"]["courses"]["Row"]
+  type CourseSection = Database["public"]["Tables"]["courseSections"]["Row"]
   type CourseClass = Database["public"]["Tables"]["courseClasses"]["Row"]
+  type CourseProject = Database["public"]["Tables"]["courseProject"]["Row"]
+  type CourseRelatedRoute = Database["public"]["Tables"]["courseRelated_routes"]["Row"]
+  type CourseOpinion = Database["public"]["Tables"]["courseOpinions"]["Row"]
   type Professor = Database["public"]["Tables"]["professors"]["Row"]
 }

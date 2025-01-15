@@ -1,0 +1,136 @@
+.CourseRelatedRoute {
+  // Desarrollo e Ingeniería
+  &__category_5 {
+    --category-background-color: #182320;
+    --category-background-gradient: #36863b;
+    --category-border-color: #23482a;
+    --category-color: #b1d6b1;
+  }
+  
+  // Diseño y UX
+  &__category_6 {
+    --category-background-color: #212030;
+    --category-background-gradient: #8364c6;
+    --category-border-color: #463a69;
+    --category-color: #d2c6f7;
+  }
+  
+  // Marketing
+  &__category_7 {
+    --category-background-color: #17232d;
+    --category-background-gradient: #2f7da5;
+    --category-border-color: #20455a;
+    --category-color: #acd2e8;
+  }
+  
+  // Negocios y Emprendimiento
+  &__category_8 {
+    --category-background-color: #25221c;
+    --category-background-gradient: #af7e18;
+    --category-border-color: #5a451b;
+    --category-color: #f5d08e;
+  }
+  
+  // Contenido Digital
+  &__category_10 {
+    --category-background-color: #25201d;
+    --category-background-gradient: #a86724;
+    --category-border-color: #563920;
+    --category-color: #fbc898;
+  }
+  
+  // Liderazgo
+  &__category_11 {
+    --category-background-color: #291d22;
+    --category-background-gradient: #c84d4f;
+    --category-border-color: #652f33;
+    --category-color: #fdbdba;
+  }
+  
+  // Startups
+  &__category_16 {
+    --category-background-color: #172327;
+    --category-background-gradient: #328276;
+    --category-border-color: #214745;
+    --category-color: #b0d4cd;  
+  }
+  
+  // Inglés
+  &__category_17 {
+    --category-background-color: #281d2b;
+    --category-background-gradient: #bc4d91;
+    --category-border-color: #602f51;
+    --category-color: #ecc1d8;
+  }
+  
+  @apply p-4 bg-neutral-010 rounded-12;
+  
+  overflow: hidden;
+  min-width: 288px;
+  width: 100%;
+  height: 313px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+  
+  &__header {
+    @apply flex items-center gap-2;
+    figure {
+      margin-right: -15px;
+      
+      img {
+        @apply border-2 border-transparent;
+        width: 30px;
+        height: 30px;
+      }
+      
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    span {
+      color: var(--category-color, #fff) !important;
+    }
+  }
+  
+  &__tag {
+    @apply text-body-md;
+    color: var(--category-color, #fff) !important;
+    border: 1px solid var(--category-border-color, #fff) !important;
+    border-radius: .375rem;
+    font-weight: 400;
+    padding: .125rem .5rem;
+    text-decoration: none;
+    text-transform: none;
+  }
+  
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    
+    h3 {
+      @apply text-title-lg font-medium;
+      color: var(--category-color, #fff);
+    }
+    
+    p{
+      @apply text-body-md;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: 100px;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
+  }
+  
+  &__link {
+    @apply text-body-md;
+    margin-top: auto;
+    justify-self: start;
+    border-bottom: 1px solid #fff;
+  }
+}

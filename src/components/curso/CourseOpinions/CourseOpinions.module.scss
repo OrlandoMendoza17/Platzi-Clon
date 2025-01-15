@@ -1,0 +1,30 @@
+.CourseOpinions{
+  @apply mt-6;
+  
+  &__head {
+    @apply mt-4;
+    display: flex;
+    align-items: center;
+    svg{
+      width: 32px;
+      height: 32px;
+    }
+    span{
+      @apply text-headline-sm md:text-headline-lg font-medium;
+    }
+  }
+  
+  &__container {
+    margin-bottom: 1rem;
+    display: grid;
+    gap: 1rem;
+    
+    @screen md{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  &__link {
+    @apply text-body-lg underline;
+  }
+}

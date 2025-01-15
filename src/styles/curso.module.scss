@@ -1,0 +1,56 @@
+.Course {
+  @apply mx-auto;
+  padding: 1rem;
+  padding-bottom: 8.75rem;
+  max-width: 1200px;
+  
+  &__backgroundImage {
+    position: absolute;
+    width: auto;
+    height: auto;
+    mix-blend-mode: screen;
+    top: -142px;
+    left: 0;
+    max-width: 100%;
+    aspect-ratio: 417.088 / 235.648;
+    filter: blur(60px);
+    pointer-events: none;
+    left: 10%;
+    
+    @screen md {
+      left: 10%;
+      max-width: 574px;
+    }
+    
+    @screen lg {
+      left: 30%;
+    }
+  }
+  
+  @screen md {
+    padding: 2rem;
+  }
+  
+  @media screen and (min-width: 1200px){
+    padding: 2rem 2.5rem;
+  }
+  
+  &__container {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+    
+    @screen lg {
+      grid-template-columns: 1fr 392px;
+      gap: 2rem;
+      row-gap: 2rem;
+    }
+    
+    @media screen and (min-width: 1440px){
+      gap: 4rem;
+      row-gap: 1.5rem;
+    }
+  }
+  
+
+}

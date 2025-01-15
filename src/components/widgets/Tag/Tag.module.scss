@@ -1,0 +1,22 @@
+.Tag {
+  @apply text-minty-080 text-label-sm border border-minty-040;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  font-weight: 400;
+  text-transform: none;
+  text-decoration: none;
+  border-radius: .375rem;
+  padding: .125rem .5rem;
+  
+  svg {
+    @apply fill-minty-040;
+    width: 15.6px;
+    height: 15.6px;
+    
+    path {
+      @apply fill-minty-040;
+    }
+  }
+}

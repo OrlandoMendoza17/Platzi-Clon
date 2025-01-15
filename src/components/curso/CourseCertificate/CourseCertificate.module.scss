@@ -1,0 +1,33 @@
+.CourseCertificate {
+  @apply py-6;
+  
+  display: grid;
+  gap: 3rem;
+  
+  @screen lg {
+    gap: 2rem;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: 1fr auto;
+  }
+  
+  &__container {
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    
+    h2 {
+      @apply text-headline-sm lg:text-headline-lg font-medium;
+    }
+    p{
+      @apply text-body-md text-neutral-080;
+    }
+  }
+  @screen lg {
+    figure { 
+      width: 288px;
+      max-width: 288px;
+    }
+  }
+}

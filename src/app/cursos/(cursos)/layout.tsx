@@ -1,4 +1,4 @@
-import styles from '../../styles/cursos.module.scss'
+import styles from '../../../styles/cursos.module.scss'
 import { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 

@@ -1,0 +1,16 @@
+.CourseRoutes {
+  @apply mt-6;
+  
+  h2 {
+    @apply mt-4 text-headline-sm md:text-headline-lg font-medium;
+  }
+  
+  &__container {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    overflow-x: scroll;
+    
+    display: flex;
+    gap: 1rem;
+  }
+}

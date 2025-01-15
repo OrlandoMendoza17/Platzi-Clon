@@ -1,14 +1,14 @@
 import RouteSection from '@/components/cursos/RouteSection'
 import supabase from '@/supabase'
 import { PostgrestError } from '@supabase/supabase-js'
-import styles from '../../styles/cursos.module.scss'
+import styles from '../../../styles/cursos.module.scss'
 import Header from '@/components/widgets/Header'
 import Filter from '@/components/cursos/Filter'
 import Categories from '@/components/cursos/Categories'
-import { getCursosPageInfo } from '@/services/cursos'
+import { getCoursesPageInfo } from '@/services/cursos'
 
 const CoursesPage = async () => {
-  const categories = await getCursosPageInfo()
+  const categories = await getCoursesPageInfo()
   return (
     <main>
       <Header sticky/>

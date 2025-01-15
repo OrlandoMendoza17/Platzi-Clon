@@ -47,9 +47,11 @@ const LandingHeader = () => {
   return (
     <header className={styles.LandingHeader}>
       <nav className="">
-        <figure>
-          <img className={styles.LandingHeader__logo} src="/images/platzi.svg" alt="" />
-        </figure>
+        <Link href="/">
+          <figure>
+            <img className={styles.LandingHeader__logo} src="/images/platzi.svg" alt="" />
+          </figure>
+        </Link>
         <ul>
           {
             links.map(({ label, url, children, inApp }, index) =>

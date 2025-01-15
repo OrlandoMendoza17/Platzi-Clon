@@ -1,5 +1,6 @@
 import { CoursesShortData } from "@/schemas/ruta"
 import styles from './RouteCourse.module.scss'
+import Link from "next/link"
 
 type Props = {
   course: CoursesShortData,
@@ -7,7 +8,7 @@ type Props = {
 
 const RouteCourse = ({ course }: Props) => {
   return (
-    <div className={styles.RouteCourse}>
+    <Link href={course.landing_url || ""} className={styles.RouteCourse}>
       <figure>
         <img src={course.badge_url as string} alt="" />
       </figure>
@@ -17,7 +18,7 @@ const RouteCourse = ({ course }: Props) => {
         </h3>
         <p>{course.duration} de contenido {course.practice_time} de práctica</p>
       </div>
-    </div>
+    </Link>
   )
 }
 

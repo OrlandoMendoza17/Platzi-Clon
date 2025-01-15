@@ -21,7 +21,8 @@
   
   .teachers{
     @apply mt-6 px-6;
-    overflow: hidden;
+    overflow: scroll;
+    scrollbar-width: none;
     
     display: grid;
     grid-template-columns: repeat(4, 306px);

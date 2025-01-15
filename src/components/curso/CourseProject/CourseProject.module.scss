@@ -1,0 +1,31 @@
+.CourseProject{
+  h2 {
+    @apply mb-4 text-overline-md text-neutral-060;
+    text-transform: uppercase;
+  }
+  &__container {
+    @apply p-4 bg-neutral-010 rounded-12;
+    display: grid;
+    gap: 1rem;
+    
+    @screen lg {
+      grid-template-columns: minmax(auto, 253px) 1fr;
+      figure img {
+        max-width: 8.75rem;
+      }
+    }
+    
+    
+    h3 {
+      @apply text-title-lg font-medium;
+    }
+    
+    p {
+      @apply text-title-sm text-neutral-080;
+    }
+    
+    a {
+      @apply text-body-sm underline;
+    }
+  }
+}

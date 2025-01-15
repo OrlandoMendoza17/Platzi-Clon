@@ -1,5 +1,6 @@
 import { CourseShortData } from '@/schemas/cursos'
 import styles from './CourseLink.module.scss'
+import Link from 'next/link'
 
 type Props = {
   course: CourseShortData,
@@ -7,10 +8,14 @@ type Props = {
 
 const CourseLink = ({ course }: Props) => {
   
-  const { title, badge_url, professor, first_class } = course
+  const { title, badge_url, professor, first_class, landing_url } = course
   
   return (
-    <a href={`https://platzi.com${first_class as string}`} className={styles.CourseLink}>
+    <Link
+      className={styles.CourseLink}
+      href={landing_url || ""} 
+      // href={`https://platzi.com${first_class as string}`} 
+    >
       <figure>
         <img src={badge_url as string} alt="" />
       </figure>
@@ -18,7 +23,7 @@ const CourseLink = ({ course }: Props) => {
         <h4>{title}</h4>
         <p>Por {professor}</p>
       </div>
-    </a>
+    </Link>
   )
 }
 

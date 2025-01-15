@@ -1,0 +1,123 @@
+.CourseInfo {
+  display: grid;
+  gap: 1.25rem;
+
+  &__head {
+    display: grid;
+    gap: .5rem;
+
+    h1 {
+      font-weight: 500;
+      font-size: 2.25rem;
+      letter-spacing: -.008rem;
+      text-transform: none;
+      text-decoration: none;
+      line-height: 2.75rem;
+
+      @screen lg {
+        font-weight: 500;
+        font-size: 2.5rem;
+        letter-spacing: -.008rem;
+        text-transform: none;
+        text-decoration: none;
+        line-height: 3rem;
+      }
+    }
+    
+    &__metrics { 
+      color: #fff;
+      font-weight: 500;
+      font-size: .875rem;
+      letter-spacing: .019rem;
+      text-transform: none;
+      text-decoration: none;
+      line-height: 1.25rem;
+      opacity: .88;
+      
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      
+      svg {
+        margin-right: 2px;
+      }
+    }
+
+    &__opinions {
+      display: flex;
+      align-items: center;
+      gap: .125rem;
+      cursor: pointer;
+      
+      span {
+        border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+        color: #fff;
+        font-weight: 400;
+        font-size: .75rem;
+        letter-spacing: .019rem;
+        text-transform: none;
+        text-decoration: none;
+        line-height: 1.125rem;
+        opacity: .88;
+      }
+    }
+
+    p {
+      @apply text-neutral-060;
+      font-weight: 400;
+      font-size: .75rem;
+      letter-spacing: .019rem;
+      line-height: 1.125rem;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+
+    &__item {
+      @apply text-neutral-080;
+      border-radius: .25rem;
+      border: 1px solid #ffffff33;
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      padding: 1px .25rem;
+      
+      font-weight: 400;
+      font-size: .75rem;
+      letter-spacing: .019rem;
+      text-transform: none;
+      text-decoration: none;
+      line-height: 1.125rem;
+      
+      @screen lg {
+        font-size: .875rem;
+        letter-spacing: .019rem;
+        line-height: 1.25rem;
+      }
+    }
+  }
+  
+  &__description {
+    @apply text-neutral-080;
+    
+    font-weight: 400;
+    font-size: .75rem;
+    line-height: 1.125rem;
+    letter-spacing: .019rem;
+    text-transform: none;
+    text-decoration: none;
+    
+    @screen lg {
+      font-size: .875rem;
+      line-height: 1.25rem;
+    }
+  }
+  
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}

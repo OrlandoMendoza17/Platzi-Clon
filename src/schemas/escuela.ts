@@ -1,4 +1,4 @@
-export type CoursesData = Pick<Courses, "title" | "badge_url" | "duration">
+export type CoursesData = Pick<Course, "title" | "badge_url" | "duration">
 
 export type RoutesData = Pick<Routes, "title" | "description" | "landing_url"> & {
   courses: CoursesData[]

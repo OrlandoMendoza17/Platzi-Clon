@@ -1,0 +1,95 @@
+.CourseClass {
+  padding-left: 20px;
+  position: relative;
+  
+  &::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 2px;
+    height: 100%;
+    background-color: #2d323a;
+    top: -50%;
+    left: -1px;
+    z-index: 0;
+  }
+  
+  a {
+    padding: .5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: .75rem;
+    border-radius: .5rem;
+    
+    &:hover {
+      background-color: #ffffff0d;
+    }
+    
+    figure {
+      @apply bg-neutral-020;
+      
+      border-radius: .5rem;
+      overflow: hidden;
+      position: relative;
+      width: 48px;
+      height: 48px;
+      
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    
+    h3 {
+      @apply text-neutral-080;
+      font-weight: 400;
+      font-size: .875rem;
+      letter-spacing: -.008rem;
+      text-transform: none;
+      text-decoration: none;
+      line-height: 1.125rem;
+      margin-bottom: .125rem;
+      
+      @screen lg {
+        font-size: 1rem;
+        line-height: 1.375rem;
+      }
+    }
+    
+    span {
+      @apply text-neutral-060;
+      font-style: normal;
+      font-weight: 400;
+      font-size: .75rem;
+      line-height: 1.125rem;
+      letter-spacing: .3px;
+    }
+  }
+  
+  &__number {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    
+    font-weight: 500;
+    letter-spacing: -.008rem;
+    
+    font-size: 12px;
+    line-height: 20px;
+    left: -12px;
+    top: calc(50% - (24px / 2));
+    background-color: #404650;
+    color: #c4c8ce;
+    border: 2px solid #2d323a;
+    z-index: 1;
+  }
+}

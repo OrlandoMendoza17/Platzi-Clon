@@ -23,6 +23,7 @@ export const GET = async (request: Request) => {
               title,
               badge_url,
               first_class,
+              landing_url,
               professor
             )
           ),
@@ -31,6 +32,7 @@ export const GET = async (request: Request) => {
             title,
             badge_url,
             first_class,
+            landing_url,
             professor
           )
         )

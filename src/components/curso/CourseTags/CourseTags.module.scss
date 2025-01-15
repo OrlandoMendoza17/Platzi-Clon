@@ -1,0 +1,23 @@
+.CourseTags {
+  &:first-of-type {
+    @apply mb-6;
+  }
+  
+  h2{
+    @apply mb-4 text-overline-md text-neutral-060;
+    text-transform: uppercase;
+  }
+  
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    
+    li{
+      @apply text-body-md text-neutral-080 border;
+      border-radius: .375rem;
+      padding: .125rem .5rem;
+      border-color: #ffffff33;
+    }
+  }
+}

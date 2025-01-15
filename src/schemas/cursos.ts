@@ -1,4 +1,4 @@
-export type CourseShortData =  Pick<Courses, "id" | "title" | "badge_url" | "first_class" | "professor">
+export type CourseShortData =  Pick<Course, "id" | "title" | "badge_url" | "first_class" | "professor" | "landing_url">
 
 export type RouteData = Routes & {
   courses: CourseShortData[]

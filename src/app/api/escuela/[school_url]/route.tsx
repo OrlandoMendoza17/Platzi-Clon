@@ -3,11 +3,11 @@ type ParamsProps = {
   params: Promise<{ school_url: string }>
 }
 export const GET = async (request: Request, { params }: ParamsProps) => {
-  const { school_url } = await params
-
-  const landing_url = `/escuela/${school_url}/`
-
   try {
+    const { school_url } = await params
+
+    const landing_url = `/escuela/${school_url}/`
+
     let { data: schools, error } = await supabase
       .from('schools')
       .select(`

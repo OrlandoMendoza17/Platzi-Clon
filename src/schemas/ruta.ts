@@ -1,6 +1,6 @@
 export type ProfessorData = Pick<Professor, "name" | "image" | "link">
 
-export type CoursesShortData = Pick<Courses, "id" | "title" | "badge_url" | "duration" | "practice_time" | "landing_url" | "professor"> & {
+export type CoursesShortData = Pick<Course, "id" | "title" | "badge_url" | "duration" | "practice_time" | "landing_url" | "professor"> & {
   professors: ProfessorData
 }
 

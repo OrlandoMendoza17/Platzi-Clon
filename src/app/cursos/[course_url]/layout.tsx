@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import { IBM_Plex_Sans, Roboto } from 'next/font/google';
 
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700", "900"],
+const ibmPlexSans = IBM_Plex_Sans({
+  weight: ["300", "400", "500", "600", "700"],
   style: "normal",
   subsets: ["latin"]
 });
+
 
 export const metadata: Metadata = {
   title: "Cursos online para trabajar en tecnología",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 const CoursesLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => {
   return (
-    <body className={`${roboto.className} bg-night-12 text-white`}>
+    <body className={`${ibmPlexSans.className} bg-neutral-005 text-white`}>
       {children}
     </body>
   )
