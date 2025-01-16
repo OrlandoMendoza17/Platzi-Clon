@@ -1,5 +1,5 @@
 import { getRoutePageInfo } from '@/services'
-import ChoosePlan from '@/components/Home/ChoosePlan'
+import ChoosePlan from '@/components/(Home)/ChoosePlan'
 import Header from '@/components/widgets/Header'
 import styles from '../../../styles/ruta.module.scss'
 import RouteHero from '@/components/ruta/RouteHero'

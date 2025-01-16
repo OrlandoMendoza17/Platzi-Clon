@@ -1,5 +1,5 @@
 import { getCourse } from "@/services/cursos"
-import LandingHeader from "@/components/Home/LandingHeader"
+import LandingHeader from "@/components/(Home)/LandingHeader"
 import CourseInfo from "@/components/curso/CourseInfo"
 import CourseSection from "@/components/curso/CourseSection"
 import CourseProfessor from "@/components/curso/CourseProfessor"

@@ -1,4 +1,4 @@
-import LandingHeader from "@/components/Home/LandingHeader";
+import LandingHeader from "@/components/(Home)/LandingHeader";
 import type { Metadata } from "next";
 import styles from "../../styles/Home.module.scss"
 import { IBM_Plex_Sans } from "next/font/google";
