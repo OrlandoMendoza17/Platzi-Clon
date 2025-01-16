@@ -1,7 +1,9 @@
 import supabase from "@/supabase"
+
 type ParamsProps = {
   params: Promise<{ school_url: string }>
 }
+
 export const GET = async (request: Request, { params }: ParamsProps) => {
   try {
     const { school_url } = await params

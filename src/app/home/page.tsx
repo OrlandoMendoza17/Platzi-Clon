@@ -4,17 +4,25 @@ import AllSchool from "@/components/icons/AllSchool";
 import { useEffect, useState } from "react";
 import styles from '../../styles/home.module.scss'
 import stylesFilter from '../../components/home/SchoolFilter/SchoolFilter.module.scss'
+import { getSchoolFilters } from "@/services/home";
+import { SchoolData } from "@/schemas/home";
+import SchoolSection from "@/components/escuela/SchoolSection";
 
 const HomePage = () => {
 
+  const [schools, setSchools] = useState<SchoolData>([])
   const [selectedSchool, setSelectedSchool] = useState([])
-  // const [schools, setSchools] = useState([])
+
+  const [selectedSchool, setSelectedSchool] = useState([])
 
   useEffect(() => {
-
+    (async ()=> {
+      const schools = await getSchoolFilters()
+      setSchools(schools)
+    })()
   }, [])
 
-  const schools = [
+  const schoolsData = [
     {
       "badge_url": "https://static.platzi.com/media/learningpath/badges/58c8b016-00c0-4852-99fc-f5203fe748ff.jpg",
       "title": "Programación y Software"
@@ -109,12 +117,13 @@ const HomePage = () => {
             </button>
           </li>
           {
-            schools.map((school, index) =>
+            schoolsData.map((school, index) =>
               <SchoolFilter key={index} school={school} />
             )
           }
         </ul>
       </div>
+      <SchoolSection/>
     </main>
   )
 }
