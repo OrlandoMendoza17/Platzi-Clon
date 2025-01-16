@@ -1,0 +1,27 @@
+.Search {
+  &__ui_wrapper {
+    @apply mx-auto px-2;
+    max-width: 920px;
+  }
+  
+  &__text{
+    @apply text-mist-65;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1rem;
+    
+    @screen md {
+      @apply text-mist-96;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 2.25rem;
+    }
+  }
+  
+  &__title{
+    @apply text-mist-96;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+  }
+}

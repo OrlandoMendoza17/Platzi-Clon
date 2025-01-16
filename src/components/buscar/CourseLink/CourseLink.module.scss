@@ -1,0 +1,85 @@
+.CourseLink {
+  @apply p-3 mb-3 bg-primary-night md:bg-transparent border border-night-25 rounded-12;
+  display: grid; 
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "title title" 
+                       "image description";
+  
+  row-gap: .75rem;
+  column-gap: 1.25rem;
+  
+  @screen md {
+    grid-template-areas: "image title" 
+                         "image description";
+    row-gap: 0;
+  }
+  
+  &__firstClass  {
+    @apply rounded-4;
+    position: relative;
+    overflow: hidden;
+    grid-area: image;
+    
+    align-self: center;
+    
+    width: 100px;
+    height: 56px;
+    
+    @screen md {
+      width: 190px;
+      height: 120px;
+    }
+    
+    
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  &__title{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .5rem;
+    grid-area: title;
+    
+    img{
+      @apply my-auto;
+      width: 24px;
+      height: 24px;
+    }
+    
+    h2 {
+      @screen lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+      }
+    }
+  }
+  
+  &__description {
+    grid-area: description;
+    p{
+      @apply md:mt-3 md:mb-4 text-mist-82;
+      line-height: 20px;
+      
+      @screen md {
+        font-size: 1rem;
+        letter-spacing: .25px;
+        line-height: 1.375rem;
+      }
+    }
+    span {
+      @apply text-mist-65 hidden md:block;
+      font-size: .875rem;
+      letter-spacing: .0156rem;
+      line-height: 1.375rem;
+    }
+  }
+  
+  
+}
