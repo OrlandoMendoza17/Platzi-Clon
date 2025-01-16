@@ -1,0 +1,42 @@
+.SchoolFilter {
+  button {
+    width: 80px;
+    display: grid;
+    justify-items: center;
+    gap: .25rem;
+    
+    .iconContainer  {
+      @apply bg-gray-800 rounded-full;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      
+      img {
+        margin-top: 1px;
+        width: 32px;
+        height: 32px;
+      }
+    }
+    
+    svg {
+      margin-bottom: 2px;
+      width: 28px;
+      height: 28px;
+    }
+    
+    .title {
+      height: 2.25rem;
+      display: flex;
+      align-items: center;
+      span {
+        @apply text-body-sm text-neutral-080;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}
