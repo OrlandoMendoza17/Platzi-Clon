@@ -6,11 +6,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 html{
   // font-size: 62.5%;
   scroll-behavior: smooth;
+}
+
+html, body {
+  scrollbar-width: thin;
+  scrollbar-color: #2d323a #1e2229;
 }
 
 :root {

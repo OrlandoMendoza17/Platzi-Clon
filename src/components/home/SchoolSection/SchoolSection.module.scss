@@ -1,13 +1,45 @@
 .SchoolSection {
-  &__title{
+  &__title {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+
     h3 {
+      @apply text-overline-md font-normal uppercase text-neutral-060;
       
+      @screen md {
+        @apply text-overline-lg;
+      }
+    }
+
+    hr {
+      @apply border-neutral-020;
+      width: 100%;
     }
   }
-  
+
   &__route {
-    h3 {
-      
+
+    &__title {
+      @apply pt-4 text-title-md font-medium;
+      letter-spacing: .16px;
+      @screen md {
+        @apply text-title-lg;
+        letter-spacing: .16px
+      }
+    }
+    
+    &__courses {
+      @apply pt-5 pb-10;
+      // height: 316px;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 288px;
+      gap: 1rem;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scrollbar-width: none;
     }
   }
 }

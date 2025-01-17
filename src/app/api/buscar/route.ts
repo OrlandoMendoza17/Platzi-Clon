@@ -37,9 +37,10 @@ export const GET = async (request: NextRequest) => {
 
       const formattedCourses = courses.map(({ courseSections, ...rest }) => {
         const firstImage = courseSections[0]?.courseClasses[0]?.image
-        const secondImage = courseSections[1]?.courseClasses[0]?.image
+        const secondImage = courseSections[0]?.courseClasses[1]?.image
+        const thirdImage = courseSections[1]?.courseClasses[0]?.image
 
-        let firstClassImage = firstImage ? firstImage : secondImage
+        let firstClassImage = firstImage ? firstImage : (secondImage ? secondImage : thirdImage)
 
         return {
           ...rest,

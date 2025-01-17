@@ -5,18 +5,19 @@ import { useEffect, useState } from "react";
 import styles from '../../styles/home.module.scss'
 import stylesFilter from '../../components/home/SchoolFilter/SchoolFilter.module.scss'
 import { getSchoolFilters } from "@/services/home";
-import { SchoolData } from "@/schemas/home";
-import SchoolSection from "@/components/escuela/SchoolSection";
+import { SchoolData, SchoolSectionsData } from "@/schemas/home";
+import SchoolSection from "@/components/home/SchoolSection";
+import LoggedHeader from "@/components/widgets/LoggedHeader";
 
 const HomePage = () => {
 
-  const [schools, setSchools] = useState<SchoolData>([])
-  const [selectedSchool, setSelectedSchool] = useState([])
+  const [schools, setSchools] = useState<SchoolData[]>([])
+  const [selectedSchool, setSelectedSchool] = useState<SchoolData | null>(null)
 
-  const [selectedSchool, setSelectedSchool] = useState([])
+  const [schoolSections, setSchoolSections] = useState<SchoolSectionsData[] | null>(null)
 
   useEffect(() => {
-    (async ()=> {
+    (async () => {
       const schools = await getSchoolFilters()
       setSchools(schools)
     })()
@@ -102,29 +103,40 @@ const HomePage = () => {
   ]
 
   return (
-    <main className={styles.Home}>
-      <h2>Descubre las escuelas</h2>
-      <div>
-        <ul className={styles.Home__schoolFilters}>
-          <li className={stylesFilter.SchoolFilter}>
-            <button>
-              <div className={stylesFilter.iconContainer} >
-                <AllSchool />
-              </div>
-              <div className={stylesFilter.title} >
-                <span>Todo</span>
-              </div>
-            </button>
-          </li>
+    <LoggedHeader>
+      <main className={styles.Home}>
+        <div className={styles.Home__container}>
+          <h2>Descubre las escuelas</h2>
+          <ul className={styles.Home__schoolFilters}>
+            <li className={stylesFilter.SchoolFilter}>
+              <button>
+                <div className={stylesFilter.iconContainer} >
+                  <AllSchool />
+                </div>
+                <div className={stylesFilter.title} >
+                  <span>Todo</span>
+                </div>
+              </button>
+            </li>
+            {
+              schools.map((school, index) =>
+                <SchoolFilter
+                  key={index}
+                  school={school}
+                  setSchoolSections={setSchoolSections}
+                />
+              )
+            }
+          </ul>
           {
-            schoolsData.map((school, index) =>
-              <SchoolFilter key={index} school={school} />
+            schoolSections &&
+            schoolSections.map((section, index) =>
+              <SchoolSection key={index} section={section} />
             )
           }
-        </ul>
-      </div>
-      <SchoolSection/>
-    </main>
+        </div>
+      </main>
+    </LoggedHeader>
   )
 }
 

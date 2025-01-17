@@ -1,0 +1,62 @@
+.CourseItem {
+  align-self: self-start;  
+  
+  figure {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    width: 260px;
+    height: 151px;
+    
+    @screen md{
+      width: 288px;
+      height: 168px;
+    }
+    
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  &__title {
+    @apply pt-4;
+    display: flex;
+    gap: .75rem;
+    
+    img {
+      width: 32px;
+      height: 32px;
+    }
+    
+    h4 {
+      @apply text-title-sm font-medium text-neutral-080;
+      letter-spacing: .16px;
+      
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      
+      @screen md {
+        @apply text-title-md;
+        letter-spacing: .16px;
+      }
+    }
+    
+    span {
+      @apply text-body-sm text-neutral-060;
+      letter-spacing: .16px;
+      
+      @screen md {
+        @apply text-body-md;
+        letter-spacing: .16px;
+      }
+    }
+  }
+}

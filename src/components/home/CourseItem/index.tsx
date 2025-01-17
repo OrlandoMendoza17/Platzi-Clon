@@ -1,25 +1,26 @@
 import { CourseData } from '@/schemas/home'
 import styles from './CourseItem.module.scss'
+import Link from 'next/link'
 
 type Props = {
   course: CourseData,
 }
 
 const CourseItem = ({ course }: Props) => {
-  const {title, professor, badge_url} = course
+  const { title, professor, badge_url, landing_url, firstClassImage } = course
   return (
-    <div className={styles.CourseItem}>
+    <Link href={landing_url as string} className={styles.CourseItem}>
       <figure>
-        <img src="https://thumbs.cdn.mdstrm.com/thumbs/512e13acaca1ebcd2f000279/thumb_620aa2e45a343b277e4a6fb7_620aa2e45a343b277e4a6fc3_21s.jpg" alt="" />
+        <img src={firstClassImage as string} alt="" />
       </figure>
-      <div>
+      <div className={styles.CourseItem__title}>
         <img src={badge_url as string} alt="" />
         <div>
           <h4>{title}</h4>
-          <p>Por {professor}</p>
+          <span>Por {professor}</span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
