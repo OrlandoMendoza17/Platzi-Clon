@@ -6,6 +6,7 @@ import { CategoryHeaderData } from "@/schemas/header"
 import { getCategoriesInfo } from "@/services"
 import styles from './Header.module.scss'
 import ExploreList from "./ExploreList"
+import InputSearch from "./InputSearch"
 
 type Props = {
   sticky?: boolean,
@@ -14,7 +15,6 @@ type Props = {
 const Header = async ({ sticky }: Props) => {
 
   const categories = await getCategoriesInfo()
-  console.log('categories', categories)
 
   const links = [
     {
@@ -72,9 +72,10 @@ const Header = async ({ sticky }: Props) => {
           </figure>
         </Link>
         <ExploreList categories={categories} />
-        <div className={styles.input_search}>
+        <InputSearch />
+        {/* <div className={styles.input_search}>
           <input type="text" name="" id="" />
-        </div>
+        </div> */}
         <ul className="justify-self-end">
           {
             links.map(({ label, url, children, inApp }, index) =>

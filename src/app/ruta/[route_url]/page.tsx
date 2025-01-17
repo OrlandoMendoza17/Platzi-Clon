@@ -15,7 +15,7 @@ const RoutePage = async ({ params }: Props) => {
 
   const { route_url } = await params
 
-  console.log('route_url', route_url)
+  // console.log('route_url', route_url)
 
   const route = await getRoutePageInfo(route_url)
   const courses = route.routeModules.map(({ courses }) => courses).flat()
@@ -24,7 +24,7 @@ const RoutePage = async ({ params }: Props) => {
 
   const first_class = await getFirstClass(firstCourse.id)
 
-  console.log('first_class', first_class)
+  // console.log('first_class', first_class)
 
   return (
     <main>

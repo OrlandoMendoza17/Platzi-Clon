@@ -6,19 +6,19 @@ type Props = {
   professor: Professor,
 }
 
-const CourseProfessor = ({professor}: Props) => {
+const CourseProfessor = ({ professor }: Props) => {
   const { name, description, image, link } = professor
-  console.log('professor', professor)
+
   const firstName = name?.split(" ")[0]
   let details = ""
-  if(professor.details){
+  if (professor.details) {
     details = professor.details.replaceAll("\n", "<br/>")
   }
   return (
     <section className={styles.CourseProfessor}>
-      <Tag Icon={Teachers} text="Profes del curso"/>
+      <Tag Icon={Teachers} text="Profes del curso" />
       <h2>Conoce quién enseña en el curso</h2>
-      <div  className={styles.CourseProfessor__container}>
+      <div className={styles.CourseProfessor__container}>
         <figure>
           <img src={image as string} alt="" />
         </figure>
@@ -29,7 +29,7 @@ const CourseProfessor = ({professor}: Props) => {
           <p className={styles.CourseProfessor__description}>
             {description}
           </p>
-          <p className={styles.CourseProfessor__details}  dangerouslySetInnerHTML={{__html: details}}>
+          <p className={styles.CourseProfessor__details} dangerouslySetInnerHTML={{ __html: details }}>
           </p>
           <a className={styles.CourseProfessor__link} href={link as string}>
             Ver cursos de {firstName}

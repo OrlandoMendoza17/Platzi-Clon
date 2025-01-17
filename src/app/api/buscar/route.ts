@@ -1,64 +1,35 @@
 import supabase from "@/supabase"
 import { PostgrestError } from "@supabase/supabase-js"
 import { NextRequest } from "next/server"
+import SearchController from "../_controllers/buscar.controller"
+import { httpErrorHandler } from "../_middlewares/error.handler"
 
 export const GET = async (request: NextRequest) => {
-  const handleError = (error: PostgrestError | null) => {
-    if (error) {
-      throw new Error(String(error))
-    }
-  }
   try {
 
     const searchParams = request.nextUrl.searchParams
-    const search = searchParams.get('search')
-
-    console.log('search', search)
-
-    let { data: courses, error } = await supabase
-      .from('courses')
-      .select(`
-        title,
-        badge_url,
-        description,
-        landing_url,
-        professor,
-        courseSections (
-          courseClasses (image)
-        )
-      `)
-      .ilike("title", `%${search}%`)
-      .limit(2, { foreignTable: 'courseSections' }) // Limita a la primera sección
-      .limit(2, { foreignTable: 'courseSections.courseClasses' }); // Limita a la primera clase
-
-    handleError(error)
+    console.log('searchParams', searchParams)
+    
+    const limitQuery = searchParams.get('limit')
+    const limit = limitQuery ? parseInt(limitQuery) : null
+    
+    const searchAll = searchParams.getAll('search')
+    
+    // console.log('search', search)
+    // console.log('searchAll', searchAll)
+    
+    // console.log('search', search)
+    const searchController = new SearchController()
+    const courses = await searchController.getCoursesBy(searchAll, limit)
 
     if (courses) {
-
-      const formattedCourses = courses.map(({ courseSections, ...rest }) => {
-        const firstImage = courseSections[0]?.courseClasses[0]?.image
-        const secondImage = courseSections[0]?.courseClasses[1]?.image
-        const thirdImage = courseSections[1]?.courseClasses[0]?.image
-
-        let firstClassImage = firstImage ? firstImage : (secondImage ? secondImage : thirdImage)
-
-        return {
-          ...rest,
-          firstClassImage,
-        }
-      })
-
-      console.log('formattedCourses', formattedCourses)
-
       return Response.json({
-        courses: formattedCourses,
-        length: formattedCourses.length,
+        courses: courses,
+        length: courses.length,
       })
     }
 
   } catch (error) {
-    return new Response(JSON.stringify({}), {
-      status: 500
-    })
+    httpErrorHandler(error)
   }
 }

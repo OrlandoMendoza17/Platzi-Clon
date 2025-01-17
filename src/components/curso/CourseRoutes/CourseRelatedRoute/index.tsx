@@ -8,9 +8,10 @@ type Props = {
 }
 
 const CourseRelatedRoute = ({ school, route }: Props) => {
+  
   const { courses } = route
   const ruteDuration = courses.reduce((acummulator, current) => acummulator + (current.duration as number), 0)
-  console.log('courses', courses.length)
+  
   return (
     <Link href={route.landing_url as string}>
       <article className={`${styles.CourseRelatedRoute} ${styles[`CourseRelatedRoute__category_${school.categories.id}`]}`}>
