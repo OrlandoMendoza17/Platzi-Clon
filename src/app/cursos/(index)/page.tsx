@@ -1,7 +1,7 @@
 import RouteSection from '@/components/cursos/RouteSection'
 import supabase from '@/supabase'
 import { PostgrestError } from '@supabase/supabase-js'
-import styles from '@/styles/cursos.module.scss'
+import styles from '@/styles/cursosPage.module.scss'
 import Header from '@/components/widgets/Header'
 import Filter from '@/components/cursos/Filter'
 import Categories from '@/components/cursos/Categories'

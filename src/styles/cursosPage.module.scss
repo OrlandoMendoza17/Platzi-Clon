@@ -27,7 +27,7 @@
   h1 {
     @apply md:text-headline-sm lg:text-headline-md font-extrabold mb-2;
 
-    &+p {
+    & + p {
       @apply text-mist-82;
 
       font-weight: 400;
