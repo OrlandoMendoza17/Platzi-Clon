@@ -38,7 +38,7 @@
         align-items: center;
       }
 
-      @media screen and (min-width: 1300) {
+      @media screen and (min-width: 1300px) {
         display: block;
       }
       
@@ -63,7 +63,7 @@
         width: 320px;
       }
 
-      @media screen and (min-width: 1300) {
+      @media screen and (min-width: 1300px) {
         justify-self: end;
       }
     }
@@ -91,7 +91,7 @@
         align-items: center;
       }
 
-      @media screen and (min-width: 1300) {
+      @media screen and (min-width: 1300px) {
         display: flex;
         align-items: center;
       }
@@ -137,7 +137,7 @@
       }
     }
 
-    @media screen and (min-width: 1300) {
+    @media screen and (min-width: 1300px) {
       grid-template-areas: "logo explore search navigation action login";
       grid-template-columns: auto auto auto 1fr auto auto;
 
