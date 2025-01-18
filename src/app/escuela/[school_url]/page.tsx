@@ -1,7 +1,7 @@
 import SchoolHero from '@/components/escuela/SchoolHero'
 import SchoolSection from '@/components/escuela/SchoolSection'
 import { getSchoolPageInfo } from '@/services'
-import styles from '../../../styles/escuela.module.scss'
+import styles from '@/styles/escuela.module.scss'
 import ChoosePlan from '@/components/(Home)/ChoosePlan'
 import SchoolSectionLinks from '@/components/escuela/SchoolSectionsLinks'
 import Header from '@/components/widgets/Header'

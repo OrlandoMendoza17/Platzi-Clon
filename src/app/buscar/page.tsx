@@ -1,5 +1,5 @@
 import Header from "@/components/widgets/Header"
-import styles from '../../styles/buscar.module.scss'
+import styles from '@/styles/buscar.module.scss'
 import { searchCoursesBy } from "@/services/buscar"
 import CourseLink from "@/components/buscar/CourseLink"
 import { CourseData } from "@/schemas/buscar"

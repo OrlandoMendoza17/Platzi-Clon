@@ -1,5 +1,5 @@
 import { SchoolData } from "@/schemas/escuela"
-import stylesSchool from '../../../styles/escuela.module.scss'
+import stylesSchool from '@/styles/escuela.module.scss'
 import styles from './SchoolHero.module.scss'
 
 type Props = {

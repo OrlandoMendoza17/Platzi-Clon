@@ -9,7 +9,7 @@ import CourseTags from "@/components/curso/CourseTags"
 import CourseOpinions from "@/components/curso/CourseOpinions"
 import CourseRoutes from "@/components/curso/CourseRoutes"
 import CourseAside from "@/components/curso/CourseAside"
-import styles from '../../../styles/curso.module.scss'
+import styles from '@/styles/curso.module.scss'
 
 type Props = {
   params: Promise<{ course_url: string }>
