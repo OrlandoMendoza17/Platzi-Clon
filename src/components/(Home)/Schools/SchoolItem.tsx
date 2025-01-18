@@ -1,6 +1,7 @@
 import { CSSProperties } from "react";
 import PointerIcon from "./PointerIcon";
 import styles from "./styles/SchoolItem.module.scss"
+import Link from "next/link";
 
 export type School = {
   href: string;
@@ -29,7 +30,7 @@ const SchoolItem = ({ hiddenSchools, school: { title, href, image, color1, color
   
   return (
     <li className={`${styles.SchoolItem} ${hiddenSchools && styles.SchoolItem__hidden}`} style={style}>
-      <a href={href}>
+      <Link href={href}>
         <figure>
           <img src={image} alt="" />
         </figure>
@@ -38,7 +39,7 @@ const SchoolItem = ({ hiddenSchools, school: { title, href, image, color1, color
           <span>{title}</span>
         </p>
         <PointerIcon />
-      </a>
+      </Link>
     </li>
   )
 }

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './LandingHeader.module.scss';
 import DropDown from './DropDown';
 import Hamburger from '@/components/icons/Hamburger';
+import PlatziLogo from '@/components/icons/PlatziLogo';
 
 const LandingHeader = () => {
 
@@ -48,9 +49,7 @@ const LandingHeader = () => {
     <header className={styles.LandingHeader}>
       <nav className="">
         <Link href="/">
-          <figure>
-            <img className={styles.LandingHeader__logo} src="/images/platzi.svg" alt="" />
-          </figure>
+          <PlatziLogo />
         </Link>
         <ul>
           {
