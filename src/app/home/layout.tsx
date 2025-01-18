@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { IBM_Plex_Sans, Roboto } from 'next/font/google';
-import styles from '@/styles/home.module.scss'
+import styles from '@/styles/homePage.module.scss'
 
 const ibmPlexSans = IBM_Plex_Sans({
   weight: ["300", "400", "500", "600", "700"],

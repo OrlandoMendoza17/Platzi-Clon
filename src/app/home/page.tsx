@@ -2,7 +2,7 @@
 import SchoolFilter from "@/components/home/SchoolFilter";
 import AllSchool from "@/components/icons/AllSchool";
 import { useEffect, useState } from "react";
-import styles from '@/styles/home.module.scss'
+import styles from '@/styles/homePage.module.scss'
 import stylesFilter from '../../components/home/SchoolFilter/SchoolFilter.module.scss'
 import { getSchoolFilters } from "@/services/home";
 import { SchoolData, SchoolSectionsData } from "@/schemas/home";
