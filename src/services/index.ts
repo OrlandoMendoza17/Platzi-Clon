@@ -1,6 +1,5 @@
 import API from "./api"
 import { SchoolData } from "@/schemas/escuela";
-import { CategoryData } from "@/schemas/cursos";
 import { CategoryHeaderData } from "@/schemas/header";
 import { RouteData } from "@/schemas/ruta";
 

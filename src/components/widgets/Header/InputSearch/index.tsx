@@ -1,7 +1,7 @@
 "use client"
 import MagnifyingGlass from '@/components/icons/MagnifyingGlass'
 import styles from './InputSearch.module.scss'
-import { ChangeEventHandler, FocusEventHandler, FormEventHandler, useRef, useState } from 'react'
+import { ChangeEventHandler, FocusEventHandler, FormEventHandler, useState } from 'react'
 import { searchCoursesBy } from '@/services/buscar'
 import { CourseData } from '@/schemas/buscar'
 import CourseLink from '@/components/buscar/CourseLink'

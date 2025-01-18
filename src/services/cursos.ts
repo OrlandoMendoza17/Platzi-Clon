@@ -10,8 +10,13 @@ export const getCourse = async (course_url: string) => {
 
 // Información utilizada en la página de filtros de cursos /cursos
 export const getCoursesPageInfo = async () => {
-  const { data: categories } = await API.get<CategoryData[]>("/api/cursos")
-  return categories;
+  try {
+    const { data: categories } = await API.get<CategoryData[]>("/api/cursos")
+    return categories;
+  } catch (error) {
+    console.log('error', error)    
+    return [];
+  }
 }
 
 // Información utilizada en la página de rutas para obtener la primera clase del primer curso

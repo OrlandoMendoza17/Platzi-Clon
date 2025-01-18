@@ -1,16 +1,3 @@
-`
-  *,
-  courseSections (
-    *,
-    courseClasses (*)
-  ),
-  professors (*),
-  courseProject (*),
-  schools (*),
-  Routes (*),
-  courseOpinions (*)
-`
-
 export type RouteData = Routes & {
   courses: Pick<Course, "badge_url" | "duration">[]
 }

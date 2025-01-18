@@ -1,21 +1,3 @@
-`
-title,
-routes (
-  title,
-  landing_url,
-  courses (
-    title,
-    badge_url,
-    metrics,
-    professor,
-    landing_url,
-    courseSections (
-      courseClasses (image)
-    )
-  )
-)
-`
-
 export type CourseData = Pick<Course, "title" | "badge_url" | "metrics" | "professor" | "landing_url"> & {
   firstClassImage: CourseClass["image"]
 }

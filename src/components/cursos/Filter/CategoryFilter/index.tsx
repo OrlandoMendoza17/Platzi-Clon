@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import styles from '../Filter.module.scss'
 import { Dispatch, SetStateAction } from 'react'
 import { getIdFromTitle } from "@/utils"

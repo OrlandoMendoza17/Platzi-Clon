@@ -1,7 +1,6 @@
 import Tag from '@/components/widgets/Tag'
 import styles from './CourseRoutes.module.scss'
 import ShootingStar from '@/components/icons/ShootingStar'
-import Link from 'next/link'
 import CourseSchool from './CourseSchool'
 import CourseRelatedRoute from './CourseRelatedRoute'
 import { RouteData, SchoolData } from '@/schemas/curso'
