@@ -1,20 +1,20 @@
+"use client"
 import Link from "next/link"
 import DropDown from "./DropDown"
 import OldHamburger from "@/components/icons/OldHamburger"
-import { CategoryData } from "@/schemas/cursos"
-import { CategoryHeaderData } from "@/schemas/header"
 import { getCategoriesInfo } from "@/services"
 import styles from './Header.module.scss'
 import ExploreList from "./ExploreList"
 import InputSearch from "./InputSearch"
+import { MouseEventHandler, useEffect, useState } from "react"
+import { CategoryHeaderData } from "@/schemas/header"
+import OldCross from "@/components/icons/OldCross"
 
 type Props = {
   sticky?: boolean,
 }
-  
-const Header = async ({ sticky }: Props) => {
 
-  const categories = await getCategoriesInfo()
+const Header = ({ sticky }: Props) => {
 
   const links = [
     {
@@ -60,6 +60,37 @@ const Header = async ({ sticky }: Props) => {
     },
   ]
 
+  const [openedMenu, setOpenedMenu] = useState<boolean>(false)
+  const [categories, setCategories] = useState<CategoryHeaderData[]>([])
+  
+  useEffect(() => {
+    (async ()=> {
+      const categories = await getCategoriesInfo()
+      setCategories(categories)
+    })()
+  }, [])
+  
+  
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      const matchesDesktop = window.matchMedia("(min-width: 768px)").matches
+      if (matchesDesktop) {
+        console.log('matchesDesktop', matchesDesktop)
+        setOpenedMenu(false)
+      }
+    })
+  }, [])
+
+  const handleOpenMenu: MouseEventHandler<HTMLButtonElement> = () => {
+    if (openedMenu) {
+      setOpenedMenu(false)
+      document.body.style.overflow = ""
+    } else {
+      setOpenedMenu(true)
+      document.body.style.overflow = "hidden"
+    }
+  }
+
   return (
     <header className={`${styles.Header} ${sticky ? "sticky" : ""}`}>
       <nav>
@@ -72,31 +103,39 @@ const Header = async ({ sticky }: Props) => {
           </figure>
         </Link>
         <ExploreList categories={categories} />
+
         <InputSearch />
-        {/* <div className={styles.input_search}>
-          <input type="text" name="" id="" />
-        </div> */}
-        <ul className="justify-self-end">
-          {
-            links.map(({ label, url, children, inApp }, index) =>
-              <li key={index}>
-                {
-                  children ?
-                    <DropDown label={label} links={children} />
-                    :
-                    inApp ?
-                      <Link href={url}>{label}</Link>
+        
+        <section className={openedMenu ? styles.mobile : ""}>
+          <ul className="">
+            {
+              links.map(({ label, url, children, inApp }, index) =>
+                <li key={index}>
+                  {
+                    children ?
+                      <DropDown openedMenu={openedMenu}  label={label} links={children} />
                       :
-                      <a href={url}>{label}</a>
-                }
-              </li>
-            )
-          }
-        </ul>
+                      inApp ?
+                        <Link href={url}>{label}</Link>
+                        :
+                        <a href={url}>{label}</a>
+                  }
+                </li>
+              )
+            }
+          </ul>
+        </section>
+        
         <button className={`${styles.action_btn} ${styles["action_btn--ghost"]}`}>Empresas</button>
         <button className={styles.action_btn}>Ingresar Ahora</button>
-        <button className={styles.menu_btn}>
-          <OldHamburger />
+        
+        <button
+          onClick={handleOpenMenu}
+          className={styles.menu_btn}
+        >
+          {
+            openedMenu ? <OldCross /> : <OldHamburger />
+          }
         </button>
       </nav>
     </header>

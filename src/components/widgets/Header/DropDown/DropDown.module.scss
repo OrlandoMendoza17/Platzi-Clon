@@ -22,4 +22,42 @@
       max-height: 44px;
     }
   }
+  
+  &__mobile {
+    @apply p-0;
+    @apply bg-primary-night;
+    position: fixed;
+    // @apply bg-cyan-500;
+    // display: none;
+    top: 52px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    span {
+      @apply py-3 px-4 bg-night-25;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      svg {
+        margin: 0;
+        transform: rotateZ(90deg);
+      }
+      
+      text-align: start;
+    }
+    
+    ul {
+      @apply bg-primary-night;
+      border-radius: 0;
+      
+      a {
+        padding: 0;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
 }

@@ -38,8 +38,8 @@ const SearchPage = async ({ searchParams }: Props) => {
   }
 
   let courses: CourseData[] = []
-
-  if (search === "") {
+  console.log('search', search)
+  if (search === "" || search === undefined) {
     const SEARCH_LIMIT = 10
     courses = await searchCoursesBy(defaultSearchs, SEARCH_LIMIT)
   } else {
@@ -52,7 +52,7 @@ const SearchPage = async ({ searchParams }: Props) => {
       <div className="py-5 ">
         <div className={styles.Search__ui_wrapper}>
           {
-            search !== "" ?
+            search !== "" && search !== undefined ?
               Boolean(courses.length) ?
                 <span className={styles.Search__text}>
                   Esto es lo que encontramos para "{typeof search === "object" ? search[0] : search}"

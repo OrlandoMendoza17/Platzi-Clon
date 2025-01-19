@@ -2,6 +2,15 @@
   @apply text-white;
   // max-height: 3.875rem;
 
+  &__logo {
+    svg {
+      min-width: 91px;
+      min-height: 34px;
+      width: 91px;
+      height: 34px;
+    }
+  }
+
   nav {
     max-width: 1200px;
     margin: 0 auto;
@@ -11,53 +20,96 @@
     justify-content: space-between;
     gap: 1rem;
 
-    svg {
-      min-width: 91px;
-      min-height: 34px;
-      width: 91px;
-      height: 34px;
-    }
-
-    & > ul {
-      max-height: 2.25rem;
+    section {
       display: none;
 
-      button {
-        font-weight: 500;
-        padding: .5rem .75rem;
-        display: flex;
-        align-items: center;
-        gap: .25rem;
+      @screen md {
+        display: block;
+      }
 
-        svg {
-          width: 19.19px;
-          height: 19.19px;
-          fill: #fff;
+      &>ul {
+        max-height: 2.25rem;
+
+        button {
+          font-weight: 500;
+          padding: .5rem .75rem;
+          display: flex;
+          align-items: center;
+          gap: .25rem;
+
+          svg {
+            width: 19.19px;
+            height: 19.19px;
+            fill: #fff;
+          }
+        }
+
+        @screen md {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
         }
       }
 
-      @screen md {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
+      &.mobile {
+        @apply bg-neutral-005;
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+
+        ul {
+          @apply p-4;
+
+          li {
+            @apply border-b border-neutral-020 py-2;
+            line-height: 20px;
+            // position: relative;
+            // z-index: 1;
+            &:first-of-type {
+              @apply pt-0;
+            }
+            
+            button {
+              display: flex;
+              justify-content: space-between;
+            }
+
+            button {
+              @apply p-0;
+              width: 100%;
+              
+              & > svg {
+                transform: rotateZ(-90deg);
+              }
+            }
+          }
+        }
       }
     }
   }
 
   &__loginButton {
     @apply bg-white text-black rounded-8 text-link-md font-medium;
-    margin-left: auto;
+    margin-right: 1rem;
     border: none;
     padding: .5rem .75rem;
     max-height: 2.25rem;
     letter-spacing: .01rem;
+
     @screen md {
-      margin-left: 0;
+      margin: 0;
     }
   }
-  
-  &__hamburger{
+
+  &__hamburger {
     padding: .5rem .75rem;
+
+    // display: flex;
+    // align-items: center;
     @screen md {
       display: none;
     }

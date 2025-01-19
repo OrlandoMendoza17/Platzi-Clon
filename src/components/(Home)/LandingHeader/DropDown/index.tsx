@@ -11,11 +11,12 @@ type Link = {
 }
 
 type Props = {
+  openedMenu?: boolean,
   label: string,
   links: Link[]
 }
 
-const DropDown = ({ label, links }: Props) => {
+const DropDown = ({ openedMenu = false, label, links }: Props) => {
 
   const [opened, setOpened] = useState(false)
 
@@ -29,10 +30,13 @@ const DropDown = ({ label, links }: Props) => {
       {
         opened &&
         <div
-          className={styles.DropDown__list}
+          className={`${styles.DropDown__list} ${openedMenu ? styles.DropDown__mobile : ""}`}
         // onMouseOver={() => setOpened(true)}
         // onMouseOut={() => setOpened(false)}
         >
+          <span>
+            {label} <Arrow />
+          </span>
           <ul>
             {links.map(({ label, url, inApp }, index) =>
               <li key={index}>

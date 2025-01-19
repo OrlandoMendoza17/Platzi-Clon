@@ -9,7 +9,7 @@
     height: 52px;
     display: grid;
     align-items: center;
-    grid-template-areas: "logo explore login menu";
+    grid-template-areas: "logo explore search login menu";
     grid-template-columns: auto 1fr auto auto;
     
     @screen md {
@@ -52,48 +52,89 @@
         height: 6px;
       }
     }
-
-    .input_search {
-      @apply hidden md:block;
-      
-      grid-area: search;
-      justify-self: start;
-
-      input {
-        width: 320px;
-      }
-
-      @media screen and (min-width: 1300px) {
-        justify-self: end;
-      }
-    }
     
     .search_button {
-      @apply md:hidden;
-      grid-area: search;
-    }
-    
-    &>ul {
-      @apply px-3;
-      grid-area: navigation;
-      padding-top: .125rem;
-      padding-bottom: .125rem;
-      max-height: 2.25rem;
+      display: block;
+      background-color: red;
       display: none;
-
-      li {
-        padding: 5px 12px 5px 5px;
+      
+      @screen md {
+        display: none;
       }
-
-      button {
-        @apply ml-4 text-mist-82 hover:text-white;
-        display: flex;
-        align-items: center;
-      }
-
+    }
+    section {
+      justify-self: end;
+      grid-area: navigation;
+      display: none;
+      
       @media screen and (min-width: 1300px) {
+        display: block;
+      }
+      
+      & > ul {
+        @apply px-3;
+        padding-top: .125rem;
+        padding-bottom: .125rem;
+        max-height: 2.25rem;
         display: flex;
         align-items: center;
+        li {
+          padding: 5px 12px 5px 5px;
+        }
+  
+        button {
+          @apply ml-4 text-mist-82 hover:text-white;
+          display: flex;
+          align-items: center;
+        }
+  
+      }
+      
+      &.mobile {
+        @apply bg-primary-night;
+        display: block;
+        position: fixed;
+        top: 52px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // right: 0;
+        // bottom: 0;
+        // z-index: 2;
+
+        ul {
+          @apply p-4;
+          flex-direction: column;
+          li {
+            @apply border-b border-neutral-020 py-2;
+            line-height: 20px;
+            width: 100%;
+            // position: relative;
+            // z-index: 1;
+            &:first-of-type {
+              @apply pt-0;
+            }
+            
+            button {
+              margin: 0;
+              display: flex;
+              justify-content: space-between;
+            }
+
+            button {
+              @apply p-0;
+              width: 100%;
+              
+              & > svg {
+                transform: rotateZ(-90deg);
+              }
+            }
+          }
+          
+          svg {
+            fill: white;
+          }
+        }
       }
     }
 
@@ -148,9 +189,8 @@
   }
 
   button svg {
-    @apply ml-2;
+    @apply ml-2 text-mist-82;
     width: 16px;
     height: 16px;
-    fill: #fff;
   }
 }

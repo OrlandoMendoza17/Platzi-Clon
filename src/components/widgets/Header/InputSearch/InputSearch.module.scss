@@ -1,11 +1,26 @@
+.InputSearchContainer {
+  grid-area: search;
+  justify-self: start;
+  
+  & > a {
+    @apply mr-2 p-2 border border-primary-platzi hover:border-platzi-71 rounded-8;
+    @apply block md:hidden text-primary-platzi hover:text-platzi-71;
+    
+    svg {
+      @apply fill-primary-platzi ;
+      margin: 0;
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
 .InputSearch {
   @apply py-1 px-3 border border-night-37 bg-night-6 rounded-8;
   @apply hidden md:flex;
   width: 320px;
   
   position: relative;
-  grid-area: search;
-  justify-self: start;
 
   // input {
   //   width: 320px;
@@ -15,7 +30,7 @@
     justify-self: end;
   }
   
-  button {
+  button[type="submit"] {
     padding: 1px 6px;
     svg {
       @apply m-0 fill-mist-82;
