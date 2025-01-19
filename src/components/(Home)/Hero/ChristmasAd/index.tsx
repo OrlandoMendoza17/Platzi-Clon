@@ -1,4 +1,4 @@
-import styles from './styles/ChristmasAd.module.scss'
+import styles from './ChristmasAd.module.scss'
 
 const ChristmasAd = () => {
   return (

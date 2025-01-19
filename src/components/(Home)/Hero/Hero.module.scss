@@ -34,59 +34,11 @@
     }
   }
   
-  article{
-    width: 100%;
-    position: relative;
-    
-    @screen x_sm{
-      text-align: center;
-      max-width: 312px;
-    }
-    @screen xl{
-      max-width: 410px;
-    }
-    input{
-      border-radius: .5rem;
-      border: 1px solid #0ae98a;
-      background: #0d0f14;
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5rem;
-      letter-spacing: .16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-      padding: .375rem 2.5rem .375rem 1rem;
-      margin: 0 auto;
-      width: 100%; 
-    }
-    button{
-      background: none;
-      border: none;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      height: 3.5rem;
-      width: 3rem;
-      padding: 1rem .75rem;
-      
-      svg{
-        @apply stroke-neutral-060;
-        width: 100%;
-        height: 100%;
-        path{
-          @apply stroke-neutral-060;
-        }
-      }
-    }
-  }
-  
   label{
     @apply mb-6 block text-body-xl xl:text-title-xl text-neutral-080 font-medium;
     letter-spacing: .013rem;
   }
+  
   h6{
     @apply text-body-md;
     margin-top: -1rem;

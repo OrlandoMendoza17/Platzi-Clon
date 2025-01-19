@@ -1,0 +1,21 @@
+.CourseLinkSearch {
+  a {
+    @apply py-3 px-2 rounded-8;
+    
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: .75rem;
+    
+    figure {
+      width: 32px;
+      height: 32px;
+    }
+    
+    span {
+      @apply text-body-md;
+      letter-spacing: .16px;
+      text-align: start;
+    }
+  }
+}
