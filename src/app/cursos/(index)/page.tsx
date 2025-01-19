@@ -1,6 +1,3 @@
-import RouteSection from '@/components/cursos/RouteSection'
-import supabase from '@/supabase'
-import { PostgrestError } from '@supabase/supabase-js'
 import styles from '@/styles/cursosPage.module.scss'
 import Header from '@/components/widgets/Header'
 import Filter from '@/components/cursos/Filter'
@@ -27,6 +24,6 @@ const CoursesPage = async () => {
   )
 }
 
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-static'
 
 export default CoursesPage;

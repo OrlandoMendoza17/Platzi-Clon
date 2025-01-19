@@ -80,9 +80,9 @@ const InputSearch = () => {
     <div className={styles.InputSearchContainer}>
       {
         pathname !== "/buscar" &&
-        <Link href="/buscar">
+        <a href="/buscar">
           <AltMagnifyingGlass/>
-        </Link>
+        </a>
       }
       <form
         onSubmit={handleSubmit}
