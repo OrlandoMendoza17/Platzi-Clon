@@ -3,6 +3,7 @@ import styles from '@/styles/buscar.module.scss'
 import { searchCoursesBy } from "@/services/buscar"
 import CourseLink from "@/components/buscar/CourseLink"
 import { CourseData } from "@/schemas/buscar"
+import SearchFeeback from "@/components/buscar/SearchFeeback"
 
 type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
@@ -38,7 +39,7 @@ const SearchPage = async ({ searchParams }: Props) => {
   }
 
   let courses: CourseData[] = []
-  console.log('search', search)
+
   if (search === "" || search === undefined) {
     const SEARCH_LIMIT = 10
     courses = await searchCoursesBy(defaultSearchs, SEARCH_LIMIT)
@@ -49,25 +50,7 @@ const SearchPage = async ({ searchParams }: Props) => {
   return (
     <div className={styles.Search}>
       <Header />
-      <div className="py-5 ">
-        <div className={styles.Search__ui_wrapper}>
-          {
-            search !== "" && search !== undefined ?
-              Boolean(courses.length) ?
-                <span className={styles.Search__text}>
-                  Esto es lo que encontramos para "{typeof search === "object" ? search[0] : search}"
-                </span>
-                :
-                <span className={styles.Search__text}>
-                  No se encontraron resultados para tu búsqueda
-                </span>
-              :
-              <span className={styles.Search__text}>
-                Encuentra tu próximo curso
-              </span>
-          }
-        </div>
-      </div>
+      <SearchFeeback {...{ search, courses }} />
       <section className="border-t border-night-25 bg-night-12">
         <div className={`${styles.Search__ui_wrapper} py-6`}>
           <h2 className={styles.Search__title}>Cursos</h2>

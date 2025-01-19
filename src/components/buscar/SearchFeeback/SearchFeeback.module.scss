@@ -1,0 +1,24 @@
+.SearchFeeback {
+  @apply py-5;
+  
+  &__text{
+    @apply text-mist-65;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1rem;
+    
+    @screen md {
+      @apply text-mist-96;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 2.25rem;
+    }
+  }
+  
+  &__title{
+    @apply text-mist-96;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+  }
+}
