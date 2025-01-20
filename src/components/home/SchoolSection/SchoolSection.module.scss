@@ -37,11 +37,14 @@
       // height: 316px;
       display: grid;
       grid-auto-flow: column;
-      grid-auto-columns: 288px;
+      grid-auto-columns: 260px;
       gap: 1rem;
       overflow-x: scroll;
       overflow-y: hidden;
       scrollbar-width: none;
+      @screen md {
+        grid-auto-columns: 288px;
+      }
     }
   }
 }

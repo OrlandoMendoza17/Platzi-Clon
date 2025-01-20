@@ -23,6 +23,7 @@
     
     // background-color: cyan;
     @screen lg {
+      grid-template-columns: minmax(auto, 688px) auto;
       min-height: unset;
       position: sticky;
       z-index: 2;
@@ -40,7 +41,7 @@
   }
   
   aside {
-    @apply p-4 bg-neutral-005;
+    @apply bg-neutral-005;
     z-index: 1;
     position: fixed;
     grid-area: aside;
@@ -63,6 +64,11 @@
       height: 32px;
     }
     
+    ul {
+      @apply mt-2;
+      display: grid;
+      gap: .5rem;
+    }
     
     // background-color: cyan;
   }

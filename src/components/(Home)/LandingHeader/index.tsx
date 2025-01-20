@@ -6,6 +6,7 @@ import Hamburger from '@/components/icons/Hamburger';
 import PlatziLogo from '@/components/icons/PlatziLogo';
 import { MouseEventHandler, useEffect, useState } from 'react';
 import Cross from '@/components/icons/Cross';
+import SignInButton from '@/components/widgets/SignInButton';
 
 const LandingHeader = () => {
 
@@ -47,33 +48,34 @@ const LandingHeader = () => {
       inApp: false,
     },
   ]
-  
+
   const [openedMenu, setOpenedMenu] = useState<boolean>(false)
-  
+  const [openedLogIn, setOpenedLogIn] = useState<boolean>(false)
+
   useEffect(() => {
-    window.addEventListener("resize", ()=>{
+    window.addEventListener("resize", () => {
       const matchesDesktop = window.matchMedia("(min-width: 768px)").matches
-      if(matchesDesktop){
+      if (matchesDesktop) {
         console.log('matchesDesktop', matchesDesktop)
         setOpenedMenu(false)
       }
     })
   }, [])
-  
+
   const handleOpenMenu: MouseEventHandler<HTMLButtonElement> = () => {
-    if(openedMenu){
+    if (openedMenu) {
       setOpenedMenu(false)
       document.body.style.overflow = ""
-    }else{
+    } else {
       setOpenedMenu(true)
       document.body.style.overflow = "hidden"
     }
   }
-  
+
   return (
     <header className={styles.LandingHeader}>
       <nav className="">
-        <Link href="/"  className={styles.LandingHeader__logo}>
+        <Link href="/" className={styles.LandingHeader__logo}>
           <PlatziLogo />
         </Link>
         <section className={openedMenu ? styles.mobile : ""}>
@@ -96,12 +98,12 @@ const LandingHeader = () => {
           </ul>
         </section>
         <div className="flex items-center">
-          <a href="https://platzi.com/login/?next=/home">
-            <button className={styles.LandingHeader__loginButton}>
-              Acceder
-            </button>
-          </a>
-          <button 
+          <SignInButton
+            openedLogIn={openedLogIn}
+            setOpenedLogIn={setOpenedLogIn}
+            stylesButton={styles.LandingHeader__loginButton}
+          />
+          <button
             onClick={handleOpenMenu}
             className={styles.LandingHeader__hamburger}
           >
