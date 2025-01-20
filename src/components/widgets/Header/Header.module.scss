@@ -54,12 +54,15 @@
     }
     
     .search_button {
-      display: block;
-      background-color: red;
-      display: none;
+      grid-area: search;
+      @apply mr-2 p-2 border border-primary-platzi hover:border-platzi-71 rounded-8;
+      @apply block md:hidden text-primary-platzi hover:text-platzi-71;
       
-      @screen md {
-        display: none;
+      svg {
+        @apply fill-primary-platzi ;
+        margin: 0;
+        width: 14px;
+        height: 14px;
       }
     }
     

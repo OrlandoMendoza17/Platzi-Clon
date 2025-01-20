@@ -9,6 +9,8 @@ import InputSearch from "./InputSearch"
 import { MouseEventHandler, useEffect, useState } from "react"
 import { CategoryHeaderData } from "@/schemas/header"
 import OldCross from "@/components/icons/OldCross"
+import AltMagnifyingGlass from "@/components/icons/AltMagnifyingGlass"
+import { usePathname } from 'next/navigation'
 
 type Props = {
   sticky?: boolean,
@@ -59,18 +61,20 @@ const Header = ({ sticky }: Props) => {
       inApp: false,
     },
   ]
+  
+  const pathname = usePathname()
 
   const [openedMenu, setOpenedMenu] = useState<boolean>(false)
   const [categories, setCategories] = useState<CategoryHeaderData[]>([])
-  
+
   useEffect(() => {
-    (async ()=> {
+    (async () => {
       const categories = await getCategoriesInfo()
       setCategories(categories)
     })()
   }, [])
-  
-  
+
+
   useEffect(() => {
     window.addEventListener("resize", () => {
       const matchesDesktop = window.matchMedia("(min-width: 768px)").matches
@@ -104,8 +108,15 @@ const Header = ({ sticky }: Props) => {
         </Link>
         <ExploreList categories={categories} />
 
+        {
+          pathname !== "/buscar" &&
+          <a href="/buscar" className={styles.search_button}>
+            <AltMagnifyingGlass />
+          </a>
+        }
+
         <InputSearch />
-        
+
         <section className={openedMenu ? styles.mobile : ""}>
           <ul className="">
             {
@@ -113,7 +124,7 @@ const Header = ({ sticky }: Props) => {
                 <li key={index}>
                   {
                     children ?
-                      <DropDown openedMenu={openedMenu}  label={label} links={children} />
+                      <DropDown openedMenu={openedMenu} label={label} links={children} />
                       :
                       inApp ?
                         <Link href={url}>{label}</Link>
@@ -125,10 +136,10 @@ const Header = ({ sticky }: Props) => {
             }
           </ul>
         </section>
-        
+
         <button className={`${styles.action_btn} ${styles["action_btn--ghost"]}`}>Empresas</button>
         <button className={styles.action_btn}>Ingresar Ahora</button>
-        
+
         <button
           onClick={handleOpenMenu}
           className={styles.menu_btn}

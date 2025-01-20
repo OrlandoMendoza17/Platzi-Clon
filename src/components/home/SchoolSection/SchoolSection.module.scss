@@ -20,7 +20,9 @@
   }
 
   &__route {
-
+    
+    overflow-x: auto;
+    
     &__title {
       @apply pt-4 text-title-md font-medium;
       letter-spacing: .16px;

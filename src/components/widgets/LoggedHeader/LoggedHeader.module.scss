@@ -1,33 +1,77 @@
 .LoggedHeader {
-  display: grid;
-  grid-template-areas: "aside header" "aside content";
-  grid-template-columns: 250px 1fr;
-  grid-template-rows: 64px 1fr;
+  // grid-template-columns: 250px 1fr;
   height: 100vh;
+  grid-template-areas: "header" "content" "aside";
+  grid-template-rows: 64px 1fr auto;
+  
+  @screen lg {
+    display: grid;
+    grid-template-areas: "aside header" "aside content";
+    grid-template-columns: 250px 1fr;
+  }
   
   header {
-    @apply py-3 px-4;
-    position: sticky;
-    top: 0;
+    @apply py-3 px-4 bg-black;
+    // position: sticky;
     grid-area: header;
+    min-height: 64px;
+    
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    
     // background-color: cyan;
+    @screen lg {
+      min-height: unset;
+      position: sticky;
+      z-index: 2;
+      top: 0;
+      left: unset;
+      right: unset;
+      bottom: unset;
+      @apply bg-transparent;  
+    }
+    
+    svg {
+      width: 80px;
+      height: 16px;
+    }
   }
   
   aside {
-    @apply p-4;
-    position: sticky;
-    top: 0;
+    @apply p-4 bg-neutral-005;
+    z-index: 1;
+    position: fixed;
     grid-area: aside;
+    
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    @screen lg {
+      top: 0;
+      position: sticky;
+      left: unset;
+      right: unset;
+      bottom: unset;
+    }
+    
     svg {
+      @apply hidden lg:block;
       width: 91px;
       height: 32px;
     }
+    
+    
     // background-color: cyan;
   }
   
   main {
     position: relative;
     grid-area: content;
-    overflow-x: hidden;
+    @screen lg {
+      overflow-x: hidden;
+    }
   }
 }

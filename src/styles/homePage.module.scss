@@ -7,15 +7,25 @@
     @apply mb-2 pr-4 pb-3 bg-neutral-005;
     top: 0;
     z-index: 1;
-    position: sticky;
     overflow-x: auto;
     scrollbar-width: none;
     overflow-x: scroll;
     display: flex;
     gap: .75rem;
+
+    @screen lg {
+      position: sticky;
+    }
   }
   
   &__container {
-    @apply py-5 px-6;
+    @apply py-5;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+    @media screen and (min-width: 480px){
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
   }
 }

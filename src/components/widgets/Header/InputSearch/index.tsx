@@ -7,17 +7,21 @@ import { CourseData } from '@/schemas/buscar'
 import CourseLink from '@/components/buscar/CourseLink'
 import { useRouter } from 'next/navigation'
 import AltMagnifyingGlass from '@/components/icons/AltMagnifyingGlass'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const InputSearch = () => {
+type Props = {
+  alt?: boolean,
+}
+
+const InputSearch = ({ alt = false }: Props) => {
 
   const pathname = usePathname()
   console.log('pathname', pathname)
-  
+
   const [active, setActive] = useState<boolean>(false)
   const [courses, setCourses] = useState<CourseData[]>([])
 
+  const [inputValue, setInputValue] = useState<string>("")
   const [search, setSearch] = useState<string>("")
 
   const handleSearch = async (search: string) => {
@@ -47,6 +51,7 @@ const InputSearch = () => {
   }
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
+    setInputValue(target.value)
     handleSearch(target.value)
     setSearch(target.value)
   }
@@ -77,16 +82,9 @@ const InputSearch = () => {
   }
 
   return (
-    <div className={styles.InputSearchContainer}>
-      {
-        pathname !== "/buscar" &&
-        <a href="/buscar">
-          <AltMagnifyingGlass/>
-        </a>
-      }
       <form
         onSubmit={handleSubmit}
-        className={`${styles.InputSearch} ${active ? styles["InputSearch--active"] : ""}`}
+        className={`${styles.InputSearch} ${alt ? styles["InputSearch--home"] : ""} ${active ? styles["InputSearch--active"] : ""}`}
       >
         <button type="submit">
           <MagnifyingGlass />
@@ -95,6 +93,7 @@ const InputSearch = () => {
           id="search"
           type="text"
           name="search"
+          value={inputValue}
           autoComplete="off"
           placeholder="¿Qué quieres aprender?"
           onChange={handleChange}
@@ -107,15 +106,17 @@ const InputSearch = () => {
               <CourseLink key={index} course={course} search={true} />
             )
           }
-          <a
-            className={styles.list__all}
-            href={`/buscar?search=${search}`}
-          >
-            Ver todos los resultados
-          </a>
+          {
+            inputValue && 
+            <a
+              className={styles.list__all}
+              href={`/buscar?search=${search}`}
+            >
+              Ver todos los resultados
+            </a>
+          }
         </div>
       </form>
-    </div>
   )
 }
 

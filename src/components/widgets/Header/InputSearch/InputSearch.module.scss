@@ -1,17 +1,11 @@
 .InputSearchContainer {
+  @apply hidden md:block;
   grid-area: search;
   justify-self: start;
   
-  & > a {
-    @apply mr-2 p-2 border border-primary-platzi hover:border-platzi-71 rounded-8;
-    @apply block md:hidden text-primary-platzi hover:text-platzi-71;
-    
-    svg {
-      @apply fill-primary-platzi ;
-      margin: 0;
-      width: 14px;
-      height: 14px;
-    }
+  &--home { 
+    grid-area: unset;
+    justify-self: unset;
   }
 }
 
@@ -19,7 +13,8 @@
   @apply py-1 px-3 border border-night-37 bg-night-6 rounded-8;
   @apply hidden md:flex;
   width: 320px;
-  
+  grid-area: search;
+  justify-self: start;
   position: relative;
 
   // input {
@@ -83,4 +78,45 @@
     }
   }
   
+  &--home {
+    @apply py-2 px-3 border-neutral-030;
+    background-color: rgba(0, 0, 0, .3);
+    position: relative;
+    width: 100%;
+    // grid-area: unset;
+    grid-area: unset !important;
+    // max-width: 668px;
+    
+    input {
+      padding-left: .25rem;
+      font-size: .875rem;
+      letter-spacing: .25px;
+      line-height: 1.375rem;
+      height: 22px;
+      
+      &::placeholder {
+        @apply text-neutral-400;
+      }
+    }
+    
+    button[type="submit"] {
+      padding: 0;  
+    }
+    
+    .list {
+      background-color: black;
+      
+      a {
+        @apply bg-neutral-005;
+        
+        img {
+          @apply mr-4;
+        }
+      }
+    }
+  }
+  
+  .list__all {
+    background-color: transparent !important;
+  }
 }
