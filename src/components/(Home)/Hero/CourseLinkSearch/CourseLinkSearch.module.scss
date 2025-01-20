@@ -10,12 +10,22 @@
     figure {
       width: 32px;
       height: 32px;
+      svg {
+        min-width: 20px;
+        min-height: 20px; 
+      }
     }
     
     span {
       @apply text-body-md;
       letter-spacing: .16px;
       text-align: start;
+      
+      small {
+        font-size: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+      }
     }
   }
 }

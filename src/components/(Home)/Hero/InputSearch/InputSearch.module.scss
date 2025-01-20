@@ -12,9 +12,8 @@
   }
   
   input{
-    @apply rounded-8 focus:rounded-b-none;
+    @apply rounded-8 focus:rounded-b-none border border-minty-080;
     outline: none;
-    border: 1px solid #0ae98a;
     background: #0d0f14;
     color: #fff;
     font-size: 1rem;
