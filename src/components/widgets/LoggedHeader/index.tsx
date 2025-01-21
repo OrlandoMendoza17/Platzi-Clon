@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './LoggedHeader.module.scss'
 import Link from 'next/link'
 import PlatziLogo from '@/components/icons/PlatziLogo'

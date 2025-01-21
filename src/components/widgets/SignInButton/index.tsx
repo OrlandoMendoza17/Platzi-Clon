@@ -1,8 +1,10 @@
 import PlatziLogo from '@/components/icons/PlatziLogo'
 import styles from './SignInButton.module.scss'
-import stylesHeader from '../../(Home)/LandingHeader/'
 import Cross from '@/components/icons/Cross'
 import { Dispatch, MouseEventHandler, SetStateAction, useState } from 'react'
+import ProviderSections from './ProviderSections'
+import SignInSection from './SignInSection'
+import SignUpSection from './SignUpSection'
 
 type Props = {
   stylesButton: string,
@@ -12,11 +14,14 @@ type Props = {
 
 const SignInButton = ({ stylesButton, openedLogIn, setOpenedLogIn }: Props) => {
 
+  const [isSignIn, setSignIn] = useState<boolean>(true)
+
   const [providerSelected, setProviderSelected] = useState<boolean>(false)
 
   const handleClose = () => {
     setOpenedLogIn(false)
     setProviderSelected(false)
+    setSignIn(true)
   }
 
   const handleClick: MouseEventHandler<HTMLDivElement | HTMLButtonElement> = ({ target }) => {
@@ -35,7 +40,7 @@ const SignInButton = ({ stylesButton, openedLogIn, setOpenedLogIn }: Props) => {
         <div id="SignInButton" className={styles.SignInButton} onClick={handleClick}>
           <div className={styles.SignInButton__container}>
             <button
-              onClick={handleClick}
+              onClick={() => handleClose()}
               className={styles.SignInButton__closeBtn}
             >
               <Cross />
@@ -43,47 +48,24 @@ const SignInButton = ({ stylesButton, openedLogIn, setOpenedLogIn }: Props) => {
             <figure>
               <PlatziLogo />
             </figure>
-            <span>Ingresar o crear una cuenta con:</span>
             {
               !providerSelected &&
               <div>
-                <input type="email" name="email" placeholder="Correo electrónico" />
-                <button type="submit" className={styles.SignInButton__submitBtn}>
-                  Continuar
-                </button>
-                <div className={styles.SignInButton__divider}>
-                  <hr />
-                  <span className="!m-0">o</span>
-                  <hr />
-                </div>
-                <button
-                  onClick={() => setProviderSelected(true)}
-                  className={styles.SignInButton__providerSelectBtn}
-                >
-                  Con Google, Appleo Facebook
-                </button>
+                {
+                  isSignIn ?
+                    <SignInSection {...{setSignIn, setProviderSelected}}/>
+                    :
+                    <SignUpSection {...{setSignIn, setProviderSelected}}/>
+                }
               </div>
             }
             {
               providerSelected &&
-              <div>
-                <div className={styles.SignInButton__divider}>
-                  <hr />
-                  <span className="!m-0">o</span>
-                  <hr />
-                </div>
-                <button
-                  onClick={() => setProviderSelected(false)}
-                  className={`${styles.SignInButton__providerSelectBtn} bg-neutral-020`}
-                >
-                  Con correo y contreseña
-                </button>
-              </div>
+              <ProviderSections
+                setProviderSelected={setProviderSelected}
+              />
             }
           </div>
-          {/* <div className={styles.SignInButton__container}>
-            
-          </div> */}
         </div>
       }
     </>

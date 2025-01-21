@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './SchoolSection.module.scss'
 import CourseItem from '../CourseItem'
 import { SchoolSectionsData } from '@/schemas/home'

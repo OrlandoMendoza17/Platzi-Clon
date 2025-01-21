@@ -72,6 +72,7 @@ class SearchController {
         courses = courses.concat(formattedCourses)
         
       }
+      
       if(error){
         throw createHttpError.BadRequest(JSON.stringify(error))
       }

@@ -16,7 +16,6 @@
   }
   // grid-template-rows: 1fr;
 
-
   &__container {
     @apply p-6 rounded-t-16 md:rounded-none;
     height: 100%;
@@ -30,6 +29,7 @@
     
     @screen md {
       min-width: 360px;
+      max-width: 360px;
     }
 
     figure {
@@ -71,7 +71,7 @@
     }
   }
 
-  &__submitBtn {
+  button[type="submit"] {
     @apply py-3 px-4 rounded-8 bg-white;
     width: 100%;
     font-weight: 500;
@@ -134,6 +134,4 @@
     letter-spacing: .3px;
     line-height: 1.25rem;
   }
-
-
 }

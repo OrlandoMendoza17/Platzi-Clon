@@ -1,0 +1,23 @@
+.ProviderSections {
+  &__button {
+    @apply mb-6 bg-neutral-020 rounded-8 font-medium;
+    width: 100%;
+    padding: .75rem 1rem;
+    position: relative;
+    font-size: 1rem;
+    letter-spacing: .0063rem;
+    line-height: 1.5rem;
+    
+    svg {
+      position: absolute;
+      left: 1rem;
+      position: absolute;
+      top: 1rem;
+      transform: scale(1.2);
+    }
+    
+    &:last-of-type {
+      @apply m-0;
+    }
+  }
+}
