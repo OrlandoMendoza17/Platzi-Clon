@@ -74,10 +74,13 @@ const CoursePage = async ({ params }: Props) => {
         
         <CourseOpinions course={course} />
         
-        <CourseRoutes
-          school={schools}
-          courseRelated_routes={courseRelated_routes}
-        />
+        {
+          schools &&
+          <CourseRoutes
+            school={schools}
+            courseRelated_routes={courseRelated_routes}
+          />
+        }
       </main>
     </LoggedHeader>
   )

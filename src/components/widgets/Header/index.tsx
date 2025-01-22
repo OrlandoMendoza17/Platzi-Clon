@@ -68,6 +68,8 @@ const Header = ({ sticky }: Props) => {
 
   const pathname = usePathname()
 
+  const [mounted, setMounted] = useState<boolean>(false)
+
   const [user, setUser] = useState<User | null>(null)
   const [openedMenu, setOpenedMenu] = useState<boolean>(false)
   const [categories, setCategories] = useState<CategoryHeaderData[]>([])
@@ -86,9 +88,9 @@ const Header = ({ sticky }: Props) => {
       if (user) {
         setUser(user)
       }
+      setMounted(true)
     })()
   }, [])
-
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -152,18 +154,20 @@ const Header = ({ sticky }: Props) => {
           </ul>
         </section>
         {
-          user ?
-            <UserOptions />
-            :
-            <>
-              <button className={`${styles.action_btn} ${styles["action_btn--ghost"]}`}>Empresas</button>
-              <SignInButton
-                openedLogIn={openedLogIn}
-                setOpenedLogIn={setOpenedLogIn}
-                stylesButton={styles.action_btn}
-                text="Ingresar Ahora"
-              />
-            </>
+          mounted && (
+            user ?
+              <UserOptions />
+              :
+              <>
+                <button className={`${styles.action_btn} ${styles["action_btn--ghost"]}`}>Empresas</button>
+                <SignInButton
+                  openedLogIn={openedLogIn}
+                  setOpenedLogIn={setOpenedLogIn}
+                  stylesButton={styles.action_btn}
+                  text="Ingresar Ahora"
+                />
+              </>
+          )
         }
         <button
           onClick={handleOpenMenu}

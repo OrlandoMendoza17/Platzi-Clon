@@ -14,9 +14,10 @@ const redirectTo = `${BASE_URL}/home`
 const ProviderSections = ({ setProviderSelected }: Props) => {
   
   const signInWithProvider = async (provider: "google") => {
-    console.log('redirectTo', redirectTo)
-    debugger
+    
     try {
+      alert(redirectTo)
+      
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
