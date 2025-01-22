@@ -1,6 +1,7 @@
 .CourseAside {
   @apply bg-neutral-010;
   
+  grid-area: mainAside;
   align-self: flex-start;
   overflow: hidden;
   border-radius: .75rem;

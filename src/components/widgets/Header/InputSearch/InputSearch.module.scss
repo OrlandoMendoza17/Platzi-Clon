@@ -1,14 +1,3 @@
-.InputSearchContainer {
-  @apply hidden md:block;
-  grid-area: search;
-  justify-self: start;
-  
-  &--home { 
-    grid-area: unset;
-    justify-self: unset;
-  }
-}
-
 .InputSearch {
   @apply py-1 px-3 border border-night-37 bg-night-6 rounded-8;
   @apply hidden md:flex;
@@ -79,7 +68,8 @@
   }
   
   &--home {
-    @apply py-2 px-3 border-neutral-030;
+    @apply py-2 px-3 mx-auto border-neutral-030;
+    max-width: 688px;
     background-color: rgba(0, 0, 0, .3);
     position: relative;
     width: 100%;

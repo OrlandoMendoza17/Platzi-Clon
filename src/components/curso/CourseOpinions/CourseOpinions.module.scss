@@ -1,5 +1,6 @@
 .CourseOpinions{
   @apply mt-6;
+  grid-area: opinions;
   
   &__head {
     @apply mt-4;

@@ -1,20 +1,88 @@
-import { Dispatch, SetStateAction } from 'react'
+import { ChangeEventHandler, Dispatch, FormEventHandler, SetStateAction, useState } from 'react'
 import styles from '../SignInButton.module.scss'
+import supabase from '@/supabase'
 
 type Props = {
   setSignIn: Dispatch<SetStateAction<boolean>>,
   setProviderSelected: Dispatch<SetStateAction<boolean>>,
 }
 
+type UserProps = {
+  email: string,
+  password: string,
+}
+
 const SignInSection = ({ setSignIn, setProviderSelected }: Props) => {
+
+  const [loading, setLoading] = useState<boolean>(false)
+  
+  const [user, setUser] = useState<UserProps>({
+    email: "",
+    password: "",
+  })
+
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
+    event.preventDefault()
+    setLoading(true)
+    const { email, password } = user
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      })
+      
+      debugger
+      
+      if (data) {
+        console.log('data', data.session)
+      }
+      
+      if (error) {
+        console.log('error', error)
+      }
+      
+      setLoading(false)
+      
+    } catch (error) {
+      setLoading(false)
+      console.log('error', error)
+    }
+  }
+
+  const handleChange: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
+    const { name, value } = target
+    setUser({
+      ...user,
+      [name]: value,
+    })
+  }
+
+  const { email, password } = user
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <span>Inicia sesión con:</span>
-        <input type="email" name="email" placeholder="Correo electrónico" />
-        <input type="password" name="password" placeholder="Contraseña" />
-        <button type="submit">
-          Continuar
+        <input
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+          placeholder="Correo electrónico"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+          placeholder="Contraseña"
+          required
+        />
+        <button type="submit" disabled={loading}>
+          {
+            loading ? "Cargando..." : "Continuar"
+          }
         </button>
       </form>
       <div className={styles.SignInButton__divider}>

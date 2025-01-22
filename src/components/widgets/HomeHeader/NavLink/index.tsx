@@ -30,7 +30,7 @@ const NavLink = ({ item }: Props) => {
       }
       <Link href={link}>
         {isActive ? ActiveIcon : Icon}
-        {label}
+        <span>{label}</span>
       </Link>
     </li>
   )

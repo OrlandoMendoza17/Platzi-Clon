@@ -6,11 +6,12 @@ import { getCategoriesInfo } from "@/services"
 import styles from './Header.module.scss'
 import ExploreList from "./ExploreList"
 import InputSearch from "./InputSearch"
-import { MouseEventHandler, useEffect, useState } from "react"
+import { MouseEventHandler, use, useEffect, useState } from "react"
 import { CategoryHeaderData } from "@/schemas/header"
 import OldCross from "@/components/icons/OldCross"
 import AltMagnifyingGlass from "@/components/icons/AltMagnifyingGlass"
 import { usePathname } from 'next/navigation'
+import supabase from "@/supabase"
 
 type Props = {
   sticky?: boolean,
@@ -71,6 +72,13 @@ const Header = ({ sticky }: Props) => {
     (async () => {
       const categories = await getCategoriesInfo()
       setCategories(categories)
+    })()
+  }, [])
+  
+  useEffect(()=> {
+    (async ()=> {
+      const { data: { session }, error } = await supabase.auth.getSession()
+      console.log('session', session)
     })()
   }, [])
 

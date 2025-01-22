@@ -1,5 +1,11 @@
 .CourseRoutes {
   @apply mt-6;
+  grid-area: routes;
+  overflow: hidden;
+  
+  @screen lg {
+    overflow: unset;
+  }
   
   h2 {
     @apply mt-4 text-headline-sm md:text-headline-lg font-medium;

@@ -3,6 +3,8 @@
   padding: 1rem;
   padding-bottom: 8.75rem;
   max-width: 1200px;
+  scrollbar-width: none;
+  justify-self: self-start;
   
   &__backgroundImage {
     position: absolute;
@@ -35,21 +37,34 @@
     padding: 2rem 2.5rem;
   }
   
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  grid-template-areas: "main" 
+                       "mainAside" 
+                       "opinions" 
+                       "routes";
+  
+  @screen lg {
+    grid-template-columns: 1fr 392px;
+    grid-template-areas: "main mainAside"
+                         "opinions opinions"
+                         "routes routes";
+    gap: 2rem;
+    row-gap: 2rem;
+  }
+  
+  @media screen and (min-width: 1440px){
+    gap: 4rem;
+    row-gap: 1.5rem;
+  }
+  
+  &__main {
+    @apply grid gap-y-6 relative;
+    grid-area: main;
+  }
+  
   &__container {
-    display: grid;
-    gap: 2.5rem;
-    grid-template-columns: 1fr;
-    
-    @screen lg {
-      grid-template-columns: 1fr 392px;
-      gap: 2rem;
-      row-gap: 2rem;
-    }
-    
-    @media screen and (min-width: 1440px){
-      gap: 4rem;
-      row-gap: 1.5rem;
-    }
   }
   
 

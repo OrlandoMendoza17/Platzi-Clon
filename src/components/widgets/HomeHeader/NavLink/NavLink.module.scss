@@ -1,0 +1,39 @@
+.NavLink {
+  @apply lg:px-4 text-body-md font-medium text-neutral-080;
+  position: relative;
+  a {
+    @apply py-[6px] px-8 hover:bg-neutral-010;
+    
+    border-radius: .375rem;
+    display: grid;
+    align-items: center;
+    gap: 1.25rem;
+    
+    @screen md {
+      grid-template-columns: auto 1fr;
+    }
+    
+    @screen lg {
+      @apply py-3 pl-3 pr-1;
+    }
+    
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+    
+    span {
+      @apply hidden md:inline;
+    }
+  }
+  
+  .active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    @apply lg:bg-minty-080;
+  }
+}

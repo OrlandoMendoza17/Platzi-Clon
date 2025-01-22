@@ -6,9 +6,13 @@ type Props = {
 }
 
 const CourseAside = ({ classes }: Props) => {
-
-  const firstClass = classes[0]
-
+  
+  let firstClass = classes[0]
+  
+  if(!firstClass.image){
+    firstClass = classes[1]
+  }
+  
   return (
     <aside className={styles.CourseAside}>
       <a href={firstClass.link as string}>

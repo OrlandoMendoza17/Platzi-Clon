@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
-import { IBM_Plex_Sans, Roboto } from 'next/font/google';
+import { IBM_Plex_Sans } from 'next/font/google';
 import styles from '@/styles/homePage.module.scss'
+import LoggedHeader from '@/components/widgets/LoggedHeader';
+import AuthRoute from '@/components/widgets/AuthRoute';
 
 const ibmPlexSans = IBM_Plex_Sans({
   weight: ["300", "400", "500", "600", "700"],
@@ -17,7 +19,11 @@ export const metadata: Metadata = {
 const CoursesLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => {
   return (
     <body className={`${ibmPlexSans.className} ${styles.Body} bg-neutral-005 text-white scrollbar`}>
-      {children}
+      <AuthRoute>
+        <LoggedHeader>
+          {children}
+        </LoggedHeader>
+      </AuthRoute>
     </body>
   )
 }

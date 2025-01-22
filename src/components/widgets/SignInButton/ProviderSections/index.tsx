@@ -3,9 +3,12 @@ import { Dispatch, SetStateAction } from "react"
 import stylesSignIn from '../SignInButton.module.scss'
 import styles from './ProviderSections.module.scss'
 import supabase from "@/supabase"
+
 type Props = {
   setProviderSelected: Dispatch<SetStateAction<boolean>>
 }
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || ""
 
 const ProviderSections = ({ setProviderSelected }: Props) => {
   
@@ -14,7 +17,7 @@ const ProviderSections = ({ setProviderSelected }: Props) => {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: 'http://localhost:3000/home', // Cambia por tu URL de redirección
+          redirectTo: `${BASE_URL}/home`, // Cambia por tu URL de redirección
         },
       });
   

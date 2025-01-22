@@ -1,13 +1,12 @@
 "use client"
-import MagnifyingGlass from '@/components/icons/MagnifyingGlass'
-import styles from './InputSearch.module.scss'
 import { ChangeEventHandler, FocusEventHandler, FormEventHandler, useState } from 'react'
 import { searchCoursesBy } from '@/services/buscar'
 import { CourseData } from '@/schemas/buscar'
-import CourseLink from '@/components/buscar/CourseLink'
-import { useRouter } from 'next/navigation'
-import AltMagnifyingGlass from '@/components/icons/AltMagnifyingGlass'
 import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import MagnifyingGlass from '@/components/icons/MagnifyingGlass'
+import CourseLink from '@/components/buscar/CourseLink'
+import styles from './InputSearch.module.scss'
 
 type Props = {
   alt?: boolean,
@@ -82,41 +81,41 @@ const InputSearch = ({ alt = false }: Props) => {
   }
 
   return (
-      <form
-        onSubmit={handleSubmit}
-        className={`${styles.InputSearch} ${alt ? styles["InputSearch--home"] : ""} ${active ? styles["InputSearch--active"] : ""}`}
-      >
-        <button type="submit">
-          <MagnifyingGlass />
-        </button>
-        <input
-          id="search"
-          type="text"
-          name="search"
-          value={inputValue}
-          autoComplete="off"
-          placeholder="¿Qué quieres aprender?"
-          onChange={handleChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        />
-        <div className={styles.list}>
-          {
-            courses.map((course, index) =>
-              <CourseLink key={index} course={course} search={true} />
-            )
-          }
-          {
-            inputValue && 
-            <a
-              className={styles.list__all}
-              href={`/buscar?search=${search}`}
-            >
-              Ver todos los resultados
-            </a>
-          }
-        </div>
-      </form>
+    <form
+      onSubmit={handleSubmit}
+      className={`${styles.InputSearch} ${alt ? styles["InputSearch--home"] : ""} ${active ? styles["InputSearch--active"] : ""}`}
+    >
+      <button type="submit">
+        <MagnifyingGlass />
+      </button>
+      <input
+        id="search"
+        type="text"
+        name="search"
+        value={inputValue}
+        autoComplete="off"
+        placeholder="¿Qué quieres aprender?"
+        onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      />
+      <div className={styles.list}>
+        {
+          courses.map((course, index) =>
+            <CourseLink key={index} course={course} search={true} />
+          )
+        }
+        {
+          inputValue &&
+          <a
+            className={styles.list__all}
+            href={`/buscar?search=${search}`}
+          >
+            Ver todos los resultados
+          </a>
+        }
+      </div>
+    </form>
   )
 }
 

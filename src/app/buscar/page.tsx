@@ -46,7 +46,7 @@ const SearchPage = async ({ searchParams }: Props) => {
   } else {
     courses = await searchCoursesBy([searchParam])
   }
-
+  
   return (
     <div className={styles.Search}>
       <Header />

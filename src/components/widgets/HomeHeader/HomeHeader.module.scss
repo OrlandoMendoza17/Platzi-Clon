@@ -1,4 +1,4 @@
-.LoggedHeader {
+.HomeHeader {
   // grid-template-columns: 250px 1fr;
   height: 100vh;
   grid-template-areas: "header" "content" "aside";
@@ -12,7 +12,7 @@
   
   header {
     @apply py-3 px-4 bg-black;
-    // position: sticky;
+    position: sticky;
     grid-area: header;
     min-height: 64px;
     
@@ -23,7 +23,7 @@
     
     // background-color: cyan;
     @screen lg {
-      grid-template-columns: minmax(auto, 688px) auto;
+      grid-template-columns: 1fr minmax(auto, 214px);
       min-height: unset;
       position: sticky;
       z-index: 2;
@@ -34,15 +34,19 @@
       @apply bg-transparent;  
     }
     
-    svg {
-      width: 80px;
-      height: 16px;
+    .logo {
+      @apply block lg:hidden;
+      svg {
+        width: 80px;
+        height: 16px;
+      }
     }
   }
   
-  aside {
+  &__aside {
     @apply bg-neutral-005;
-    z-index: 1;
+    // @apply bg-cyan-900;
+    z-index: 10;
     position: fixed;
     grid-area: aside;
     
@@ -58,24 +62,34 @@
       bottom: unset;
     }
     
-    svg {
-      @apply hidden lg:block;
-      width: 91px;
-      height: 32px;
+    &__logo {
+      @apply p-4 hidden lg:block;
+      
+      svg {
+        width: 91px;
+        height: 32px;
+      }
     }
     
     ul {
-      @apply mt-2;
-      display: grid;
+      @apply py-2 lg:mt-2;
+      display: flex;
       gap: .5rem;
+      justify-content: center;
+      
+      @screen lg {
+        display: grid;
+        justify-content: unset;
+      }
     }
     
     // background-color: cyan;
   }
   
   main {
-    position: relative;
     grid-area: content;
+    position: relative;
+  
     @screen lg {
       overflow-x: hidden;
     }

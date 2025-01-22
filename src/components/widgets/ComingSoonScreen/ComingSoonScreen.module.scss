@@ -1,0 +1,22 @@
+.ComingSoonScreen {
+  @apply mt-32 lg:m-0 p-4 h-full;
+  
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  
+  @screen md {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  h1 {
+    @apply text-title-xl pb-3 font-semibold border-b border-white;
+  }
+  
+  figure {
+    max-width: 700px;
+  }
+}
