@@ -12,15 +12,15 @@ const Arrow = () => {
 }
 
 const UserOptions = () => {
-  
+
   const router = useRouter()
   const [openedSettings, setOpenedSettings] = useState<boolean>(false)
-  
+
   const [user, setUser] = useState({
     name: "",
     image: "https://i.imgur.com/btkuvS5.png",
   })
-  
+
 
   const handleLogout: MouseEventHandler<HTMLButtonElement> = async () => {
     const { error } = await supabase.auth.signOut()
@@ -28,24 +28,37 @@ const UserOptions = () => {
   }
 
   useEffect(() => {
-    (async ()=> {
+    (async () => {
       const { data: { user: userInfo } } = await supabase.auth.getUser()
-      
+
       if (userInfo) {
-        console.log('user', userInfo) 
+        console.log('user', userInfo)
         setUser({
           ...user,
           name: userInfo.user_metadata?.full_name,
         })
       }
     })()
+
+    document.body.addEventListener("click", ({ target, currentTarget }) => {
+      const targetElement = target as HTMLElement
+      const element = document.getElementById("userOptionsButton")
+      if(targetElement.id !== "userOptionsButton" && element){
+        const childs = Array.from(element?.childNodes)
+        if(!childs.includes(targetElement)){
+          setTimeout(()=> setOpenedSettings(false), 100)
+        }
+      }
+    })
   }, [])
-  
-  
+
+
   return (
-    <div className={styles.UserOptions} onMouseLeave={() => setOpenedSettings(false)}>
+    <div className={styles.UserOptions}>
       <button
+        id="userOptionsButton"
         onClick={() => setOpenedSettings(true)}
+        className={styles.UserOptions__button}
       >
         <figure>
           {/* <img src="https://static.platzi.com/media/avatars/avatars/OrlandoMendoza20_675db526-41e7-43ff-81b2-d64a486fdc7c.jpg" alt="" /> */}
@@ -58,15 +71,13 @@ const UserOptions = () => {
       </button>
       {
         openedSettings &&
-        <div className={styles.UserOptions__droplist}>
-          <button
-            onClick={handleLogout}
-            className={styles.UserOptions__droplist__logoutBtn}
-          >
-            Cerrar Sesión
-            <IoLogOut />
-          </button>
-        </div>
+        <button
+          onClick={handleLogout}
+          className={styles.UserOptions__logoutBtn}
+        >
+          Cerrar Sesión
+          <IoLogOut />
+        </button>
       }
     </div>
   )

@@ -3,7 +3,7 @@
   justify-self: end;
   grid-area: login;
   
-  & > button {
+  &__button {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -11,17 +11,6 @@
     
     @screen xx_sm {
       gap: .75rem;
-    }
-    
-    &::after {
-      position: absolute;
-      content: " ";
-      display: block;
-      top: 100%;
-      left: 0;
-      right: 0;
-      height: 10px;
-      // background-color: red;
     }
     
     figure {
@@ -51,10 +40,10 @@
   }
   
   
-  &__droplist {
     &__logoutBtn {
       @apply p-2 px-4 rounded-12 bg-neutral-005 border border-neutral-030;
       position: absolute;
+      z-index: 10;
       top: calc(100% + 10px);
       right: 0;
       color: #ff3933;
@@ -72,5 +61,4 @@
         height: 20px;
       }
     }
-  }
 }
