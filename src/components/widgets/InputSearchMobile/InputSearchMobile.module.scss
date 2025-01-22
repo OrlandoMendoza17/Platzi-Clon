@@ -1,0 +1,42 @@
+.InputSearchMobile {
+  @apply mb-4;
+  position: relative;
+  display: block;
+  
+  @screen md {
+    display: none;
+  }
+  
+  input {
+    background-color: #03091e;
+    border: 1px solid #40587c;
+    border-radius: 8px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #eff3f8;
+    letter-spacing: .25px;
+    padding: .5rem .75rem;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 18.4px;
+    letter-spacing: .25px;
+    outline: none;
+    
+    &:focus {
+      @apply border-primary-sky;
+    }
+  }
+  
+  button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    right: .5rem;
+    top: calc(50% - 10px);
+    // transform: translateY(-50%);
+    padding: 1px 6px;
+  }
+}

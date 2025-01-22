@@ -57,7 +57,7 @@ const UserOptions = () => {
     <div className={styles.UserOptions}>
       <button
         id="userOptionsButton"
-        onClick={() => setOpenedSettings(true)}
+        onClick={() => setOpenedSettings(!openedSettings)}
         className={styles.UserOptions__button}
       >
         <figure>

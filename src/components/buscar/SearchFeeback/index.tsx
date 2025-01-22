@@ -1,6 +1,7 @@
 import { CourseData } from '@/schemas/buscar'
 import styles from './SearchFeeback.module.scss'
 import stylesPage from '@/styles/buscar.module.scss'
+import InputSearchMobile from '@/components/widgets/InputSearchMobile'
 
 type Props = {
   courses: CourseData[],
@@ -11,6 +12,7 @@ const SearchFeeback = ({ search, courses }: Props) => {
   return (
     <div className={styles.SearchFeeback}>
       <div className={stylesPage.Search__ui_wrapper}>
+        <InputSearchMobile/>
         {
           search !== "" && search !== undefined ?
             Boolean(courses.length) ?

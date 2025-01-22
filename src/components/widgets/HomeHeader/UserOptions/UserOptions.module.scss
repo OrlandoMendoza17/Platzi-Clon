@@ -33,7 +33,7 @@
     }
     
     svg {
-      margin: 0;
+      margin: 0 !important;
       width: 24px;
       height: 24px;
     }
@@ -46,7 +46,7 @@
       z-index: 10;
       top: calc(100% + 10px);
       right: 0;
-      color: #ff3933;
+      color: #ff3933 !important;
       display: block;
       font-size: 12px;
       font-weight: 600;
@@ -57,6 +57,8 @@
       gap: .5rem;
       
       svg {
+        margin: 0 !important;
+        fill: #ff3933 !important;
         width: 20px;
         height: 20px;
       }
