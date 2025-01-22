@@ -1,6 +1,7 @@
 import { ChangeEventHandler, Dispatch, FormEventHandler, SetStateAction, useState } from 'react'
 import styles from '../SignInButton.module.scss'
 import supabase from '@/supabase'
+import { useRouter } from 'next/navigation'
 
 type Props = {
   setSignIn: Dispatch<SetStateAction<boolean>>,
@@ -13,7 +14,7 @@ type UserProps = {
 }
 
 const SignInSection = ({ setSignIn, setProviderSelected }: Props) => {
-
+  const router = useRouter()
   const [loading, setLoading] = useState<boolean>(false)
   
   const [user, setUser] = useState<UserProps>({
@@ -31,14 +32,15 @@ const SignInSection = ({ setSignIn, setProviderSelected }: Props) => {
         password
       })
       
-      debugger
-      
-      if (data) {
-        console.log('data', data.session)
+      if (data.session) {
+        router.push("/home")
       }
       
       if (error) {
         console.log('error', error)
+        if(error.message.includes("Invalid login credentials")){
+          alert("Credenciales inválidas")
+        }
       }
       
       setLoading(false)

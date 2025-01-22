@@ -9,10 +9,11 @@ import SignUpSection from './SignUpSection'
 type Props = {
   stylesButton: string,
   openedLogIn: boolean,
+  text: string,
   setOpenedLogIn: Dispatch<SetStateAction<boolean>>,
 }
 
-const SignInButton = ({ stylesButton, openedLogIn, setOpenedLogIn }: Props) => {
+const SignInButton = ({ stylesButton, openedLogIn, setOpenedLogIn, text }: Props) => {
 
   const [isSignIn, setSignIn] = useState<boolean>(true)
 
@@ -33,7 +34,7 @@ const SignInButton = ({ stylesButton, openedLogIn, setOpenedLogIn }: Props) => {
   return (
     <>
       <button type="button" className={stylesButton} onClick={() => setOpenedLogIn(true)}>
-        Acceder
+        {text}
       </button>
       {
         openedLogIn &&

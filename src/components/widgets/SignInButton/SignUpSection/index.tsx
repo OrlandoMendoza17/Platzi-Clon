@@ -14,6 +14,8 @@ type UserProps = {
   confirmPassword: string,
 }
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+
 const SignUpSection = ({ setSignIn, setProviderSelected }: Props) => {
 
   const [loading, setLoading] = useState<boolean>(false)
@@ -37,7 +39,7 @@ const SignUpSection = ({ setSignIn, setProviderSelected }: Props) => {
           email,
           password,
           options: {
-            emailRedirectTo: 'http://localhost:3000/home',
+            emailRedirectTo: `${BASE_URL}/home`,
             data: {
               name,
               full_name: name,

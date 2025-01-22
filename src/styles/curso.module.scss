@@ -5,7 +5,7 @@
   max-width: 1200px;
   scrollbar-width: none;
   justify-self: self-start;
-  
+
   &__backgroundImage {
     position: absolute;
     width: auto;
@@ -17,7 +17,7 @@
     aspect-ratio: 417.088 / 235.648;
     filter: blur(60px);
     pointer-events: none;
-    left: 10%;
+    left: 0%;
     
     @screen md {
       left: 10%;
@@ -61,11 +61,7 @@
   
   &__main {
     @apply grid gap-y-6 relative;
+    // overflow: hidden;
     grid-area: main;
   }
-  
-  &__container {
-  }
-  
-
 }

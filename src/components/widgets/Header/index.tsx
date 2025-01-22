@@ -12,6 +12,9 @@ import OldCross from "@/components/icons/OldCross"
 import AltMagnifyingGlass from "@/components/icons/AltMagnifyingGlass"
 import { usePathname } from 'next/navigation'
 import supabase from "@/supabase"
+import SignInButton from "../SignInButton"
+import { User } from "@supabase/supabase-js"
+import UserOptions from "../HomeHeader/UserOptions"
 
 type Props = {
   sticky?: boolean,
@@ -62,11 +65,13 @@ const Header = ({ sticky }: Props) => {
       inApp: false,
     },
   ]
-  
+
   const pathname = usePathname()
 
+  const [user, setUser] = useState<User | null>(null)
   const [openedMenu, setOpenedMenu] = useState<boolean>(false)
   const [categories, setCategories] = useState<CategoryHeaderData[]>([])
+  const [openedLogIn, setOpenedLogIn] = useState<boolean>(false)
 
   useEffect(() => {
     (async () => {
@@ -74,11 +79,13 @@ const Header = ({ sticky }: Props) => {
       setCategories(categories)
     })()
   }, [])
-  
-  useEffect(()=> {
-    (async ()=> {
-      const { data: { session }, error } = await supabase.auth.getSession()
-      console.log('session', session)
+
+  useEffect(() => {
+    (async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (user) {
+        setUser(user)
+      }
     })()
   }, [])
 
@@ -144,10 +151,20 @@ const Header = ({ sticky }: Props) => {
             }
           </ul>
         </section>
-
-        <button className={`${styles.action_btn} ${styles["action_btn--ghost"]}`}>Empresas</button>
-        <button className={styles.action_btn}>Ingresar Ahora</button>
-
+        {
+          user ?
+            <UserOptions />
+            :
+            <>
+              <button className={`${styles.action_btn} ${styles["action_btn--ghost"]}`}>Empresas</button>
+              <SignInButton
+                openedLogIn={openedLogIn}
+                setOpenedLogIn={setOpenedLogIn}
+                stylesButton={styles.action_btn}
+                text="Ingresar Ahora"
+              />
+            </>
+        }
         <button
           onClick={handleOpenMenu}
           className={styles.menu_btn}
