@@ -9,15 +9,18 @@ type Props = {
 }
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || ""
+const redirectTo = `${BASE_URL}/home`
 
 const ProviderSections = ({ setProviderSelected }: Props) => {
   
   const signInWithProvider = async (provider: "google") => {
+    console.log('redirectTo', redirectTo)
+    debugger
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${BASE_URL}/home`, // Cambia por tu URL de redirección
+          redirectTo, // Cambia por tu URL de redirección
         },
       });
   
