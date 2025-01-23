@@ -16,8 +16,6 @@ const ProviderSections = ({ setProviderSelected }: Props) => {
   const signInWithProvider = async (provider: "google") => {
     
     try {
-      alert(redirectTo)
-      
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
