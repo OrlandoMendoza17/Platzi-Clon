@@ -1,5 +1,6 @@
 export type CourseData = Pick<Course, "title" | "badge_url" | "metrics" | "professor" | "landing_url"> & {
-  firstClassImage: CourseClass["image"]
+  firstClassImage: CourseClass["image"],
+  firstClassTitle: CourseClass["title"],
 }
 
 export type RouteData = Pick<Routes, "title" | "landing_url"> & {
@@ -10,4 +11,6 @@ export type SchoolSectionsData = Pick<SchoolSections, "title"> & {
   routes: RouteData[]
 }
 
-export type SchoolData = Pick<Schools, "id" | "title" | "badge_url">
+export type SchoolData = Pick<Schools, "id" | "title" | "badge_url"> & {
+  categories: Pick<Category, "id" | "name">
+}

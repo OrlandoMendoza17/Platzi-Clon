@@ -2,6 +2,7 @@ import styles from './SchoolSection.module.scss'
 import CourseItem from '../CourseItem'
 import { SchoolSectionsData } from '@/schemas/home'
 import Link from 'next/link'
+import { Dispatch, SetStateAction } from 'react'
 
 type Props = {
   section: SchoolSectionsData,
@@ -13,7 +14,10 @@ const SchoolSection = ({ section }: Props) => {
     <section className={styles.SchoolSection}>
       <div className={styles.SchoolSection__title}>
         <h3>{title}</h3>
-        <hr />
+        {
+          (title !== "") &&
+          <hr />
+        }
       </div>
       {
         routes.map(({ title, courses, landing_url }, index) =>
@@ -26,7 +30,10 @@ const SchoolSection = ({ section }: Props) => {
             <div className={styles.SchoolSection__route__courses}>
               {
                 courses.map((course, index)=> 
-                  <CourseItem key={index} course={course}/>
+                  <CourseItem 
+                    key={index} 
+                    course={course} 
+                  />
                 )
               }
             </div>

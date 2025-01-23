@@ -26,3 +26,21 @@
     width: fit-content;
   }
 }
+
+@mixin skeletonAnimation {
+  
+  animation-name: loader;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  
+  @keyframes loader {
+    0% {
+      @apply bg-neutral-020;
+    }
+    100% {
+      @apply bg-neutral-010;
+    }
+  }
+}

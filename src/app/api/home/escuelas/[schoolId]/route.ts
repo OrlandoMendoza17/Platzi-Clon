@@ -47,6 +47,7 @@ export const GET = async (request: Request, { params }: ParamsProps) => {
               return {
                 ...rest,
                 firstClassImage,
+                firstClassTitle: "",
               }
             })
             return {

@@ -16,7 +16,7 @@ const SearchPage = async ({ searchParams }: Props) => {
     "Curso de Habilidades Blandas para el Desarrollo Profesional",
     "Curso de Bases de Datos con SQL",
     "Curso Gratis de Estrategias para Aprender Inglés en Línea",
-    "Curso de Git y GitHub",
+    "Curso Profesional de Git y Github",
     "Curso de Java",
     "Curso de Python",
     "Curso de ChatGPT",

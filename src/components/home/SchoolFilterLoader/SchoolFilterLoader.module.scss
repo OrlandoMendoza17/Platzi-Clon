@@ -1,0 +1,26 @@
+@import "../../../styles/lib/mixins.scss";
+
+.SchoolFilterLoader {
+
+  display: grid;
+  justify-items: center;
+  gap: .25rem;
+  min-width: 80px;
+  min-height: 92px;
+
+  &__badge {
+    @apply rounded-full bg-neutral-010;
+    width: 56px;
+    height: 56px;
+    
+    @include skeletonAnimation;
+  }
+
+  &__title {
+    @apply mt-2 rounded-4 bg-neutral-010;
+    width: 52px;
+    height: 16px;
+    
+    @include skeletonAnimation;
+  }
+}

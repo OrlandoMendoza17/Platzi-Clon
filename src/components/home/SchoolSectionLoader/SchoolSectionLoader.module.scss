@@ -1,0 +1,36 @@
+@import "../../../styles/lib/mixins.scss";
+
+.SchoolSectionLoader {
+  @apply mb-10;
+  &__title {
+    @apply mb-5 rounded-4;
+    @include skeletonAnimation;
+    height: 20px;
+  }
+
+  &__courseItem {
+    &__classImage {
+      @apply mb-4 rounded-12;
+      @include skeletonAnimation;
+      
+      width: 260px;
+      height: 151px;
+
+      @screen md {
+        width: 288px;
+        height: 168px;
+      }
+    }
+    &__badge {
+      @apply rounded-full;
+      @include skeletonAnimation;
+      width: 32px;
+      height: 32px;
+    }
+    &__title > div {
+      @apply mb-2 rounded-4;
+      @include skeletonAnimation;
+      height: 16px;
+    }
+  }
+}

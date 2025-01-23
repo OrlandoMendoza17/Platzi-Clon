@@ -8,7 +8,11 @@ export const GET = async (request: Request) => {
       .select(`
         id,
         title,
-        badge_url
+        badge_url,
+        categories (
+          id,
+          name
+        )
       `)
 
     if (schools) {

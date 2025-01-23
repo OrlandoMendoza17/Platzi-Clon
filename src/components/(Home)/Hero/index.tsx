@@ -6,7 +6,7 @@ import InputSearch from './InputSearch';
 const Hero = () => {
   return (
     <section className={styles.Hero}>
-      <ChristmasAd />
+      {/* <ChristmasAd /> */}
       <h1>La escuela de tecnología <span>de Latinoamérica</span></h1>
       <p>Más de 5 millones de estudiantes y más de 3.000 empresas aprenden en Platzi</p>
       <InputSearch />

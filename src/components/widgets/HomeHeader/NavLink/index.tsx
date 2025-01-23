@@ -9,21 +9,23 @@ type NavItem = {
   Icon: React.JSX.Element;
   ActiveIcon: React.JSX.Element;
   disabled: boolean;
+  hideInMobile: boolean,
 }
 
 type Props = {
   item: NavItem,
+  className?: string,
 }
 
-const NavLink = ({ item }: Props) => {
+const NavLink = ({ item, className = "" }: Props) => {
   
   const pathname = usePathname()
-  const { link, label, Icon, ActiveIcon } = item
+  const { link, label, Icon, ActiveIcon, hideInMobile } = item
   
   const isActive = (pathname === link)
   
   return (
-    <li className={styles.NavLink}>
+    <li className={`${styles.NavLink} ${className} ${hideInMobile ? "hidden md:block" : "" }`}>
       {
         isActive &&
         <div className={styles.active}></div>

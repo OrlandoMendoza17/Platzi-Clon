@@ -1,6 +1,7 @@
 .NavLink {
   @apply lg:px-4 text-body-md font-medium text-neutral-080;
   position: relative;
+  
   a {
     @apply py-[6px] px-8 hover:bg-neutral-010;
     
@@ -20,7 +21,6 @@
     svg {
       width: 24px;
       height: 24px;
-      fill: white;
     }
     
     span {

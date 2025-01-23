@@ -16,6 +16,7 @@ class SearchController {
           badge_url,
           description,
           landing_url,
+          metrics,
           professor,
           courseSections (
             courseClasses (

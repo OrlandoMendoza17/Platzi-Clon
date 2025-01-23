@@ -1,6 +1,7 @@
 import { CourseData } from '@/schemas/home'
 import styles from './CourseItem.module.scss'
 import Link from 'next/link'
+import { Dispatch, SetStateAction } from 'react'
 
 type Props = {
   course: CourseData,
@@ -8,10 +9,14 @@ type Props = {
 
 const CourseItem = ({ course }: Props) => {
   const { title, professor, badge_url, landing_url, firstClassImage } = course
+
   return (
     <Link href={landing_url as string} className={styles.CourseItem}>
       <figure>
-        <img src={firstClassImage as string} alt="" />
+        {
+          firstClassImage &&
+          <img src={firstClassImage as string} alt="" />
+        }
       </figure>
       <div className={styles.CourseItem__title}>
         <img src={badge_url as string} alt="" />

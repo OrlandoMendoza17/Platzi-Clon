@@ -1,7 +1,9 @@
 .CourseItem {
   align-self: self-start;  
+  cursor: pointer;
   
   figure {
+    @apply bg-neutral-010;
     position: relative;
     overflow: hidden;
     border-radius: 0.75rem;
