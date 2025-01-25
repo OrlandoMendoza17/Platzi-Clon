@@ -1,4 +1,4 @@
-@import "../../../styles/lib/mixins.scss";
+@use "../../../styles/lib/mixins.scss" as mixins;
 
 .DiscoverLearningRoad {
   @apply p-6 x_sm:py-8 x_sm:px-10;
@@ -53,7 +53,7 @@
     }
 
     button {
-      @include call-to-action;
+      @include mixins.call-to-action;
     }
   }
 }

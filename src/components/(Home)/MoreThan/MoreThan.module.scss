@@ -1,4 +1,4 @@
-@import "../../../styles/lib/mixins.scss";
+@use "../../../styles/lib/mixins.scss" as mixins;
 
 .MoreThan{
   @apply px-6 mx-auto;
@@ -23,7 +23,7 @@
     }
   }
   &__getADemo{
-    @include call-to-action;
     background-color: transparent !important;
+    @include mixins.call-to-action;
   }
 }

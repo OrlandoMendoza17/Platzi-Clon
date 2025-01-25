@@ -1,9 +1,10 @@
-@import "../../../../styles/lib/mixins.scss";
+@use "../../../../styles/lib/mixins.scss" as mixins;
 
 .Plan{
   @apply bg-neutral-010 p-6 rounded-16;
   width: 100%;
   display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
   
   &--expert{
     border: 1px solid #FBC05E;
@@ -18,8 +19,6 @@
       background-color: #FBC05E;
     }
   }
-  
-  grid-template-rows: auto auto auto 1fr auto;
   
   &__title {
     display: flex;
@@ -136,9 +135,12 @@
   }
   
   &__subscribe {
-    @include call-to-action;
-    padding: .75rem;
-    width: 100% !important;
+    @include mixins.call-to-action;
+
+    & {
+      padding: .75rem;
+      width: 100% !important;
+    }
     
     &--secondary{
       @apply bg-neutral-010 hover:bg-neutral-010;

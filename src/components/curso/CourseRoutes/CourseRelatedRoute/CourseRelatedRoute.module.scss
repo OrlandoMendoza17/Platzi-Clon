@@ -1,4 +1,18 @@
 .CourseRelatedRoute {
+  
+  @apply p-4 bg-neutral-010 rounded-12;
+  
+  overflow: hidden;
+  min-width: 288px;
+  width: 100%;
+  height: 313px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+  
+  
   // Desarrollo e Ingeniería
   &__category_5 {
     --category-background-color: #182320;
@@ -62,18 +76,6 @@
     --category-border-color: #602f51;
     --category-color: #ecc1d8;
   }
-  
-  @apply p-4 bg-neutral-010 rounded-12;
-  
-  overflow: hidden;
-  min-width: 288px;
-  width: 100%;
-  height: 313px;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 1rem;
   
   &__header {
     @apply flex items-center gap-2;

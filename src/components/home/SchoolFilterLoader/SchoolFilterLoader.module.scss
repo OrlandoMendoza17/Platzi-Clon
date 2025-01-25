@@ -1,4 +1,4 @@
-@import "../../../styles/lib/mixins.scss";
+@use "../../../styles/lib/mixins.scss" as mixins;
 
 .SchoolFilterLoader {
 
@@ -13,7 +13,7 @@
     width: 56px;
     height: 56px;
     
-    @include skeletonAnimation;
+    @include mixins.skeletonAnimation;
   }
 
   &__title {
@@ -21,6 +21,6 @@
     width: 52px;
     height: 16px;
     
-    @include skeletonAnimation;
+    @include mixins.skeletonAnimation;
   }
 }

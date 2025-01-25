@@ -1,21 +1,22 @@
-@import "../../../styles/lib/mixins.scss";
+@use "../../../styles/lib/mixins.scss" as mixins;
 
 .SchoolSectionLoader {
   @apply mb-10;
   &__title {
     @apply mb-5 rounded-4;
-    @include skeletonAnimation;
     height: 20px;
+    @include mixins.skeletonAnimation;
   }
 
   &__courseItem {
     &__classImage {
       @apply mb-4 rounded-12;
-      @include skeletonAnimation;
       
       width: 260px;
       height: 151px;
-
+      
+      @include mixins.skeletonAnimation;
+      
       @screen md {
         width: 288px;
         height: 168px;
@@ -23,14 +24,14 @@
     }
     &__badge {
       @apply rounded-full;
-      @include skeletonAnimation;
       width: 32px;
       height: 32px;
+      @include mixins.skeletonAnimation;
     }
     &__title > div {
       @apply mb-2 rounded-4;
-      @include skeletonAnimation;
       height: 16px;
+      @include mixins.skeletonAnimation;
     }
   }
 }

@@ -6,6 +6,36 @@
   scrollbar-width: none;
   justify-self: self-start;
 
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  grid-template-areas: "main" 
+                       "mainAside" 
+                       "opinions" 
+                       "routes";
+  
+  @screen md {
+    padding: 2rem;
+  }
+  
+  @screen lg {
+    grid-template-columns: 1fr 392px;
+    grid-template-areas: "main mainAside"
+                         "opinions opinions"
+                         "routes routes";
+    gap: 2rem;
+    row-gap: 2rem;
+  }
+  
+  @media screen and (min-width: 1200px){
+    padding: 2rem 2.5rem;
+  }
+  
+  @media screen and (min-width: 1440px){
+    gap: 4rem;
+    row-gap: 1.5rem;
+  }
+  
   &__backgroundImage {
     position: absolute;
     width: auto;
@@ -27,36 +57,6 @@
     @screen lg {
       left: 30%;
     }
-  }
-  
-  @screen md {
-    padding: 2rem;
-  }
-  
-  @media screen and (min-width: 1200px){
-    padding: 2rem 2.5rem;
-  }
-  
-  display: grid;
-  gap: 2.5rem;
-  grid-template-columns: 1fr;
-  grid-template-areas: "main" 
-                       "mainAside" 
-                       "opinions" 
-                       "routes";
-  
-  @screen lg {
-    grid-template-columns: 1fr 392px;
-    grid-template-areas: "main mainAside"
-                         "opinions opinions"
-                         "routes routes";
-    gap: 2rem;
-    row-gap: 2rem;
-  }
-  
-  @media screen and (min-width: 1440px){
-    gap: 4rem;
-    row-gap: 1.5rem;
   }
   
   &__main {
