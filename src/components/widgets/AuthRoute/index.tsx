@@ -1,5 +1,6 @@
 "use client"
 import supabase from '@/supabase'
+import { createClient } from '@/supabase/client'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -14,9 +15,9 @@ const AuthRoute = ({children}: Props) => {
   
   useEffect(() => {
     (async () => {
-     
+      const supabase = createClient()
       const { data: { session }, error } = await supabase.auth.getSession()
-      
+      debugger
       if (!session) {
         router.push("/")
       }else{

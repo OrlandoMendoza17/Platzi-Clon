@@ -36,8 +36,6 @@ class SearchController {
       
         const { data, error } = await query;
         
-        console.log('element', element)
-        
       if(data){
         
         const formattedCourses: CourseData[] = data.map(({ courseSections, ...rest }) => {

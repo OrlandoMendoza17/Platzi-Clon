@@ -7,8 +7,6 @@ import PlatziLogo from '@/components/icons/PlatziLogo';
 import { MouseEventHandler, useEffect, useState } from 'react';
 import Cross from '@/components/icons/Cross';
 import SignInButton from '@/components/widgets/SignInButton';
-import supabase from '@/supabase';
-import { useRouter } from 'next/navigation';
 
 const LandingHeader = () => {
 
@@ -51,24 +49,17 @@ const LandingHeader = () => {
     },
   ]
 
-  const router = useRouter()
   const [openedMenu, setOpenedMenu] = useState<boolean>(false)
   const [openedLogIn, setOpenedLogIn] = useState<boolean>(false)
 
   useEffect(() => {
-    (async ()=> {
-      const { data: { user } } = await supabase.auth.getUser()
-      if(user){
-        router.push("/home")
+    window.addEventListener("resize", () => {
+      const matchesDesktop = window.matchMedia("(min-width: 768px)").matches
+      if (matchesDesktop) {
+        console.log('matchesDesktop', matchesDesktop)
+        setOpenedMenu(false)
       }
-      window.addEventListener("resize", () => {
-        const matchesDesktop = window.matchMedia("(min-width: 768px)").matches
-        if (matchesDesktop) {
-          console.log('matchesDesktop', matchesDesktop)
-          setOpenedMenu(false)
-        }
-      })
-    })()
+    })
   }, [])
 
   const handleOpenMenu: MouseEventHandler<HTMLButtonElement> = () => {
@@ -87,6 +78,7 @@ const LandingHeader = () => {
         <Link href="/" className={styles.LandingHeader__logo}>
           <PlatziLogo />
         </Link>
+        
         <section className={openedMenu ? styles.mobile : ""}>
           <ul>
             {
@@ -106,6 +98,7 @@ const LandingHeader = () => {
             }
           </ul>
         </section>
+        
         <div className="flex items-center">
           <SignInButton
             openedLogIn={openedLogIn}

@@ -1,6 +1,7 @@
 import React, { ChangeEventHandler, Dispatch, FormEventHandler, SetStateAction, useState } from 'react'
 import styles from '../SignInButton.module.scss'
 import supabase from '@/supabase'
+import { createClient } from '@/supabase/client'
 
 type Props = {
   setSignIn: Dispatch<SetStateAction<boolean>>,
@@ -35,6 +36,7 @@ const SignUpSection = ({ setSignIn, setProviderSelected }: Props) => {
     
     if(password === confirmPassword){
       try {
+        const supabase = createClient()
         const { data, error } = await supabase.auth.signUp({
           email,
           password,

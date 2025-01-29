@@ -4,6 +4,7 @@ import styles from './UserOptions.module.scss'
 import { IoLogOut } from "react-icons/io5";
 import supabase from '@/supabase';
 import { useRouter } from 'next/navigation';
+import { createClient } from '@/supabase/client';
 
 const Arrow = () => {
   return (
@@ -23,12 +24,14 @@ const UserOptions = () => {
 
 
   const handleLogout: MouseEventHandler<HTMLButtonElement> = async () => {
+    const supabase = createClient()
     const { error } = await supabase.auth.signOut()
     router.push("/")
   }
 
   useEffect(() => {
     (async () => {
+      const supabase = createClient()
       const { data: { user: userInfo } } = await supabase.auth.getUser()
 
       if (userInfo) {
@@ -41,10 +44,13 @@ const UserOptions = () => {
     })()
 
     document.body.addEventListener("click", ({ target, currentTarget }) => {
+      
       const targetElement = target as HTMLElement
       const element = document.getElementById("userOptionsButton")
+      
       if(targetElement.id !== "userOptionsButton" && element){
         const childs = Array.from(element?.childNodes)
+        
         if(!childs.includes(targetElement)){
           setTimeout(()=> setOpenedSettings(false), 100)
         }

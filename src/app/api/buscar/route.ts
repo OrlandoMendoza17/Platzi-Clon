@@ -8,7 +8,6 @@ export const GET = async (request: NextRequest) => {
   try {
 
     const searchParams = request.nextUrl.searchParams
-    console.log('searchParams', searchParams)
     
     const limitQuery = searchParams.get('limit')
     const limit = limitQuery ? parseInt(limitQuery) : null

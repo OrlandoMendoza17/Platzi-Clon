@@ -15,6 +15,7 @@ import supabase from "@/supabase"
 import SignInButton from "../SignInButton"
 import { User } from "@supabase/supabase-js"
 import UserOptions from "../HomeHeader/UserOptions"
+import { createClient } from "@/supabase/client"
 
 type Props = {
   sticky?: boolean,
@@ -72,8 +73,9 @@ const Header = ({ sticky }: Props) => {
 
   const [user, setUser] = useState<User | null>(null)
   const [openedMenu, setOpenedMenu] = useState<boolean>(false)
-  const [categories, setCategories] = useState<CategoryHeaderData[]>([])
   const [openedLogIn, setOpenedLogIn] = useState<boolean>(false)
+  
+  const [categories, setCategories] = useState<CategoryHeaderData[]>([])
 
   useEffect(() => {
     (async () => {
@@ -84,6 +86,7 @@ const Header = ({ sticky }: Props) => {
 
   useEffect(() => {
     (async () => {
+      const supabase = createClient()
       const { data: { user } } = await supabase.auth.getUser()
       if (user) {
         setUser(user)
@@ -123,7 +126,8 @@ const Header = ({ sticky }: Props) => {
             <img src="https://static.platzi.com/media/logotipo-platzi.png" alt="" />
           </figure>
         </Link>
-        <ExploreList categories={categories} />
+        
+        <ExploreList />
 
         {
           pathname !== "/buscar" &&
@@ -153,6 +157,7 @@ const Header = ({ sticky }: Props) => {
             }
           </ul>
         </section>
+        
         {
           mounted && (
             user ?
@@ -169,6 +174,7 @@ const Header = ({ sticky }: Props) => {
               </>
           )
         }
+        
         <button
           onClick={handleOpenMenu}
           className={styles.menu_btn}

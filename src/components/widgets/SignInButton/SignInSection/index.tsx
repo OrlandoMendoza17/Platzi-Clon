@@ -2,6 +2,7 @@ import { ChangeEventHandler, Dispatch, FormEventHandler, SetStateAction, useStat
 import styles from '../SignInButton.module.scss'
 import supabase from '@/supabase'
 import { useRouter } from 'next/navigation'
+import { createClient } from '@/supabase/client'
 
 type Props = {
   setSignIn: Dispatch<SetStateAction<boolean>>,
@@ -27,6 +28,7 @@ const SignInSection = ({ setSignIn, setProviderSelected }: Props) => {
     setLoading(true)
     const { email, password } = user
     try {
+      const supabase = createClient()
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password

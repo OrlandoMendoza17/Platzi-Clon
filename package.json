@@ -10,6 +10,7 @@
     "gen-types": "npx supabase gen types typescript --project-id $PROJECT_ID > ./src/lib/database.types.ts"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "2.47.9",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",

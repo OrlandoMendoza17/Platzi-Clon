@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction } from "react"
 import stylesSignIn from '../SignInButton.module.scss'
 import styles from './ProviderSections.module.scss'
 import supabase from "@/supabase"
+import { createClient } from "@/supabase/client"
 
 type Props = {
   setProviderSelected: Dispatch<SetStateAction<boolean>>
@@ -14,8 +15,8 @@ const redirectTo = `${BASE_URL}/home`
 const ProviderSections = ({ setProviderSelected }: Props) => {
   
   const signInWithProvider = async (provider: "google") => {
-    
     try {
+      const supabase = createClient()
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {

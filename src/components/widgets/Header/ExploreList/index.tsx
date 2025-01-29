@@ -3,15 +3,26 @@ import { CategoryHeaderData } from "@/schemas/header"
 import styles from './ExploreList.module.scss'
 import stylesHeader from '../Header.module.scss'
 import Arrow from "@/components/icons/Arrow"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
+import { getCategoriesInfo } from "@/services"
 
 type Props = {
-  categories: CategoryHeaderData[]
 }
 
-const ExploreList = ({ categories }: Props) => {
+const ExploreList = ({ }: Props) => {
+
   const [show, setShow] = useState<boolean>(false)
+
+  const [categories, setCategories] = useState<CategoryHeaderData[]>([])
+
+  useEffect(() => {
+    (async () => {
+      const categories = await getCategoriesInfo()
+      setCategories(categories)
+    })()
+  }, [])
+
   return (
     <div className={stylesHeader.Explore} onMouseLeave={() => setShow(false)}>
       <button onClick={() => setShow(!show)}>Explorar <Arrow /></button>
