@@ -13,9 +13,11 @@ export const GET = async (request: Request, { params }: ParamsProps) => {
       .select(`
         title,
         routes (
+          id,
           title,
           landing_url,
           courses (
+            id,
             title,
             badge_url,
             metrics,

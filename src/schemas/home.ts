@@ -1,9 +1,9 @@
-export type CourseData = Pick<Course, "title" | "badge_url" | "metrics" | "professor" | "landing_url"> & {
+export type CourseData = Pick<Course, "id" | "title" | "badge_url" | "metrics" | "professor" | "landing_url"> & {
   firstClassImage: CourseClass["image"],
   firstClassTitle: CourseClass["title"],
 }
 
-export type RouteData = Pick<Routes, "title" | "landing_url"> & {
+export type RouteData = Pick<Routes, "id" | "title" | "landing_url"> & {
   courses: CourseData[]
 }
 

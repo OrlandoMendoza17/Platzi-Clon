@@ -1,0 +1,46 @@
+.RouteItem {
+  @apply p-3 rounded-8 hover:bg-neutral-010;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  
+  &__container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    
+    figure {
+      @apply bg-neutral-020 rounded-12;
+      
+      width: 4rem;
+      height: 4rem;
+      
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    
+    h3 {
+      @apply text-body-md x_sm:text-body-lg font-medium; 
+    }
+    
+    p {
+      @apply text-body-sm text-neutral-060 font-medium;
+    }
+  }
+  
+  &__delete {
+    padding: 1rem;
+    svg {
+      margin: 9px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

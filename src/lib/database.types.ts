@@ -595,6 +595,50 @@ export type Database = {
           },
         ]
       }
+      userCustomRoutes: {
+        Row: {
+          created_at: string
+          id: number
+          title: string | null
+          userId: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          title?: string | null
+          userId?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          title?: string | null
+          userId?: string | null
+        }
+        Relationships: []
+      }
+      users_routes: {
+        Row: {
+          routeId: number
+          userId: string
+        }
+        Insert: {
+          routeId: number
+          userId: string
+        }
+        Update: {
+          routeId?: number
+          userId?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "users_routes_routeId_fkey"
+            columns: ["routeId"]
+            isOneToOne: false
+            referencedRelation: "routes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

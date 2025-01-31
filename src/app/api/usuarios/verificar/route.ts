@@ -19,6 +19,6 @@ export const POST = async (request: NextRequest) => {
     return Response.json(data)
 
   } catch (error) {
-    httpErrorHandler(error)
+    return httpErrorHandler(error)
   }
 }
