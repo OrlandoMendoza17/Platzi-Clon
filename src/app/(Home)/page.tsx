@@ -14,7 +14,7 @@ const Home = async () => {
     <>
       <Hero />
       <Schools />
-      <DiscoverLearningRoad />
+      {/* <DiscoverLearningRoad /> */}
       <Companies />
       <MoreThan />
       <WeAreAuthority />

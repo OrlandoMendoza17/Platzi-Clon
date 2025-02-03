@@ -21,7 +21,7 @@ const Professors = () => {
       course: {
         title: 'Curso de ChatGPT para Empresas',
         badge: 'https://static.platzi.com/cdn-cgi/image/width=1024,quality=50,format=auto/media/achievements/badge_chatgpt-63194262-82e2-43e2-9037-be6474754c94.png',
-        link: '/cursos/chatgpt-empresas',
+        link: '/cursos/chatgpt',
       },
     },
     {
@@ -31,7 +31,7 @@ const Professors = () => {
       course: {
         title: 'Curso de Bases de Datos con SQL',
         badge: 'https://static.platzi.com/cdn-cgi/image/width=1024,quality=50,format=auto/media/achievements/badge-fundamentos-de-bases-de-datos-cc5eff2a-a7e0-4110-af5d-a47b628611da-42_QNTHmBh.png',
-        link: '/cursos/db-sql',
+        link: '/cursos/dbsql',
       },
     },
     {
