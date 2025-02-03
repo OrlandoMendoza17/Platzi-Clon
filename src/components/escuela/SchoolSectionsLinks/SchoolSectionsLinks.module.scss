@@ -1,10 +1,7 @@
 .SchoolSectionsLinks{
   @apply py-8;
-  overflow: scroll;
-  
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow-x: auto;
+  scrollbar-width: none;
   
   &__container {
     display: flex;

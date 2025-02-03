@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles/Teacher.module.scss'
 
 export type TeacherInfo = {
@@ -18,7 +19,7 @@ type Props = {
 const Teacher = ({ teacher }: Props) => {
   const { professor, role, image, course } = teacher
   return (
-    <a href={course.link}>
+    <Link href={course.link}>
       <article className={styles.Teacher}>
         <figure>
           <img src={image} alt="" />
@@ -37,7 +38,7 @@ const Teacher = ({ teacher }: Props) => {
           </div>
         </div>
       </article>
-    </a>
+    </Link>
   )
 }
 
