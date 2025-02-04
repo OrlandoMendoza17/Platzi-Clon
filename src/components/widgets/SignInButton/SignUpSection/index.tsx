@@ -135,12 +135,12 @@ const SignUpSection = ({ setSignIn, setProviderSelected }: Props) => {
         <span className="!m-0">o</span>
         <hr />
       </div>
-      <button
+      {/* <button
         onClick={() => setProviderSelected(true)}
         className={styles.SignInButton__providerSelectBtn}
       >
         Iniciar sesión con Google
-      </button>
+      </button> */}
       <p
         onClick={() => setSignIn(true)}
         className="text-body-md text-gray-400 hover:text-white text-center mt-4 cursor-pointer underline">
