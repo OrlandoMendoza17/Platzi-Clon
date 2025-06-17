@@ -19,10 +19,32 @@ export async function GET(request: NextRequest) {
     return whatsappPatterns.some(pattern => lowerUserAgent.includes(pattern));
   };
 
+  const socialMediaList = [
+    "facebook",
+    "instagram",
+    "tiktok",
+    "google",
+    "youtube",
+    "x.com",
+  ]
+
+  const referer = request.headers.get('referer') || ""
+
+  const clientDomain = socialMediaList.find(socialMedia => {
+    if (referer?.includes(socialMedia)) {
+      // Case 1: https://www.facebook.com/
+      // Case 2: https://facebook.com/
+      const option1 = referer.split(".")[1];
+      const option2 = (referer.split(".")[0] || "").split("https://")[1]
+      return referer.includes("www.") ? option1 : option2
+    }
+  })
+
   return NextResponse.json({
     hostDomain: request.headers.get('host'),
     originDomain: request.headers.get('origin'),
-    refererDomain: request.headers.get('referer'),
+    referer: request.headers.get('referer'),
+    clientDomain,
     userAgent: request.headers.get('user-agent'),
     isWhatsApp: isWhatsAppUserAgent(request.headers.get('user-agent') || ''),
   });
