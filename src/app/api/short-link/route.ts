@@ -106,10 +106,7 @@ export async function GET(request: NextRequest) {
       </div>
       
       <script>
-        // Opcional: agregar funcionalidad adicional
-        document.addEventListener('DOMContentLoaded', function() {
-          console.log('Loader iniciado');
-        });
+        window.location.href = "https://github.com/Trade-EC/masivo";
       </script>
     </body>
     </html>
