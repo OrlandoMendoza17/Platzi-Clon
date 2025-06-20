@@ -3,8 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(request: NextRequest) {
   const title = "¿Qué es Nextjs y Como Aprenderlo?";
   const description = "Nextjs actualmente es uno de los Frameworks Frontend mas populares para crear aplicaciones web, y de hecho no solo aplicaciones web Frontend sino incluso apl...";
-  // const image = `https://i.ytimg.com/vi/tVBb79WLScc/maxresdefault.jpg`;
-  // const image = `https://bnmbmosfzibdhqylalfs.supabase.co/storage/v1/object/sign/marketing-automation/2dd47d62-bbb4-41f9-93ba-dc9bae5200b0/links/d-s8m4f5.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kYjYyYTFmZi0zNjNkLTQ5ZTItOTI4Yi04NjI2MGNhZGZjMTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYXJrZXRpbmctYXV0b21hdGlvbi8yZGQ0N2Q2Mi1iYmI0LTQxZjktOTNiYS1kYzliYWU1MjAwYjAvbGlua3MvZC1zOG00ZjUuanBlZyIsImlhdCI6MTc1MDQ1MzYyNSwiZXhwIjo0ODcyNTE3NjI1fQ.wtwhEBJwzas-yFGB9OvEfLJoaoV_BYvL0UP4u8ouyDM`;
   const image = `https://bnmbmosfzibdhqylalfs.supabase.co/storage/v1/object/sign/marketing-automation/2dd47d62-bbb4-41f9-93ba-dc9bae5200b0/links/d-s8m4f5.JPG?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kYjYyYTFmZi0zNjNkLTQ5ZTItOTI4Yi04NjI2MGNhZGZjMTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYXJrZXRpbmctYXV0b21hdGlvbi8yZGQ0N2Q2Mi1iYmI0LTQxZjktOTNiYS1kYzliYWU1MjAwYjAvbGlua3MvZC1zOG00ZjUuSlBHIiwiaWF0IjoxNzUwNDU0MTQ4LCJleHAiOjE3ODE5OTAxNDh9.PVddqCNOB1RtTA5j_WV4WSPh8SPrXFXCJdFgk4Lcjas`;
 
   const loaderHtml = `
