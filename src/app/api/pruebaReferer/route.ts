@@ -31,11 +31,14 @@ export async function GET(request: NextRequest) {
     return clientDomain;
   };
 
+  const referer = request.headers.get('referer');
+  console.log('referer', referer)
+
   return NextResponse.json({
     hostDomain: request.headers.get('host'),
     originDomain: request.headers.get('origin'),
-    referer: request.headers.get('referer'),
-    clientDomain: getReferer(request.headers.get('referer')),
+    referer: referer,
+    clientDomain: getReferer(referer),
     userAgent: request.headers.get('user-agent'),
     isWhatsApp: isWhatsAppUserAgent(request.headers.get('user-agent') || ''),
   });
