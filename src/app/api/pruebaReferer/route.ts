@@ -30,22 +30,23 @@ export async function GET(request: NextRequest) {
       // Remover 'www.' si existe
       hostname = hostname.replace(/^www\./, '');
 
-      // Definir los dominios de las plataformas
-      const platforms: { [key: string]: string[] } = {
-        'facebook': ['facebook.com', 'fb.com', 'm.facebook.com', 'l.facebook.com'],
-        'google': ['google.com', 'google.es', 'google.mx', 'googl.com', 'goo.gl'],
-        'instagram': ['instagram.com', 'instagr.am'],
-        'x': ['twitter.com', 'x.com', 't.co'],
-        'tiktok': ['tiktok.com', 'vm.tiktok.com']
-      };
+      // Extraer solo el nombre del dominio (sin extensión)
+      // Ejemplo: facebook.com -> facebook, google.es -> google
+      const domainParts = hostname.split('.');
+      let domainName = '';
 
-      // Buscar coincidencias
-      for (const [platform, domains] of Object.entries(platforms)) {
-        for (const domain of domains) {
-          if (hostname === domain || hostname.endsWith('.' + domain)) {
-            return platform;
-          }
-        }
+      if (domainParts.length >= 2) {
+        // Tomar la parte antes de la extensión
+        domainName = domainParts[domainParts.length - 2];
+      }
+
+      // Lista de plataformas a detectar
+      const platforms = ['facebook', 'google', 'instagram', 'x', 'twitter', 'tiktok'];
+
+      // Verificar si el nombre del dominio coincide
+      if (platforms.includes(domainName)) {
+        // Normalizar twitter a x
+        return domainName === 'twitter' ? 'x' : domainName;
       }
 
       return "unknown";
