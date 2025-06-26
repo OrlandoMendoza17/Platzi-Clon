@@ -19,24 +19,23 @@ export async function GET(request: NextRequest) {
     return whatsappPatterns.some(pattern => lowerUserAgent.includes(pattern));
   };
 
-  const getReferer = (): string => {
-    const referer = request.headers.get('referer');
-    if (!referer) return "";
+  const getReferer = (referer: string | null): string | undefined => {
+    if (!referer) return undefined;
 
     // Case 1: referer = https://www.facebook.com/
     // Case 2: referer = https://facebook.com/
     const option1 = referer.split(".")[1];
-    const option2 = (referer.split(".")[0] || "").split("https://")[1]
-    const clientDomain = referer.includes("www.") ? option1 : option2
+    const option2 = (referer.split(".")[0] || "").split("https://")[1];
+    const clientDomain = referer.includes("www.") ? option1 : option2;
 
-    return clientDomain || ""
-  }
+    return clientDomain;
+  };
 
   return NextResponse.json({
     hostDomain: request.headers.get('host'),
     originDomain: request.headers.get('origin'),
     referer: request.headers.get('referer'),
-    clientDomain: getReferer(),
+    clientDomain: getReferer(request.headers.get('referer')),
     userAgent: request.headers.get('user-agent'),
     isWhatsApp: isWhatsAppUserAgent(request.headers.get('user-agent') || ''),
   });
