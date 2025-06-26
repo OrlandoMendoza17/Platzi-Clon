@@ -22,13 +22,37 @@ export async function GET(request: NextRequest) {
   const getReferer = (referer: string | null): string | undefined => {
     if (!referer) return undefined;
 
-    // Case 1: referer = https://www.facebook.com/
-    // Case 2: referer = https://facebook.com/
-    const option1 = referer.split(".")[1];
-    const option2 = (referer.split(".")[0] || "").split("https://")[1];
-    const clientDomain = referer.includes("www.") ? option1 : option2;
+    try {
+      // Crear objeto URL para parsing más confiable
+      const url = new URL(referer);
+      let hostname = url.hostname.toLowerCase();
 
-    return clientDomain;
+      // Remover 'www.' si existe
+      hostname = hostname.replace(/^www\./, '');
+
+      // Definir los dominios de las plataformas
+      const platforms: { [key: string]: string[] } = {
+        'facebook': ['facebook.com', 'fb.com', 'm.facebook.com', 'l.facebook.com'],
+        'google': ['google.com', 'google.es', 'google.mx', 'googl.com', 'goo.gl'],
+        'instagram': ['instagram.com', 'instagr.am'],
+        'x': ['twitter.com', 'x.com', 't.co'],
+        'tiktok': ['tiktok.com', 'vm.tiktok.com']
+      };
+
+      // Buscar coincidencias
+      for (const [platform, domains] of Object.entries(platforms)) {
+        for (const domain of domains) {
+          if (hostname === domain || hostname.endsWith('.' + domain)) {
+            return platform;
+          }
+        }
+      }
+
+      return "unknown";
+    } catch (error) {
+      // Si hay error parseando la URL, retornar "unknown"
+      return "unknown";
+    }
   };
 
   const referer = request.headers.get('referer');
