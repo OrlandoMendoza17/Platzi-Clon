@@ -56,14 +56,15 @@ export async function GET(request: NextRequest) {
     }
   };
 
-  const referer = request.headers.get('referer');
+  const headerReferer = request.headers.get('referer');
+  const referer = getReferer(headerReferer);
+
+  console.log('headerReferer', headerReferer)
   console.log('referer', referer)
 
   return NextResponse.json({
-    hostDomain: request.headers.get('host'),
-    originDomain: request.headers.get('origin'),
-    referer: referer,
-    clientDomain: getReferer(referer),
+    referer,
+    headerReferer,
     userAgent: request.headers.get('user-agent'),
     isWhatsApp: isWhatsAppUserAgent(request.headers.get('user-agent') || ''),
   });
