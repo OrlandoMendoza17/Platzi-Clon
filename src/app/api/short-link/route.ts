@@ -192,7 +192,7 @@ export async function GET(request: NextRequest) {
   });
 }
 
-export const getUserAgent = (userAgent: string): UserAgent => {
+const getUserAgent = (userAgent: string): UserAgent => {
   const lowerUserAgent = userAgent.toLowerCase();
   const isIOS = /iphone|ipad|ipod/.test(lowerUserAgent);
   const isAndroid = /android/.test(lowerUserAgent);
