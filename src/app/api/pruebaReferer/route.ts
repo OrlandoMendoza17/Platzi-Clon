@@ -19,11 +19,13 @@ export async function GET(request: NextRequest) {
     return whatsappPatterns.some(pattern => lowerUserAgent.includes(pattern));
   };
 
-  const headerReferer = request.headers.get('referer');
+  const headerReferer = request.headers.get("referer");
   const referer = getReferer(headerReferer);
+  const ad_provider = getAdProvider(headerReferer);
 
-  console.log('headerReferer', headerReferer)
-  console.log('referer', referer)
+  console.log("headerReferer", headerReferer);
+  console.log("referer", referer);
+  console.log("ad_provider", ad_provider);
 
   return NextResponse.json({
     referer,
@@ -33,9 +35,8 @@ export async function GET(request: NextRequest) {
   });
 }
 
-const getReferer = (referer: string | null): string | undefined => {
-  if (!referer) return undefined;
-
+const getReferer = (referer: string | null): string => {
+  if (!referer) return "";
   try {
     // Crear objeto URL para parsing más confiable
     const url = new URL(referer);
@@ -54,20 +55,25 @@ const getReferer = (referer: string | null): string | undefined => {
       domainName = domainParts[domainParts.length - 2] || "";
     }
 
-    // Lista de plataformas a detectar
-    const platforms1 = ["facebook", "google", "instagram"];
-    const platforms2 = ["x", "twitter", "tiktok"];
-    const platforms = [...platforms1, ...platforms2];
-
-    // Verificar si el nombre del dominio coincide
-    if (platforms.includes(domainName)) {
-      // Normalizar twitter a x
-      return domainName === "twitter" ? "x" : domainName;
-    }
-
-    return "unknown";
+    return domainName;
   } catch (error) {
-    // Si hay error parseando la URL, retornar "unknown"
-    return "unknown";
+    return "";
   }
 };
+
+const getAdProvider = (
+  headerReferer: string | null
+): string | undefined => {
+  let referer = getReferer(headerReferer);
+  if (referer === "twitter") referer = "x";
+  const adProvider = adProviders.find(provider => referer?.includes(provider));
+  return adProvider;
+};
+
+const adProviders = [
+  "google",
+  "instagram",
+  "facebook",
+  "tiktok",
+  "x"
+] as const;
