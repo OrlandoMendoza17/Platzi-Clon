@@ -65,7 +65,7 @@ const getAdProvider = (
   headerReferer: string | null
 ): string | undefined => {
   let referer = getReferer(headerReferer);
-  if (referer === "twitter") referer = "x";
+  if (referer === "twitter" || referer === "t") referer = "x";
   const adProvider = adProviders.find(provider => referer?.includes(provider));
   return adProvider;
 };
