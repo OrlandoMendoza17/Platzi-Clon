@@ -19,10 +19,62 @@ export async function GET(request: NextRequest) {
     return whatsappPatterns.some(pattern => lowerUserAgent.includes(pattern));
   };
 
+  const detectBot = (userAgent: string): boolean => {
+    const isSocialMediaBot = (userAgent: string): boolean => {
+      // Information verified manually
+      const verifiedSocialBotPatterns = [
+        "facebookexternalhit", // Facebook & Instagram
+        "WhatsApp/", // WhatsApp
+        "Discordbot", // Discord
+        "Twitterbot", // Twitter
+        "TelegramBot", // Telegram
+        "LinkedInBot", // LinkedIn
+        "Pinterestbot" // Pinterest
+      ];
+
+      return verifiedSocialBotPatterns.some(pattern => {
+        return userAgent.toLowerCase().includes(pattern.toLowerCase());
+      });
+    };
+
+    const isSearchEngineBot = (userAgent: string): boolean => {
+      // Additional information about search engines added by cursor's research
+      const searchEnginePatterns = [
+        "Googlebot", // Google
+        "Google-Extended", // Google AI
+        "Bingbot", // Microsoft Bing
+        "BingBot", // Microsoft Bing (alternative)
+        "Slurp", // Yahoo
+        "Baiduspider", // Baidu
+        "YandexBot", // Yandex
+        "DuckDuckBot", // DuckDuckGo
+        "DuckAssistBot", // DuckDuckGo AI
+        "Applebot", // Apple
+        "AdsBot-Google", // Google Ads
+        "Amazonbot", // Amazon
+        "CCBot", // Common Crawl
+        "SemrushBot", // Semrush SEO
+        "AhrefsBot", // Ahrefs SEO
+        "MJ12bot" // Majestic SEO
+      ];
+
+      return searchEnginePatterns.some(pattern => {
+        return userAgent.toLowerCase().includes(pattern.toLowerCase());
+      });
+    };
+
+    const isSocialBot = isSocialMediaBot(userAgent);
+    const isSearchBot = isSearchEngineBot(userAgent);
+
+    return isSocialBot || isSearchBot;
+  };
+
   const headerReferer = request.headers.get("referer");
   const referer = getReferer(headerReferer);
   const ad_provider = getAdProvider(headerReferer);
 
+  const isBot = detectBot(request.headers.get('user-agent') || '');
+  console.log("isBot", isBot);
   console.log("headerReferer", headerReferer);
   console.log("referer", referer);
   console.log("ad_provider", ad_provider);

@@ -9,6 +9,7 @@ const PruebaPage = async () => {
 
   return (
     <div>
+      <a href="kfc://coupons/63204?service=pickup">Abrir cupón en app KFC</a>
       <hr className="py-10 block" />
       <hr className="py-10 block" />
       <hr className="py-10 block" />
